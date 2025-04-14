@@ -1,12 +1,15 @@
 :root {
   --font-primary: 'Inter', sans-serif;
-  --color-bg: #ffffff;
-  --color-text: #111111;
-  --color-accent: #0070f3;
-}
 
-[data-theme='dark'] {
-  --color-bg: #111111;
-  --color-text: #ffffff;
-  --color-accent: #79b8ff;
+  // semantiche, non legate a un colore reale ora
+  --color-primary: ;
+  --color-secondary: ;
+  --color-tertiary: ;
+
+  --color-bg: ;
+  --color-text: ;
+
+  --color-surface: ; // per elementi (card, blocchi)
+  --color-accent: ; // per pulsanti o dettagli
+  --color-border: ;
 }
