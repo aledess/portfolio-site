@@ -5,11 +5,10 @@ import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 
 const links = [
-  { label: 'Home', href: '#home' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Work', href: '#work' },
-  { label: 'Webflow Expert ↗︎', href: 'https://external.com', external: true },
+  { label: 'Home', href: '#home', external: false },
+  { label: 'Skills', href: '#skills', external: false },
+  { label: 'Experience', href: '#experience', external: false },
+  { label: 'Works', href: '#works', external: false },
 ];
 
 export default function Navigation() {
