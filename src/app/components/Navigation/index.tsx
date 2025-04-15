@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 const links = [
   { label: 'Home', href: '#home' },
-  { label: 'About Me', href: '#about' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Work', href: '#work' },
   { label: 'Services', href: '#services' },
   { label: 'Webflow Expert ↗︎', href: 'https://external.com', external: true },

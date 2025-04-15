@@ -1,12 +1,14 @@
 import '@/styles/main.scss';
-import HeroSection from "./components/HeroSection";
-import Navigation from './components/Navigation';
+import Navigation from '@/components/Navigation';
+import Hero from '@/sections/Hero';
+import Skills from './sections/Skills';
 
 export default function Home() {
   return (
     <>
       <Navigation/>
-      <HeroSection />
+      <Hero />
+      <Skills />
       {/* altre sezioni */}
     </>
   );
