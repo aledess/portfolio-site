@@ -4,26 +4,26 @@ import Text from '@/components/Text';
 export default function HeroSection() {
   return (
     <section className={styles.hero}>
-      <div className={styles.container}>
-        <div className={styles.image}>
-          <div className={styles.placeholder} />
+      <div className={styles['hero__container']}>
+        <div className={styles['hero__image']}>
+          <div className={styles['hero__placeholder']} />
         </div>
-        <div className={styles.content}>
-          <Text variant="label" color="accent" as="span">
+        <div className={styles['hero__content']}>
+          <Text variant="label" color="accent" as="span" className={styles['hero__badge']}>
             DESIGNER & DEVELOPER
           </Text>
 
-          <Text variant="headingL" as="h1">
+          <Text variant="headingL" as="h1" className={styles['hero__title']}>
             Lorem ipsum<br />
             dolor sit amet<br />
             consectetur elit
           </Text>
 
-          <Text variant="body" color="tertiary">
+          <Text variant="body" color="tertiary" className={styles['hero__description']}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
           </Text>
 
-          <a href="#" className={styles.cta}>
+          <a href="#" className={styles['hero__cta']}>
             Happy to chat on Whatsapp
           </a>
         </div>

@@ -21,7 +21,14 @@ export default function Text({
   className,
 }: TextProps) {
   return (
-    <Tag className={classNames(styles.text, styles[variant], styles[color], className)}>
+    <Tag
+      className={classNames(
+        styles.text,
+        styles[`text--${variant}`],
+        styles[`text--${color}`],
+        className
+      )}
+    >
       {children}
     </Tag>
   );

@@ -1,41 +1,45 @@
 .text {
   margin: 0;
-}
 
-.headingL {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
+  &--headingL {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
 
-.headingM {
-  font-size: 2rem;
-  font-weight: 600;
-}
+  &--headingM {
+    font-size: 2rem;
+    font-weight: 600;
+  }
 
-.body {
-  font-size: 1rem;
-  line-height: 1.6;
-}
+  &--body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 
-.label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+  &--label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
 
-.primary {
-  color: var(--color-primary);
-}
-.secondary {
-  color: var(--color-secondary);
-}
-.tertiary {
-  color: var(--color-tertiary);
-}
-.accent {
-  color: var(--color-accent);
-}
-.inherit {
-  color: inherit;
+  &--primary {
+    color: var(--color-primary);
+  }
+
+  &--secondary {
+    color: var(--color-secondary);
+  }
+
+  &--tertiary {
+    color: var(--color-tertiary);
+  }
+
+  &--accent {
+    color: var(--color-accent);
+  }
+
+  &--inherit {
+    color: inherit;
+  }
 }

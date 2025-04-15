@@ -2,66 +2,66 @@
   padding: 6rem 2rem;
   background: var(--color-bg);
 
-  .container {
+  &__container {
     display: flex;
-    align-items: space-between;
+    align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
     gap: 2rem;
   }
 
-  .image {
+  &__image {
     flex: 1 1 40%;
     display: flex;
     justify-content: center;
-
-    .placeholder {
-      width: 300px;
-      height: 300px;
-      background: linear-gradient(135deg, #444, #222);
-      border-radius: 100%;
-    }
   }
 
-  .content {
+  &__placeholder {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #444, #222);
+    border-radius: 100%;
+  }
+
+  &__content {
     flex: 1 1 60%;
     color: var(--color-text);
+  }
 
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-accent);
-      margin-bottom: 1rem;
-    }
+  &__badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
 
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
-      margin: 0 0 1rem;
-    }
+  &__title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
 
-    p {
-      font-size: 1.1rem;
-      color: var(--color-text-muted, #888);
-      max-width: 600px;
-    }
+  &__description {
+    font-size: 1.1rem;
+    color: var(--color-text-muted, #888);
+    max-width: 600px;
+  }
 
-    .cta {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 999px;
-      background: var(--color-accent);
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s ease;
+  &__cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
 
-      &:hover {
-        background: #1cb884;
-      }
+    &:hover {
+      background: #1cb884;
     }
   }
 }
