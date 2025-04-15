@@ -9,7 +9,22 @@ export default function HeroSection() {
     <section className={styles.hero}>
       <Section id="home">
         <div className={styles.hero__container}>
-         
+        <div className={styles.hero__image}>
+          <Image
+            src="/assets/images/photo4.png"
+            alt="Foto 1"
+            width={500}
+            height={500}
+            className={`${styles.hero__photo}`}
+          />
+          <Image
+            src="/assets/images/photo1.png"
+            alt="Foto alternativa"
+            width={500}
+            height={500}
+            className={`${styles.hero__photo} ${styles.hero__photoHover}`}
+          />
+          </div>
           <div className={styles.hero__content}>
             <Text variant="label" color="accent" as="span" className={styles.hero__badge}>
               DESIGNER & DEVELOPER
@@ -29,22 +44,7 @@ export default function HeroSection() {
               Happy to chat on Whatsapp
             </a>
           </div>
-          <div className={styles.hero__image}>
-          <Image
-            src="/assets/images/photo1.png"
-            alt="Foto 1"
-            width={500}
-            height={500}
-            className={`${styles.hero__photo}`}
-          />
-          <Image
-            src="/assets/images/photo2.png"
-            alt="Foto alternativa"
-            width={500}
-            height={500}
-            className={`${styles.hero__photo} ${styles.hero__photoHover}`}
-          />
-          </div>
+       
         </div>
       </Section>
     </section>
