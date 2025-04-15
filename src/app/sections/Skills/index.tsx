@@ -1,5 +1,5 @@
-import Section from '@/components/Section';
-import Skill from '@/components/Skill';
+import Section from '@components/Section';
+import Skill from '@components/Skill';
 import styles from './styles.module.scss';
 
 const skills = [

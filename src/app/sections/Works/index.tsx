@@ -1,5 +1,5 @@
-import Section from '@/components/Section';
-import WorkCard from '@/components/WorkCard';
+import Section from '@components/Section';
+import WorkCard from '@components/WorkCard';
 import styles from './styles.module.scss';
 
 const works = new Array(6).fill(null).map((_, i) => ({

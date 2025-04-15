@@ -2,9 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/app/*"],
+      "@/*": ["src/*"],
+      "@app/*": ["src/app/*"],
       "@components/*": ["src/app/components/*"],
-      "@sections/*": ["src/app/sections/*"]
+      "@sections/*": ["src/app/sections/*"],
+      "@utils/*": ["src/app/utils/*"],
+      "@hooks/*": ["src/app/hooks/*"],
+      "@styles/*": ["src/app/styles/*"]
     },
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],

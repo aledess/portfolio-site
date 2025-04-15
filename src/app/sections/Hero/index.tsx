@@ -1,5 +1,5 @@
-import Section from '@/components/Section';
-import Text from '@/components/Text';
+import Section from '@components/Section';
+import Text from '@components/Text';
 import styles from './styles.module.scss';
 
 export default function HeroSection() {

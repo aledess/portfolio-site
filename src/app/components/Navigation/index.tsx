@@ -1,8 +1,8 @@
 'use client';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
-import { smoothScrollToId } from '@/utils/scrollTo';
-import useScrollSpy from '@/hooks/useScrollSpy';
+import { smoothScrollToId } from '@utils/scrollTo';
+import useScrollSpy from '@hooks/useScrollSpy';
 
 type NavLink = {
   label: string;

@@ -1,4 +1,4 @@
-import Section from '@/components/Section';
+import Section from '@components/Section';
 import styles from './styles.module.scss';
 
 export default function Contact() {

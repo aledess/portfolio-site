@@ -1,8 +1,8 @@
 'use client';
 
 import styles from './styles.module.scss';
-import LangSwitcher from '@/components/LangSwitcher';
-import ThemeToggle from '@/components/ThemeToggle';
+import LangSwitcher from '@components/LangSwitcher';
+import ThemeToggle from '@components/ThemeToggle';
 
 export default function Header() {
   return (

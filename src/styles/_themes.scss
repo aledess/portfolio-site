@@ -11,17 +11,18 @@
   --color-accent: #0070f3;
   --color-border: #e0e0e0;
 }
-
 [data-theme='dark'] {
-  // DARK THEME
-  --color-primary: #2cf8ff;
-  --color-secondary: #18ffb0;
-  --color-tertiary: #96a7a1;
-
   --color-bg: #000000;
-  --color-text: #f1f3f4;
+  --color-surface: #121212;
 
-  --color-surface: #111111;
-  --color-accent: #2cf8ff;
-  --color-border: #333333;
+  --color-text: #e6e6e6;
+  --color-text-muted: #9a9a9a;
+  --color-border: #2a2a2a;
+
+  --color-primary: #f0f0f0;
+  --color-secondary: #777777;
+  --color-tertiary: #2e2e2e;
+
+  --color-accent: #a5c9ea; // nuovo accent: misty pastel blue nordico
+  --gradient-top: linear-gradient(180deg, rgba(165, 201, 234, 0.15), transparent);
 }

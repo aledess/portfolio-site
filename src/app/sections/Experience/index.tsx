@@ -1,5 +1,5 @@
-import Section from '@/components/Section';
-import TimelineItem from '@/components/TimelineItem';
+import Section from '@components/Section';
+import TimelineItem from '@components/TimelineItem';
 import styles from './styles.module.scss';
 
 const items = [
