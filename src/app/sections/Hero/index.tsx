@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import Section from '@components/Section';
 import Text from '@components/Text';
 import styles from './styles.module.scss';
@@ -8,7 +10,13 @@ export default function HeroSection() {
       <Section id="home">
         <div className={styles.hero__container}>
           <div className={styles.hero__image}>
-            <div className={styles.hero__placeholder} />
+            <Image
+              src="/assets/images/photo1.png"
+              alt="Foto personale"
+              width={300}
+              height={300}
+              className={styles.hero__photo}
+            />
           </div>
           <div className={styles.hero__content}>
             <Text variant="label" color="accent" as="span" className={styles.hero__badge}>

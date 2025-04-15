@@ -7,7 +7,7 @@
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   &__image {
@@ -16,11 +16,17 @@
     justify-content: center;
   }
 
-  &__placeholder {
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(135deg, #444, #222);
-    border-radius: 100%;
+  &__photo {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    mask-image: linear-gradient(to top left, transparent 20%, var(--color-accent) 90%);
+    -webkit-mask-image: linear-gradient(to top left, transparent 20%, var(--color-accent) 90%);
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
   }
 
   &__content {
@@ -59,9 +65,5 @@
     font-weight: bold;
     text-decoration: none;
     transition: background 0.3s ease;
-
-    &:hover {
-      background: #1cb884;
-    }
   }
 }
