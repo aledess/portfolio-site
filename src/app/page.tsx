@@ -4,6 +4,7 @@ import Hero from '@/sections/Hero';
 import Skills from './sections/Skills';
 import Experience from './sections/Experience';
 import Works from './sections/Works';
+import Contact from './sections/Contact';
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
       <Skills />
       <Experience />
       <Works />
-
+      <Contact />
 
       {/* altre sezioni */}
     </>

@@ -9,6 +9,8 @@ const links = [
   { label: 'Skills', href: '#skills', external: false },
   { label: 'Experience', href: '#experience', external: false },
   { label: 'Works', href: '#works', external: false },
+  { label: 'Contact', href: '#contact', external: false },
+
 ];
 
 export default function Navigation() {
