@@ -1,40 +1,55 @@
 'use client';
 import styles from './styles.module.scss';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
+import { smoothScrollToId } from '@/utils/scrollTo';
+import useScrollSpy from '@/hooks/useScrollSpy';
 
-const links = [
-  { label: 'Home', href: '#home', external: false },
-  { label: 'Skills', href: '#skills', external: false },
-  { label: 'Experience', href: '#experience', external: false },
-  { label: 'Works', href: '#works', external: false },
-  { label: 'Contact', href: '#contact', external: false },
+type NavLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
 
+export const links: NavLink[] = [
+  { label: 'Home', href: '#home' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Works', href: '#works' },
+  { label: 'Contact', href: '#contact' },
 ];
 
+
 export default function Navigation() {
-  const pathname = usePathname();
+  const sectionIds = links
+    .filter((link) => link.href.startsWith('#'))
+    .map((link) => link.href.replace('#', ''));
+
+  const activeId = useScrollSpy(sectionIds, 80); // offset header
 
   return (
-    <nav className={styles['nav__wrapper']}>
-      <ul className={styles['nav__menu']}>
-        {links.map((link, index) => (
-          <li key={link.href} className={styles['nav__item']}>
-            <Link
-              href={link.href}
-              target={link.external ? '_blank' : undefined}
-              rel={link.external ? 'noopener noreferrer' : undefined}
-              className={classNames(
-                styles['nav__link'],
-                pathname === link.href && styles['nav__link--active']
-              )}
-            >
-              {link.label}
-            </Link>
-            {index < links.length - 1 && <span className={styles['nav__separator']}>|</span>}
-          </li>
-        ))}
+    <nav className={styles.nav__wrapper}>
+      <ul className={styles.nav__menu}>
+        {links.map((link) => {
+          const id = link.href.replace('#', '');
+          const isActive = activeId === id;
+
+          return (
+            <li key={link.href} className={styles.nav__item}>
+              <a
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScrollToId(id);
+                }}
+                className={classNames(styles.nav__link, {
+                  [styles['nav__link--active']]: isActive,
+                })}
+              >
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
