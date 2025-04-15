@@ -1,5 +1,5 @@
-import Section from '@components/Section';
-import SkillsCarousel from '@/app/components/SkillsCarousel';
+import Section from '@/app/components/layout/Section';
+import SkillsCarousel from '@/app/components/ui/SkillsCarousel';
 
 
 

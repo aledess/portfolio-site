@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import SkillCard from '@components/SkillCard';
+import SkillCard from '@components/ui/SkillCard';
 import styles from './styles.module.scss';
 
 const skills = [
