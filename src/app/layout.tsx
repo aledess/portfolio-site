@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/main.scss";
-import Header from "@/app/components/layout/Header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-primary" });
 
@@ -25,7 +24,6 @@ export default function RootLayout({
       </head>
       <body>
         <div className="page__glow" />
-        <Header />
         {children}
       </body>
     </html>

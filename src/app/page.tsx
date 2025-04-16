@@ -5,31 +5,37 @@ import Experience from "@sections/Experience";
 import Works from "@sections/Works";
 import Contact from "@sections/Contact";
 import Navigation from "./components/layout/Navigation";
+import LoaderWrapper from "@components/layout/LoaderWrapper";
+import Header from "@/app/components/layout/Header";
 
 export default function Home() {
   return (
-    <>
-      <FadeIn variant="slideUp" duration={0.6}>
-        <Hero />
-      </FadeIn>
+    <LoaderWrapper minDelay={1500}>
+      <>
+        <Header />
 
-      <Navigation />
+        <FadeIn variant="slideUp" duration={0.6}>
+          <Hero />
+        </FadeIn>
 
-      <FadeIn variant="slideUp" duration={0.6}>
-        <Skills />
-      </FadeIn>
+        <Navigation />
 
-      <FadeIn variant="slideUp" duration={0.6}>
-        <Experience />
-      </FadeIn>
+        <FadeIn variant="slideUp" duration={0.6}>
+          <Skills />
+        </FadeIn>
 
-      <FadeIn variant="slideUp" duration={0.6}>
-        <Works />
-      </FadeIn>
+        <FadeIn variant="slideUp" duration={0.6}>
+          <Experience />
+        </FadeIn>
 
-      <FadeIn variant="slideUp" duration={0.6}>
-        <Contact />
-      </FadeIn>
-    </>
+        <FadeIn variant="slideUp" duration={0.6}>
+          <Works />
+        </FadeIn>
+
+        <FadeIn variant="slideUp" duration={0.6}>
+          <Contact />
+        </FadeIn>
+      </>
+    </LoaderWrapper>
   );
 }
