@@ -3,34 +3,37 @@ import { motion } from 'framer-motion';
 import SkillCard from '@components/ui/SkillCard';
 import styles from './styles.module.scss';
 
-const skills = [
-  { label: 'HTML', icon: 'devicon-html5-plain' },
-  { label: 'CSS', icon: 'devicon-css3-plain' },
-  { label: 'JavaScript', icon: 'devicon-javascript-plain' },
-  { label: 'TypeScript', icon: 'devicon-typescript-plain' },
-  { label: 'React', icon: 'devicon-react-original' },
-  { label: 'Next.js', icon: 'devicon-nextjs-original' },
-  { label: 'Sass', icon: 'devicon-sass-original' },
-  { label: 'Git', icon: 'devicon-git-plain' },
-  { label: 'Node.js', icon: 'devicon-nodejs-plain' },
-];
+type Skill = {
+  label: string;
+  icon: string;
+};
 
+export default function SkillsCarousel({ skills }: { skills: Skill[] }) {
+  const midpoint = Math.ceil(skills.length / 2);
+  const topSkills = skills.slice(0, midpoint);
+  const bottomSkills = skills.slice(midpoint);
 
-export default function SkillsCarousel() {
   return (
     <div className={styles.carousel}>
+      {/* Riga 1 → scorre verso sinistra */}
       <motion.div
-        className={styles.track}
+        className={`${styles.track} ${styles.track1}`}
         animate={{ x: ['0%', '-50%'] }}
-        transition={{
-          repeat: Infinity,
-          duration: 20,
-          ease: 'linear'
-        }}
+        transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
       >
-        {[...skills, ...skills].map((skill, idx) => (
-          <SkillCard key={idx} label={skill.label} iconClass={skill.icon} />
+        {[...topSkills, ...topSkills].map((skill, idx) => (
+          <SkillCard key={`top-${idx}`} label={skill.label} iconClass={skill.icon} />
+        ))}
+      </motion.div>
 
+      {/* Riga 2 → scorre verso destra */}
+      <motion.div
+        className={`${styles.track} ${styles.track2}`}
+        animate={{ x: ['-50%', '0%'] }} // ✅ verso opposto
+        transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
+      >
+        {[...bottomSkills, ...bottomSkills].map((skill, idx) => (
+          <SkillCard key={`bottom-${idx}`} label={skill.label} iconClass={skill.icon} />
         ))}
       </motion.div>
     </div>
