@@ -1,16 +1,23 @@
 import { ReactNode } from "react";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 import Text from "@components/ui/Text";
 
 type SectionProps = {
   id?: string;
   title?: string;
   children: ReactNode;
+  tight?: boolean;
 };
 
-export default function Section({ id, title, children }: SectionProps) {
+export default function Section({ id, title, children, tight }: SectionProps) {
   return (
-    <section id={id} className={styles.section}>
+    <section
+      id={id}
+      className={classNames(styles.section, {
+        [styles["section--tight"]]: tight,
+      })}
+    >
       {title && (
         <Text
           as="h2"

@@ -2,9 +2,13 @@
   padding: 6rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 50vh; // o almeno 80vh
+
+  &--tight {
+    max-width: 900px;
+  }
 
   &__title {
-    // delegato a <Text variant="headingM" color="accent" />
     margin-bottom: 2rem;
     text-align: center;
   }
