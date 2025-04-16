@@ -5,6 +5,7 @@
   --color-tertiary: #999999;
 
   --color-bg: #ffffff;
+  --color-bg-contrast: #000000;
   --color-text: #111111;
 
   --color-surface: #f5f5f5;
@@ -15,6 +16,8 @@
 
 [data-theme="dark"] {
   --color-bg: #000000;
+  --color-bg-contrast: #ffffff;
+
   --color-surface: #121212;
   --color-surface-alt: #1c1c1e; // 👈 aggiunto
 

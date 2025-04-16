@@ -4,6 +4,15 @@
   margin: 0 auto;
   min-height: 50vh;
 
+  &--contrast {
+    background-color: var(--color-bg-contrast);
+    color: var(--color-text);
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    width: 100%;
+  }
+
   &--tight {
     max-width: 1000px;
   }

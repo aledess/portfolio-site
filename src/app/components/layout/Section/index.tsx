@@ -11,6 +11,7 @@ type SectionProps = {
   titleLoop?: string[];
   tight?: boolean;
   full?: boolean;
+  contrastBg?: boolean;
 };
 
 export default function Section({
@@ -20,13 +21,15 @@ export default function Section({
   children,
   tight,
   full,
+  contrastBg,
 }: SectionProps) {
   return (
     <section
       id={id}
       className={classNames(styles.section, {
         [styles["section--tight"]]: tight,
-        [styles["section--full"]]: full, // 👈 new
+        [styles["section--full"]]: full,
+        [styles["section--contrast"]]: contrastBg,
       })}
     >
       {title && !titleLoop && (

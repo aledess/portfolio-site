@@ -7,6 +7,7 @@ import Contact from "@sections/Contact";
 import Navigation from "./components/layout/Navigation";
 import LoaderWrapper from "@components/layout/LoaderWrapper";
 import Header from "@/app/components/layout/Header";
+import Blog from "./sections/Blog";
 
 export default function Home() {
   return (
@@ -34,6 +35,10 @@ export default function Home() {
 
         <FadeIn variant="slideUp" duration={0.6}>
           <Contact />
+        </FadeIn>
+
+        <FadeIn variant="slideUp" duration={0.6}>
+          <Blog />
         </FadeIn>
       </>
     </LoaderWrapper>
