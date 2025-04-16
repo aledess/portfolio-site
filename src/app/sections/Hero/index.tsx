@@ -5,13 +5,17 @@ import Text from '@/app/components/ui/Text';
 import styles from './styles.module.scss';
 
 export default function HeroSection() {
+  const ENABLE_HOVER = false; 
+
   return (
     <section className={styles.hero}>
       <Section id="home">
         <div className={styles.hero__container}>
-        <div className={styles.hero__image}>
+        <div
+            className={`${styles.hero__image} ${!ENABLE_HOVER ? styles.hero__imageNoHover : ''}`}
+          >
           <Image
-            src="/assets/images/photo4.png"
+            src="/assets/images/photo5.png"
             alt="Foto 1"
             width={500}
             height={500}

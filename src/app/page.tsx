@@ -11,8 +11,8 @@ export default function Home() {
     <>
       <FadeIn variant="slideUp" duration={0.6}>
         <Hero />
-        <Navigation />
       </FadeIn>
+        <Navigation />
 
       <FadeIn variant="slideUp" duration={0.6}>
         <Skills />
