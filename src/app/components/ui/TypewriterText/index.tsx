@@ -19,6 +19,8 @@ type Props = {
   loop?: boolean;
   variant?: TextVariant;
   color?: TextColor;
+  as?: React.ElementType;
+  delay?: number; // 👈 nuova prop per orchestrare la partenza
 };
 
 export default function TypewriterText({
@@ -30,12 +32,22 @@ export default function TypewriterText({
   loop = true,
   variant = "headingL",
   color = "primary",
+  as,
+  delay = 0, // default a 0 se non specificato
 }: Props) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [startTyping, setStartTyping] = useState(false);
 
   useEffect(() => {
+    const timer = setTimeout(() => setStartTyping(true), delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  useEffect(() => {
+    if (!startTyping) return;
+
     const currentWord = words[currentWordIndex];
     let timeout: NodeJS.Timeout;
 
@@ -69,11 +81,12 @@ export default function TypewriterText({
     typingSpeed,
     pause,
     loop,
+    startTyping,
   ]);
 
   return (
     <Text
-      as="h2"
+      as={as || "span"}
       variant={variant}
       color={color}
       className={classNames(styles.typewriter, className, {

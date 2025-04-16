@@ -36,7 +36,11 @@ export default function Section({
       )}
 
       {titleLoop && (
-        <TypewriterText words={titleLoop} className={styles.section__title} />
+        <TypewriterText
+          as="h2"
+          words={titleLoop}
+          className={styles.section__title}
+        />
       )}
 
       <div className={styles.section__content}>{children}</div>

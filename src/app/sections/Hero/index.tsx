@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import Section from "@components/layout/Section";
-import Text from "@/app/components/ui/Text";
+// import Text from "@/app/components/ui/Text";
 import styles from "./styles.module.scss";
 import TypewriterText from "@/app/components/ui/TypewriterText";
 
@@ -37,14 +37,22 @@ export default function HeroSection() {
               color="accent"
               align="left"
               loop={false}
+              typingSpeed={70}
+              pause={0}
               className={styles.hero__badge}
+              as="span"
+              // Parte dopo che l’h1 è finito (1.4s)
+              delay={1400}
             />
 
             <TypewriterText
               words={["Alessandro Dessì"]}
-              className={styles.hero__title}
+              variant="headingL"
               align="left"
               loop={false}
+              typingSpeed={80}
+              className={styles.hero__title}
+              as="h1"
             />
 
             <TypewriterText
@@ -55,8 +63,11 @@ export default function HeroSection() {
               color="secondary"
               align="left"
               loop={false}
-              typingSpeed={30}
+              typingSpeed={25}
               className={styles.hero__description}
+              as="p"
+              // Parte dopo che badge è finito (1.7s) + delay iniziale (1.4s) = 3.1s
+              delay={3100}
             />
 
             {/* <Text
