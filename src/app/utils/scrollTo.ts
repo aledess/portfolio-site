@@ -1,9 +1,9 @@
-export function smoothScrollToId(id: string, duration = 1400) {
+export function smoothScrollToId(id: string, duration = 1400, offset = 0) {
   const element = document.getElementById(id);
   if (!element) return;
 
   const startY = window.scrollY;
-  const endY = element.getBoundingClientRect().top + startY;
+  const endY = element.getBoundingClientRect().top + startY - offset;
   const diff = endY - startY;
 
   let startTime: number | null = null;

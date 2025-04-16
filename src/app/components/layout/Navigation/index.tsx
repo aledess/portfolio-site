@@ -1,8 +1,8 @@
 "use client";
+import { useRef, useLayoutEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { smoothScrollToId } from "@utils/scrollTo";
-import useScrollSpy from "@hooks/useScrollSpy";
 import Text from "@components/ui/Text";
 
 type NavLink = {
@@ -20,18 +20,20 @@ export const links: NavLink[] = [
 ];
 
 export default function Navigation() {
-  const sectionIds = links
-    .filter((link) => link.href.startsWith("#"))
-    .map((link) => link.href.replace("#", ""));
+  const navRef = useRef<HTMLElement>(null);
+  const [navHeight, setNavHeight] = useState(0);
 
-  const activeId = useScrollSpy(sectionIds, 80); // offset header
+  useLayoutEffect(() => {
+    if (navRef.current) {
+      setNavHeight(navRef.current.offsetHeight);
+    }
+  }, []);
 
   return (
-    <nav className={styles.nav__wrapper}>
+    <nav className={styles.nav__wrapper} ref={navRef}>
       <ul className={styles.nav__menu}>
         {links.map((link) => {
           const id = link.href.replace("#", "");
-          const isActive = activeId === id;
 
           return (
             <li key={link.href} className={styles.nav__item}>
@@ -39,17 +41,11 @@ export default function Navigation() {
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  smoothScrollToId(id);
+                  smoothScrollToId(id, 1400, navHeight);
                 }}
-                className={classNames(styles.nav__link, {
-                  [styles["nav__link--active"]]: isActive,
-                })}
+                className={classNames(styles.nav__link)}
               >
-                <Text
-                  variant="label"
-                  color={isActive ? "accent" : "inherit"}
-                  className={styles.nav__text}
-                >
+                <Text variant="label" className={styles.nav__text}>
                   {link.label}
                 </Text>
               </a>
