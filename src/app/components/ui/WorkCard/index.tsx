@@ -1,14 +1,21 @@
 import Image from "next/image";
 import Text from "@components/ui/Text";
 import styles from "./styles.module.scss";
+import Chip from "@components/ui/Chip";
 
 type WorkCardProps = {
   image: string;
   title: string;
   description: string;
+  tech?: string[]; // 👈 nuova prop opzionale
 };
 
-export default function WorkCard({ image, title, description }: WorkCardProps) {
+export default function WorkCard({
+  image,
+  title,
+  description,
+  tech = [],
+}: WorkCardProps) {
   return (
     <div className={styles["work-card"]}>
       <div className={styles["work-card__imageWrapper"]}>
@@ -32,6 +39,16 @@ export default function WorkCard({ image, title, description }: WorkCardProps) {
         >
           {description}
         </Text>
+
+        {tech.length > 0 && (
+          <ul className={styles["work-card__techList"]}>
+            {tech.map((item) => (
+              <li key={item}>
+                <Chip label={item} />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
