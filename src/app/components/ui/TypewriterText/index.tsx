@@ -4,12 +4,21 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Text from "@components/ui/Text";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
+import type {
+  Variant as TextVariant,
+  Color as TextColor,
+} from "@components/ui/Text";
 
 type Props = {
   words: string[];
   typingSpeed?: number;
   pause?: number;
   className?: string;
+  align?: "left" | "center" | "right";
+  loop?: boolean;
+  variant?: TextVariant;
+  color?: TextColor;
 };
 
 export default function TypewriterText({
@@ -17,6 +26,10 @@ export default function TypewriterText({
   typingSpeed = 80,
   pause = 1500,
   className,
+  align = "center",
+  loop = true,
+  variant = "headingL",
+  color = "primary",
 }: Props) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -35,6 +48,8 @@ export default function TypewriterText({
         timeout = setTimeout(() => setIsDeleting(true), pause);
       }
     } else {
+      if (!loop) return;
+
       if (displayedText.length > 0) {
         timeout = setTimeout(() => {
           setDisplayedText(currentWord.slice(0, displayedText.length - 1));
@@ -46,13 +61,26 @@ export default function TypewriterText({
     }
 
     return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, currentWordIndex, words, typingSpeed, pause]);
+  }, [
+    displayedText,
+    isDeleting,
+    currentWordIndex,
+    words,
+    typingSpeed,
+    pause,
+    loop,
+  ]);
 
   return (
     <Text
       as="h2"
-      variant="headingL"
-      className={`${styles.typewriter} ${className || ""}`}
+      variant={variant}
+      color={color}
+      className={classNames(styles.typewriter, className, {
+        [styles["typewriter--left"]]: align === "left",
+        [styles["typewriter--center"]]: align === "center",
+        [styles["typewriter--right"]]: align === "right",
+      })}
     >
       {displayedText}
       <motion.span

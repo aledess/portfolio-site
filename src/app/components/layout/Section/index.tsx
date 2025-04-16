@@ -5,11 +5,12 @@ import Text from "@components/ui/Text";
 import TypewriterText from "@components/ui/TypewriterText";
 
 type SectionProps = {
+  children: ReactNode;
   id?: string;
   title?: string;
-  titleLoop?: string[]; // 👈 aggiunto
-  children: ReactNode;
+  titleLoop?: string[];
   tight?: boolean;
+  full?: boolean;
 };
 
 export default function Section({
@@ -18,20 +19,18 @@ export default function Section({
   titleLoop,
   children,
   tight,
+  full,
 }: SectionProps) {
   return (
     <section
       id={id}
       className={classNames(styles.section, {
         [styles["section--tight"]]: tight,
+        [styles["section--full"]]: full, // 👈 new
       })}
     >
       {title && !titleLoop && (
-        <Text
-          as="h2"
-          variant="headingL" // 👈 cambia da headingM a headingL
-          className={styles.section__title}
-        >
+        <Text as="h2" variant="headingL" className={styles.section__title}>
           {title}
         </Text>
       )}

@@ -25,7 +25,7 @@ const skillsTitleLoop = [
 
 export default function Skills() {
   return (
-    <Section id="skills" titleLoop={skillsTitleLoop}>
+    <Section id="skills" titleLoop={skillsTitleLoop} full>
       <SkillsCarousel skills={skills} />
     </Section>
   );

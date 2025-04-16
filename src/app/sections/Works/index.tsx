@@ -59,13 +59,6 @@ export default function Works() {
           />
         ))}
       </div>
-      <div className={styles["works__cta"]}>
-        <a href="/projects" className={styles["works__link"]}>
-          <Text as="span" variant="label" color="inherit">
-            View all projects
-          </Text>
-        </a>
-      </div>
     </Section>
   );
 }

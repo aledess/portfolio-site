@@ -1,11 +1,17 @@
 .text {
   margin: 0;
 
+  &--headingXL {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
   &--headingL {
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 1.2;
-    letter-spacing: -0.01em; // 👈 appena negativo, più elegante
+    letter-spacing: -0.01em;
   }
 
   &--headingM {

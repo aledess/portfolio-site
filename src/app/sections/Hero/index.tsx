@@ -3,6 +3,7 @@ import Image from "next/image";
 import Section from "@components/layout/Section";
 import Text from "@/app/components/ui/Text";
 import styles from "./styles.module.scss";
+import TypewriterText from "@/app/components/ui/TypewriterText";
 
 export default function HeroSection() {
   const ENABLE_HOVER = false;
@@ -17,8 +18,8 @@ export default function HeroSection() {
             <Image
               src="/assets/images/photo5.png"
               alt="Foto 1"
-              width={500}
-              height={500}
+              width={800}
+              height={800}
               className={`${styles.hero__photo}`}
             />
             <Image
@@ -30,35 +31,46 @@ export default function HeroSection() {
             />
           </div>
           <div className={styles.hero__content}>
-            <Text
-              variant="label"
+            <TypewriterText
+              words={["FRONTEND WEB DEVELOPER"]}
+              variant="labelS"
               color="accent"
-              as="span"
+              align="left"
+              loop={false}
               className={styles.hero__badge}
-            >
-              DESIGNER & DEVELOPER
-            </Text>
+            />
 
-            <Text variant="headingL" as="h1" className={styles.hero__title}>
-              Lorem ipsum
-              <br />
-              dolor sit amet
-              <br />
-              consectetur elit
-            </Text>
+            <TypewriterText
+              words={["Alessandro Dessì"]}
+              className={styles.hero__title}
+              align="left"
+              loop={false}
+            />
 
-            <Text
+            <TypewriterText
+              words={[
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+              ]}
+              variant="body"
+              color="secondary"
+              align="left"
+              loop={false}
+              typingSpeed={30}
+              className={styles.hero__description}
+            />
+
+            {/* <Text
               variant="body"
               color="tertiary"
               className={styles.hero__description}
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
               vulputate libero et velit interdum, ac aliquet odio mattis.
-            </Text>
+            </Text> */}
 
-            <a href="#" className={styles.hero__cta}>
+            {/* <a href="#" className={styles.hero__cta}>
               Happy to chat on Whatsapp
-            </a>
+            </a> */}
           </div>
         </div>
       </Section>

@@ -2,8 +2,16 @@ import { ReactNode, ElementType, ComponentPropsWithoutRef } from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-type Variant = "headingL" | "headingM" | "body" | "label" | "labelS" | "labelL";
-type Color = "primary" | "secondary" | "tertiary" | "accent" | "inherit";
+export type Variant =
+  | "headingM"
+  | "headingL"
+  | "headingXL"
+  | "body"
+  | "label"
+  | "labelS"
+  | "labelL";
+
+export type Color = "primary" | "secondary" | "tertiary" | "accent" | "inherit";
 
 type TextProps<T extends ElementType> = {
   children: ReactNode;

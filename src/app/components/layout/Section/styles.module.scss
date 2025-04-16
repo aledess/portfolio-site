@@ -1,17 +1,25 @@
 .section {
-  padding: 6rem 2rem;
-  max-width: 1200px;
+  padding: 8rem 2rem;
+  max-width: 1400px;
   margin: 0 auto;
-  min-height: 50vh; // o almeno 80vh
+  min-height: 50vh;
 
   &--tight {
-    max-width: 900px;
+    max-width: 1000px;
+  }
+
+  &--full {
+    max-width: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   &__title {
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
+    display: flex;
+    justify-content: center;
     text-align: center;
-    display: block; // 👈 aggiunto
   }
 
   &__content {

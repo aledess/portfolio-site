@@ -23,6 +23,7 @@ type Props = {
   variant?: VariantType;
   duration?: number;
   delay?: number;
+  force?: boolean;
 };
 
 export default function FadeIn({
@@ -30,6 +31,7 @@ export default function FadeIn({
   variant = "fade",
   duration = 0.6,
   delay = 0,
+  force,
 }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -39,7 +41,7 @@ export default function FadeIn({
     <motion.div
       ref={ref}
       initial={initial}
-      animate={isInView ? animate : undefined}
+      animate={force || isInView ? animate : undefined}
       transition={{ duration, delay, ease: "easeOut" }}
     >
       {children}
