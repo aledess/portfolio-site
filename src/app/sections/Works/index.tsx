@@ -44,7 +44,10 @@ const works = [
 
 export default function Works() {
   return (
-    <Section id="works" title="Selected Works">
+    <Section
+      id="works"
+      titleLoop={["Selected Works", "Recent Projects", "UI Concepts"]}
+    >
       <div className={styles.works}>
         {works.map((work, i) => (
           <WorkCard

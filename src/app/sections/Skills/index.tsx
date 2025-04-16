@@ -16,9 +16,16 @@ const skills = [
   { label: "Node.js", icon: "devicon-nodejs-plain" },
 ];
 
+const skillsTitleLoop = [
+  "Technologies I Use",
+  "Frontend Stack",
+  "Frameworks & Tools",
+  "Skills",
+];
+
 export default function Skills() {
   return (
-    <Section id="skills" title="Skills">
+    <Section id="skills" titleLoop={skillsTitleLoop}>
       <SkillsCarousel skills={skills} />
     </Section>
   );

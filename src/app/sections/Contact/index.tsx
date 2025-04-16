@@ -2,9 +2,16 @@ import Section from "@components/layout/Section";
 import Text from "@components/ui/Text";
 import styles from "./styles.module.scss";
 
+const contactTitleLoop = [
+  "Let’s work together",
+  "Start a project",
+  "Get in touch",
+  "Say hello",
+];
+
 export default function Contact() {
   return (
-    <Section id="contact" title="Let’s work together">
+    <Section id="contact" titleLoop={contactTitleLoop}>
       <Text
         as="p"
         variant="body"

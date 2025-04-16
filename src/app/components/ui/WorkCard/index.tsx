@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Text from "@components/ui/Text";
 import styles from "./styles.module.scss";
-import Chip from "@components/ui/Chip";
+import Chip from "@components/ui/Chip"; // 👈 aggiungi import
 
 type WorkCardProps = {
   image: string;

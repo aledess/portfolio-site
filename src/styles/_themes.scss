@@ -8,12 +8,15 @@
   --color-text: #111111;
 
   --color-surface: #f5f5f5;
+  --color-surface-alt: #eeeeee; // 👈 aggiunto
   --color-accent: #0070f3;
   --color-border: #e0e0e0;
 }
+
 [data-theme="dark"] {
   --color-bg: #000000;
   --color-surface: #121212;
+  --color-surface-alt: #1c1c1e; // 👈 aggiunto
 
   --color-text: #e6e6e6;
   --color-text-muted: #9a9a9a;

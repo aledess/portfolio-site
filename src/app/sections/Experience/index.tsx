@@ -22,9 +22,16 @@ const experiences = [
   },
 ];
 
+const experienceTitleLoop = [
+  "Work Experience",
+  "Career Journey",
+  "Companies I've Worked With",
+  "Experience",
+];
+
 export default function Experience() {
   return (
-    <Section id="experience" title="Experience" tight>
+    <Section id="experience" titleLoop={experienceTitleLoop} tight>
       <ExperienceList experiences={experiences} />
     </Section>
   );

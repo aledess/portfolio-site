@@ -1,0 +1,14 @@
+.typewriter {
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 600; // già gestito da variant headingL
+  letter-spacing: -0.01em;
+}
+
+.caret {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--color-accent);
+}

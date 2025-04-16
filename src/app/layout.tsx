@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
+
 import "@/styles/main.scss";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-primary" });
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"], // usa solo quelli che ti servono
+  variable: "--font-primary",
+});
 
 export const metadata: Metadata = {
   title: "Alessandro Dessì",
@@ -15,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="it" data-theme="dark" className={inter.variable}>
+    <html lang="it" data-theme="dark" className={dmSans.variable}>
       <head>
         <link
           rel="stylesheet"
