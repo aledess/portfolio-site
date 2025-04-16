@@ -4,10 +4,8 @@
   margin: 0 auto;
 
   &__title {
-    font-size: 2rem;
-    font-weight: 700;
+    // delegato a <Text variant="headingM" color="accent" />
     margin-bottom: 2rem;
-    color: var(--color-accent);
     text-align: center;
   }
 

@@ -28,22 +28,24 @@
   }
 
   &__link {
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-text-muted);
     text-decoration: none;
     transition: color 0.3s ease;
+    color: var(--color-accent);
 
-    &:hover {
-      color: var(--color-accent);
-    }
-
-    &--active {
+    &--active .nav__text {
       color: var(--color-accent);
       border-bottom: 2px solid var(--color-accent);
       font-weight: 600;
     }
+  }
+
+  &__text {
+    // delega al componente <Text />
+    display: inline-block;
+    padding-bottom: 2px;
+    transition:
+      color 0.3s ease,
+      border-bottom 0.3s ease;
   }
 
   &__separator {

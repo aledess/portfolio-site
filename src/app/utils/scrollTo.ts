@@ -11,7 +11,9 @@ export function smoothScrollToId(id: string, duration = 1400) {
   const easeInOutExpo = (t: number) => {
     if (t === 0) return 0;
     if (t === 1) return 1;
-    return t < 0.5 ? Math.pow(2, 20 * t - 10) / 2 : (2 - Math.pow(2, -20 * t + 10)) / 2;
+    return t < 0.5
+      ? Math.pow(2, 20 * t - 10) / 2
+      : (2 - Math.pow(2, -20 * t + 10)) / 2;
   };
 
   function step(currentTime: number) {

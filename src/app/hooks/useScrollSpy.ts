@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-export default function useScrollSpy(ids: string[], offset = 100): string | null {
+export default function useScrollSpy(
+  ids: string[],
+  offset = 100,
+): string | null {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -33,11 +36,11 @@ export default function useScrollSpy(ids: string[], offset = 100): string | null
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [ids, offset]);
 

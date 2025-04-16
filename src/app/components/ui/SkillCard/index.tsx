@@ -1,4 +1,5 @@
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
+import Text from "@components/ui/Text";
 
 type SkillCardProps = {
   label: string;
@@ -7,9 +8,11 @@ type SkillCardProps = {
 
 export default function SkillCard({ label, iconClass }: SkillCardProps) {
   return (
-    <div className={styles.card}>
-      <i className={`${iconClass} ${styles.icon}`} />
-      <span>{label}</span>
+    <div className={styles["skill-card"]}>
+      <i className={`${iconClass} ${styles["skill-card__icon"]}`} />
+      <Text variant="label" className={styles["skill-card__label"]}>
+        {label}
+      </Text>
     </div>
   );
 }

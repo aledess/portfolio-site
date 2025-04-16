@@ -1,0 +1,45 @@
+.experience-list {
+  display: flex;
+  position: relative;
+  padding: 4rem 2rem;
+
+  &__timeline {
+    position: relative;
+    width: 4px;
+    margin-right: 3rem;
+  }
+
+  &__line {
+    position: sticky;
+    top: 4rem;
+    width: 4px;
+    height: 300px;
+    background: linear-gradient(to bottom, #66aaff, transparent);
+    border-radius: 2px;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__date {
+    // variant: label, color: secondary → stile già gestito da Text
+  }
+
+  &__company {
+    // variant: headingM
+  }
+
+  &__description {
+    // variant: body
+  }
+}

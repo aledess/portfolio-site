@@ -1,33 +1,37 @@
-import { ReactNode } from 'react';
-import styles from './styles.module.scss';
-import classNames from 'classnames';
+import { ReactNode, ElementType, ComponentPropsWithoutRef } from "react";
+import styles from "./styles.module.scss";
+import classNames from "classnames";
 
-type Variant = 'headingL' | 'headingM' | 'body' | 'label';
-type Color = 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inherit';
+type Variant = "headingL" | "headingM" | "body" | "label";
+type Color = "primary" | "secondary" | "tertiary" | "accent" | "inherit";
 
-type TextProps = {
+type TextProps<T extends ElementType> = {
   children: ReactNode;
   variant?: Variant;
   color?: Color;
-  as?: React.ElementType;
+  as?: T;
   className?: string;
-};
+} & ComponentPropsWithoutRef<T>;
 
-export default function Text({
+export default function Text<T extends ElementType = "p">({
   children,
-  variant = 'body',
-  color = 'inherit',
-  as: Tag = 'p',
+  variant = "body",
+  color = "inherit",
+  as,
   className,
-}: TextProps) {
+  ...rest
+}: TextProps<T>) {
+  const Tag = as || "p";
+
   return (
     <Tag
       className={classNames(
         styles.text,
         styles[`text--${variant}`],
         styles[`text--${color}`],
-        className
+        className,
       )}
+      {...rest}
     >
       {children}
     </Tag>

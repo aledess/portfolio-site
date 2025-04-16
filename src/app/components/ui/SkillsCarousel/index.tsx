@@ -1,7 +1,7 @@
-'use client';
-import { motion } from 'framer-motion';
-import SkillCard from '@components/ui/SkillCard';
-import styles from './styles.module.scss';
+"use client";
+import { motion } from "framer-motion";
+import SkillCard from "@components/ui/SkillCard";
+import styles from "./styles.module.scss";
 
 type Skill = {
   label: string;
@@ -17,23 +17,31 @@ export default function SkillsCarousel({ skills }: { skills: Skill[] }) {
     <div className={styles.carousel}>
       {/* Riga 1 → scorre verso sinistra */}
       <motion.div
-        className={`${styles.track} ${styles.track1}`}
-        animate={{ x: ['0%', '-50%'] }}
-        transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
+        className={`${styles.carousel__track} ${styles["carousel__track--top"]}`}
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
       >
         {[...topSkills, ...topSkills].map((skill, idx) => (
-          <SkillCard key={`top-${idx}`} label={skill.label} iconClass={skill.icon} />
+          <SkillCard
+            key={`top-${idx}`}
+            label={skill.label}
+            iconClass={skill.icon}
+          />
         ))}
       </motion.div>
 
       {/* Riga 2 → scorre verso destra */}
       <motion.div
-        className={`${styles.track} ${styles.track2}`}
-        animate={{ x: ['-50%', '0%'] }} // ✅ verso opposto
-        transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
+        className={`${styles.carousel__track} ${styles["carousel__track--bottom"]}`}
+        animate={{ x: ["-50%", "0%"] }} // ✅ verso opposto
+        transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
       >
         {[...bottomSkills, ...bottomSkills].map((skill, idx) => (
-          <SkillCard key={`bottom-${idx}`} label={skill.label} iconClass={skill.icon} />
+          <SkillCard
+            key={`bottom-${idx}`}
+            label={skill.label}
+            iconClass={skill.icon}
+          />
         ))}
       </motion.div>
     </div>

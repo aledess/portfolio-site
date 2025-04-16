@@ -18,8 +18,10 @@
     text-decoration: none;
     transition: background 0.3s ease;
 
-    &:hover {
-      background: #1cb884;
+    span {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
   }
 }

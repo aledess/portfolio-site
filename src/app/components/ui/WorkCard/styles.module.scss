@@ -11,6 +11,7 @@
   }
 
   &__imageWrapper {
+    position: relative; // 👈 necessario per <Image fill />
     aspect-ratio: 16 / 9;
     overflow: hidden;
   }
@@ -27,16 +28,5 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  &__title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  &__description {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
   }
 }

@@ -1,4 +1,5 @@
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
+import Text from "@components/ui/Text";
 
 type TimelineItemProps = {
   index: number;
@@ -7,9 +8,18 @@ type TimelineItemProps = {
 
 export default function TimelineItem({ index, content }: TimelineItemProps) {
   return (
-    <div className={styles['timeline-item']}>
-      <div className={styles['timeline-item__index']}>{index}</div>
-      <div className={styles['timeline-item__content']}>{content}</div>
+    <div className={styles["timeline-item"]}>
+      <Text
+        as="span"
+        variant="label"
+        color="accent"
+        className={styles["timeline-item__index"]}
+      >
+        {index}
+      </Text>
+      <Text as="p" variant="body" className={styles["timeline-item__content"]}>
+        {content}
+      </Text>
     </div>
   );
 }

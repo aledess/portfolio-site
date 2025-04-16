@@ -1,8 +1,8 @@
 .contact {
   min-height: 60vh;
+
   &__intro {
-    font-size: 1rem;
-    color: var(--color-text-muted);
+    // gestito da <Text variant="body" color="secondary" />
     margin-bottom: 2rem;
   }
 
@@ -19,14 +19,12 @@
     gap: 0.5rem;
 
     label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--color-text);
+      // delegato a <Text variant="label" />
     }
 
     input,
     textarea {
-      width: 100%; // ⬅️ aggiungi questa riga
+      width: 100%;
       padding: 0.75rem 1rem;
       border-radius: 0.5rem;
       border: 1px solid var(--color-border);
@@ -52,8 +50,10 @@
     cursor: pointer;
     transition: background 0.3s ease;
 
-    &:hover {
-      background: #1cb884;
+    span {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
   }
 }
