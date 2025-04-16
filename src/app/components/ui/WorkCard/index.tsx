@@ -42,8 +42,8 @@ export default function WorkCard({
 
         {tech.length > 0 && (
           <ul className={styles["work-card__techList"]}>
-            {tech.map((item) => (
-              <li key={item}>
+            {tech.map((item, i) => (
+              <li key={`tech-${item}-${i}`}>
                 <Chip label={item} />
               </li>
             ))}
