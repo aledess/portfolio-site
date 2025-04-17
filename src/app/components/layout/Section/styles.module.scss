@@ -13,6 +13,15 @@
     width: 100%;
   }
 
+  &--accent {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    width: 100%;
+  }
+
   &--tight {
     max-width: 1000px;
   }
@@ -27,10 +36,19 @@
   &__title {
     margin-bottom: 4rem;
     margin-top: 8rem;
+    color: var(--color-text);
 
     display: flex;
     justify-content: center;
     text-align: center;
+
+    &--contrast {
+      color: var(--color-text-contrast); // Usa bianco o nero a seconda del tema
+    }
+
+    &--accent {
+      color: var(--color-black); // Sempre nero, come richiesto
+    }
   }
 
   &__content {

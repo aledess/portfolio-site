@@ -12,6 +12,7 @@ type SectionProps = {
   tight?: boolean;
   full?: boolean;
   contrastBg?: boolean;
+  accentBg?: boolean;
 };
 
 export default function Section({
@@ -22,6 +23,7 @@ export default function Section({
   tight,
   full,
   contrastBg,
+  accentBg,
 }: SectionProps) {
   return (
     <section
@@ -30,10 +32,18 @@ export default function Section({
         [styles["section--tight"]]: tight,
         [styles["section--full"]]: full,
         [styles["section--contrast"]]: contrastBg,
+        [styles["section--accent"]]: accentBg,
       })}
     >
       {title && !titleLoop && (
-        <Text as="h2" variant="headingL" className={styles.section__title}>
+        <Text
+          as="h2"
+          variant="headingL"
+          className={classNames(styles.section__title, {
+            [styles["section__title--contrast"]]: contrastBg,
+            [styles["section__title--accent"]]: accentBg,
+          })}
+        >
           {title}
         </Text>
       )}
@@ -42,7 +52,10 @@ export default function Section({
         <TypewriterText
           as="h2"
           words={titleLoop}
-          className={styles.section__title}
+          className={classNames(styles.section__title, {
+            [styles["section__title--contrast"]]: contrastBg,
+            [styles["section__title--accent"]]: accentBg,
+          })}
         />
       )}
 
