@@ -3,26 +3,37 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--color-surface);
+
+  background-color: var(--color-surface);
   color: var(--color-text);
   border-radius: 1rem;
+
+  width: 160px;
+  height: 160px;
+  padding: 1.25rem;
   margin-right: 1rem;
-  width: 200px;
-  height: 200px;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+
+  border: 1px solid var(--color-border); // 👈 flat look
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px); // 👈 movimento flat invece di scale
+    background-color: var(--color-surface-alt); // 👈 piccolo feedback
   }
 
   &__icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-accent); // 👈 accento sull’icona
   }
 
   &__label {
-    // variant "label" già fornisce stile coerente
     text-align: center;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    font-size: 0.875rem;
   }
 }

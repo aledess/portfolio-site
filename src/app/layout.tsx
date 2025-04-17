@@ -28,8 +28,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div className="page__glow" />
-        {children}
+        <div className="page-bg">
+          <div className="site-wrapper">{children}</div>
+        </div>
       </body>
     </html>
   );

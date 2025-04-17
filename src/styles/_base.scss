@@ -14,3 +14,21 @@ body {
     color 0.3s ease;
   min-height: 100vh;
 }
+
+.page-bg {
+  background-color: var(--color-bg-contrast); // 👈 la cornice!
+  padding: clamp(1rem, 2vw, 2rem); // 👈 responsive fluido
+}
+
+.site-wrapper {
+  background-color: var(--color-bg); // contenuto vero
+  color: var(--color-text);
+  border-radius: 0.5rem;
+  min-height: 100vh;
+
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 0 20px rgba(0, 0, 0, 0.05);
+
+  padding: 2rem;
+}
