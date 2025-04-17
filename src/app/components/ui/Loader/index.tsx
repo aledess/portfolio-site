@@ -6,10 +6,15 @@ import styles from "./styles.module.scss";
 
 type LoaderProps = {
   isVisible: boolean;
-  duration?: number; // in ms
+  duration?: number;
+  onComplete?: () => void;
 };
 
-export default function Loader({ isVisible, duration = 4000 }: LoaderProps) {
+export default function Loader({
+  isVisible,
+  duration = 4000,
+  onComplete,
+}: LoaderProps) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -22,11 +27,13 @@ export default function Loader({ isVisible, duration = 4000 }: LoaderProps) {
 
       if (percentage < 100) {
         requestAnimationFrame(update);
+      } else {
+        onComplete?.();
       }
     }
 
     requestAnimationFrame(update);
-  }, [duration]);
+  }, [duration, onComplete]);
 
   return (
     isVisible && (
@@ -34,7 +41,7 @@ export default function Loader({ isVisible, duration = 4000 }: LoaderProps) {
         className={styles.loader}
         initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }} // viene triggerato da AnimatePresence
+        exit={{ opacity: 0 }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
       >
         <div className={styles.loader__bars}>

@@ -1,0 +1,44 @@
+.masonry {
+  column-count: 1;
+  column-gap: 1rem;
+
+  @media (min-width: 768px) {
+    column-count: 2;
+  }
+
+  @media (min-width: 1024px) {
+    column-count: 3;
+  }
+}
+
+.item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+
+  .imageWrapper {
+    display: block;
+    width: 100%;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.75rem;
+    object-fit: cover;
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.75rem;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+}

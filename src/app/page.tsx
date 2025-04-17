@@ -4,10 +4,11 @@ import Skills from "@sections/Skills";
 import Experience from "@sections/Experience";
 import Works from "@sections/Works";
 import Contact from "@sections/Contact";
+import About from "@sections/About";
+
 import Navigation from "./components/layout/Navigation";
 import LoaderWrapper from "@components/layout/LoaderWrapper";
 import Header from "@/app/components/layout/Header";
-import Blog from "./sections/Blog";
 
 export default function Home() {
   return (
@@ -31,10 +32,10 @@ export default function Home() {
           <Works />
         </FadeIn>
         <FadeIn variant="slideUp" duration={0.9}>
-          <Contact />
+          <About />
         </FadeIn>
         <FadeIn variant="slideUp" duration={0.9}>
-          <Blog />
+          <Contact />
         </FadeIn>
       </>
     </LoaderWrapper>

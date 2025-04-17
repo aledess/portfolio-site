@@ -10,18 +10,19 @@ type Props = {
   minDelay?: number;
 };
 
-export default function LoaderWrapper({ children, minDelay = 4000 }: Props) {
+export default function LoaderWrapper({ children }: Props) {
   const [phase, setPhase] = useState<"loader" | "transition" | "content">(
     "loader",
   );
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setPhase("transition");
-    }, minDelay);
-
-    return () => clearTimeout(timeout);
-  }, [minDelay]);
+    if (phase === "transition") {
+      const timeout = setTimeout(() => {
+        setPhase("content");
+      }, 1100); // tempo transizione visiva PageTransition
+      return () => clearTimeout(timeout);
+    }
+  }, [phase]);
 
   const handleTransitionComplete = () => {
     setPhase("content");
@@ -36,7 +37,7 @@ export default function LoaderWrapper({ children, minDelay = 4000 }: Props) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Loader isVisible />
+            <Loader isVisible onComplete={() => setPhase("transition")} />
           </motion.div>
         )}
       </AnimatePresence>
