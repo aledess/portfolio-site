@@ -45,7 +45,11 @@ export default function Navigation() {
                 }}
                 className={classNames(styles.nav__link)}
               >
-                <Text variant="labelL" className={styles.nav__text}>
+                <Text
+                  variant="labelL"
+                  className={styles.nav__text}
+                  color="contrast"
+                >
                   {link.label}
                 </Text>
               </a>

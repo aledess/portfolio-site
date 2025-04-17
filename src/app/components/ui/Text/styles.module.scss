@@ -65,6 +65,10 @@
     color: var(--color-accent);
   }
 
+  &--contrast {
+    color: var(--color-text-contrast);
+  }
+
   &--inherit {
     color: inherit;
   }

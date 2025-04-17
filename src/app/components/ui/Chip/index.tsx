@@ -12,7 +12,7 @@ type ChipProps = {
 export default function Chip({ label, className }: ChipProps) {
   return (
     <span className={classNames(styles.chip, className)}>
-      <Text as="span" variant="labelS" color="accent">
+      <Text as="span" variant="labelS" color="contrast">
         {label}
       </Text>
     </span>

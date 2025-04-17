@@ -15,29 +15,25 @@ export default function Home() {
       <>
         <Header />
 
-        <FadeIn variant="slideUp" duration={0.6}>
+        <FadeIn variant="slideUp" duration={0.9}>
           <Hero />
         </FadeIn>
 
         <Navigation />
 
-        <FadeIn variant="slideUp" duration={0.6}>
+        <FadeIn variant="slideUp" duration={0.9}>
           <Skills />
         </FadeIn>
-
-        <FadeIn variant="slideUp" duration={0.6}>
+        <FadeIn variant="slideUp" duration={0.9}>
           <Experience />
         </FadeIn>
-
-        <FadeIn variant="slideUp" duration={0.6}>
+        <FadeIn variant="slideUp" duration={0.9}>
           <Works />
         </FadeIn>
-
-        <FadeIn variant="slideUp" duration={0.6}>
+        <FadeIn variant="slideUp" duration={0.9}>
           <Contact />
         </FadeIn>
-
-        <FadeIn variant="slideUp" duration={0.6}>
+        <FadeIn variant="slideUp" duration={0.9}>
           <Blog />
         </FadeIn>
       </>

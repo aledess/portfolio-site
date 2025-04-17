@@ -1,75 +1,32 @@
 :root {
-  --font-family: var(--font-primary), sans-serif;
+  // === LIGHT THEME ===
+  --color-bg: var(--color-white);
+  --color-bg-contrast: var(--color-black);
 
-  // === VALORI FISSI (alias) ===
-  --color-bg-light: #f5f5f5;
-  --color-bg-dark: #1f1f1f;
-
-  --color-surface-light: #f5f5f5;
-  --color-surface-alt-light: #eeeeee;
-
-  --color-surface-dark: #121212;
-  --color-surface-alt-dark: #1c1c1e;
-
-  --color-text-light: #111111;
-  --color-text-muted-light: #888888;
-
-  --color-text-dark: #e6e6e6;
-  --color-text-muted-dark: #9a9a9a;
-
-  --color-primary-light: #000000;
-  --color-secondary-light: #333333;
-  --color-tertiary-light: #999999;
-
-  --color-primary-dark: #f5f5f5;
-  --color-secondary-dark: #bbbbbb;
-  --color-tertiary-dark: #666666;
-
-  --color-border-light: #e0e0e0;
-  --color-border-dark: #2a2a2a;
-
-  --color-accent-light: #5893d4;
-  --color-accent-dark: #a5c9ea;
-
-  --color-accent-light-rgb: 88, 147, 212;
-  --color-accent-dark-rgb: 165, 201, 234;
-
-  // === ALIAS ATTIVI PER LIGHT ===
-  --color-bg: var(--color-bg-light);
-  --color-bg-contrast: var(--color-bg-dark);
-
-  --color-surface: var(--color-surface-light);
-  --color-surface-alt: var(--color-surface-alt-light);
-
-  --color-text: var(--color-text-light);
-  --color-text-muted: var(--color-text-muted-light);
-
-  --color-primary: var(--color-primary-light);
-  --color-secondary: var(--color-secondary-light);
-  --color-tertiary: var(--color-tertiary-light);
+  --color-text: var(--color-black);
+  --color-text-muted: var(--color-gray);
+  --color-text-contrast: var(--color-white);
 
   --color-border: var(--color-border-light);
+
+  --color-surface: var(--color-white-soft);
 
   --color-accent: var(--color-accent-light);
   --color-accent-rgb: var(--color-accent-light-rgb);
 }
 
 [data-theme="dark"] {
-  // === OVERRIDE CON GLI ALIAS DARK ===
-  --color-bg: var(--color-bg-dark);
-  --color-bg-contrast: var(--color-bg-light);
+  // === DARK THEME ===
+  --color-bg: var(--color-black);
+  --color-bg-contrast: var(--color-white);
 
-  --color-surface: var(--color-surface-dark);
-  --color-surface-alt: var(--color-surface-alt-dark);
+  --color-text: var(--color-white);
+  --color-text-muted: var(--color-gray-dark);
+  --color-text-contrast: var(--color-black);
 
-  --color-text: var(--color-text-dark);
-  --color-text-muted: var(--color-text-muted-dark);
+  --color-border: var(--color-gray-dark);
 
-  --color-primary: var(--color-primary-dark);
-  --color-secondary: var(--color-secondary-dark);
-  --color-tertiary: var(--color-tertiary-dark);
-
-  --color-border: var(--color-border-dark);
+  --color-surface: var(--color-black-soft);
 
   --color-accent: var(--color-accent-dark);
   --color-accent-rgb: var(--color-accent-dark-rgb);

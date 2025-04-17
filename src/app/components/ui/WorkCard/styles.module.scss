@@ -1,20 +1,14 @@
 .work-card {
   display: flex;
   gap: 1.5rem;
-  background-color: var(
-    --color-surface-alt
-  ); // 👈 nuovo sfondo leggermente diverso
+  background-color: var(--color-surface-alt);
   border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); // 👈 shadow per separazione
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  border: 1px solid var(--color-border); // 👈 sostituisce la shadow
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
-  }
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 
   &__imageWrapper {
     flex: 0 0 180px;
@@ -22,11 +16,18 @@
     position: relative;
     overflow: hidden;
     border-radius: 0.75rem;
+    background-color: var(
+      --color-border
+    ); // fallback in caso l'immagine non carichi
   }
 
   &__image {
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
+
+    .work-card:hover & {
+      transform: scale(1.02); // 👈 effetto soft flat
+    }
   }
 
   &__content {

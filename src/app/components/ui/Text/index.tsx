@@ -11,7 +11,13 @@ export type Variant =
   | "labelS"
   | "labelL";
 
-export type Color = "primary" | "secondary" | "tertiary" | "accent" | "inherit";
+export type Color =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "accent"
+  | "contrast"
+  | "inherit";
 
 type TextProps<T extends ElementType> = {
   children: ReactNode;

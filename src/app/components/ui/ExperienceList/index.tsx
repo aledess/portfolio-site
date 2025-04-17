@@ -21,12 +21,7 @@ export default function ExperienceList({
       <div className={styles["experience-list__content"]}>
         {experiences.map((exp, index) => (
           <div key={index} className={styles["experience-list__item"]}>
-            <Text
-              as="span"
-              variant="label"
-              color="secondary"
-              className={styles["experience-list__date"]}
-            >
+            <Text as="span" variant="label" color="secondary">
               {exp.date}
             </Text>
             <Text
@@ -40,6 +35,7 @@ export default function ExperienceList({
               as="p"
               variant="body"
               className={styles["experience-list__description"]}
+              c
             >
               {exp.description}
             </Text>

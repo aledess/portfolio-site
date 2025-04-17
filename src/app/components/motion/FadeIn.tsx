@@ -1,17 +1,31 @@
 "use client";
+
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import type { TargetAndTransition } from "framer-motion";
 
-type VariantType = "fade" | "slideUp" | "slideLeft" | "zoom";
+type VariantType = "fade" | "slideUp" | "slideDown" | "slideLeft" | "zoom";
 
 const variantsMap: Record<
   VariantType,
   { initial: TargetAndTransition; animate: TargetAndTransition }
 > = {
-  fade: { initial: { opacity: 0 }, animate: { opacity: 1 } },
-  slideUp: { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 } },
-  slideLeft: { initial: { opacity: 0, x: 30 }, animate: { opacity: 1, x: 0 } },
+  fade: {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+  },
+  slideUp: {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+  },
+  slideDown: {
+    initial: { opacity: 0, y: -30 },
+    animate: { opacity: 1, y: 0 },
+  },
+  slideLeft: {
+    initial: { opacity: 0, x: 30 },
+    animate: { opacity: 1, x: 0 },
+  },
   zoom: {
     initial: { opacity: 0, scale: 0.95 },
     animate: { opacity: 1, scale: 1 },
@@ -28,7 +42,7 @@ type Props = {
 
 export default function FadeIn({
   children,
-  variant = "fade",
+  variant = "slideLeft",
   duration = 0.6,
   delay = 0,
   force,

@@ -1,0 +1,23 @@
+:root {
+  --font-family: var(--font-primary), sans-serif;
+
+  // Colori base
+  --color-white: #f5f5f5;
+  --color-white-soft: #ffffff;
+  --color-black: #1f1f1f;
+  --color-black-soft: #121212;
+
+  // Grigi
+  --color-gray: #888888;
+  --color-gray-dark: #2a2a2a;
+
+  // Border
+  --color-border-light: #e0e0e0;
+
+  // Accent
+  --color-accent-light: #5893d4;
+  --color-accent-light-rgb: 88, 147, 212;
+
+  --color-accent-dark: #a5c9ea;
+  --color-accent-dark-rgb: 165, 201, 234;
+}

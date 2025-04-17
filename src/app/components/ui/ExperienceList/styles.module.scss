@@ -1,45 +1,47 @@
 .experience-list {
   display: flex;
   position: relative;
-  padding: 0rem 2rem;
+  padding: 4rem 2rem;
+}
 
-  &__timeline {
-    position: relative;
-    width: 4px;
-    margin-right: 10rem;
-  }
+.experience-list__timeline {
+  position: relative;
+  width: 4px;
+  margin-right: 5rem;
+}
 
-  &__line {
-    position: sticky;
-    top: 4rem;
-    width: 4px;
-    height: 300px;
-    background: linear-gradient(to bottom, #66aaff, transparent);
-    border-radius: 2px;
-  }
+.experience-list__line {
+  position: sticky;
+  top: 4rem;
+  width: 4px;
+  height: 200px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
 
-  &__content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-  }
+.experience-list__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
-  &__item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
+.experience-list__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
-  &__date {
-    // variant: label, color: secondary → stile già gestito da Text
-  }
+.experience-list__date {
+  color: var(--color-text-muted);
+}
 
-  &__company {
-    // variant: headingM
-  }
+.experience-list__company {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
 
-  &__description {
-    // variant: body
-  }
+.experience-list__description {
+  font-size: 1rem;
+  line-height: 1.4;
 }

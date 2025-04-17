@@ -12,14 +12,13 @@
   &__menu {
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.6);
     border-radius: 500px;
     padding: 2rem 3rem;
     backdrop-filter: blur(10px);
-    border: 1px solid var(--color-border);
     list-style: none;
     margin: 0;
     gap: 1.5rem;
+    background: var(--color-bg-contrast);
   }
 
   &__item {
@@ -30,7 +29,6 @@
   &__link {
     text-decoration: none;
     transition: color 0.3s ease;
-    color: var(--color-accent);
 
     &--active .nav__text {
       color: var(--color-accent);
