@@ -35,7 +35,6 @@ export default function ExperienceList({
               as="p"
               variant="body"
               className={styles["experience-list__description"]}
-              c
             >
               {exp.description}
             </Text>
