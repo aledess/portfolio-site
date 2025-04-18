@@ -34,15 +34,17 @@ export default function Navigation() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveSection(visibleEntries[0].target.id);
+        }
       },
       {
         rootMargin: `-${navHeight + 1}px 0px 0px 0px`,
-        threshold: 0.4,
+        threshold: 0.6, // più stabile
       },
     );
 
