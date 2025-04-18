@@ -7,12 +7,21 @@
 html,
 body {
   font-family: var(--font-primary);
-  background: var(--color-bg);
+  background-color: var(--color-bg);
   color: var(--color-text);
   transition:
-    background 0.3s ease,
-    color 0.3s ease;
+    background-color 0.8s ease,
+    color 0.8s ease;
   min-height: 100vh;
+}
+
+html.theme-transition,
+body.theme-transition,
+.site-wrapper,
+.page-bg {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .page-bg {

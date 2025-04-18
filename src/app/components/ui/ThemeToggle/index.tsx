@@ -22,12 +22,22 @@ export default function ThemeToggle() {
   }, []);
 
   const toggleTheme = () => {
-    if (!theme) return; // sicurezza
+    if (!theme) return;
 
     const newTheme = theme === "light" ? "dark" : "light";
+
+    // Applica classe per animazione
+    document.documentElement.classList.add("theme-transition");
+
+    // Cambia il tema
     setTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+
+    // Rimuove la classe dopo l’animazione
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-transition");
+    }, 300); // deve combaciare con la durata del transition nel CSS
   };
 
   return (
