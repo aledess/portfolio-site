@@ -1,4 +1,4 @@
-import FadeIn from "@components/motion/FadeIn";
+import SlideIn from "@components/motion/SlideIn";
 import Hero from "@sections/Hero";
 import Skills from "@sections/Skills";
 import Experience from "@sections/Experience";
@@ -16,27 +16,31 @@ export default function Home() {
       <>
         <Header />
 
-        <FadeIn variant="slideUp" duration={0.9}>
+        <SlideIn direction="up" duration={0.5} delay={0.05}>
           <Hero />
-        </FadeIn>
+        </SlideIn>
 
         <Navigation />
 
-        <FadeIn variant="slideUp" duration={0.9}>
+        <SlideIn direction="up" duration={0.5} delay={0.1}>
           <Skills />
-        </FadeIn>
-        <FadeIn variant="slideUp" duration={0.9}>
+        </SlideIn>
+
+        <SlideIn direction="up" duration={0.5} delay={0.15}>
           <Experience />
-        </FadeIn>
-        <FadeIn variant="slideUp" duration={0.9}>
+        </SlideIn>
+
+        <SlideIn direction="up" duration={0.5} delay={0.2}>
           <Works />
-        </FadeIn>
-        <FadeIn variant="slideUp" duration={0.9}>
+        </SlideIn>
+
+        <SlideIn direction="up" duration={0.5} delay={0.25}>
           <About />
-        </FadeIn>
-        <FadeIn variant="slideUp" duration={0.9}>
+        </SlideIn>
+
+        <SlideIn direction="up" duration={0.5} delay={0.3}>
           <Contact />
-        </FadeIn>
+        </SlideIn>
       </>
     </LoaderWrapper>
   );
