@@ -17,6 +17,8 @@ export default function Loader({
   onComplete,
 }: LoaderProps) {
   const [progress, setProgress] = useState(0);
+  const [shouldPulse, setShouldPulse] = useState(true);
+  const [shouldExpand, setShouldExpand] = useState(false);
 
   useEffect(() => {
     const start = performance.now();
@@ -29,10 +31,13 @@ export default function Loader({
       if (percentage < 100) {
         requestAnimationFrame(update);
       } else {
-        // Delay finale di 500ms prima di onComplete
+        setShouldPulse(false);
+        setShouldExpand(true);
+
+        // Rimani visibile ancora un po’ dopo espansione
         setTimeout(() => {
           onComplete?.();
-        }, 1000);
+        }, 2000);
       }
     }
 
@@ -49,6 +54,32 @@ export default function Loader({
         transition={{ duration: 1.2, ease: "easeInOut" }}
       >
         <div className={styles.loader__barWrapper}>
+          {/* Logo che appare gradualmente e pulsa solo dopo il 60% */}
+          <motion.div
+            className={styles.loader__logo}
+            style={{
+              opacity: Math.max(0, (progress - 10) / 90),
+            }}
+            animate={
+              shouldExpand
+                ? { scale: 1.6, opacity: 1 } // espansione finale
+                : shouldPulse
+                  ? { scale: [1, 1.18, 1] } // pulsazione
+                  : { scale: 1, opacity: 1 }
+            }
+            transition={{
+              scale: {
+                duration: shouldExpand ? 1.2 : 1.4,
+                repeat: shouldPulse ? Infinity : 0,
+                ease: "easeInOut",
+              },
+              opacity: { duration: 0.6 },
+            }}
+          >
+            <Icon name="logo" size={60} color="accent" />
+          </motion.div>
+
+          {/* Barre animate con opacità decrescente */}
           <div className={styles.loader__bars}>
             {[0, 1, 2].map((i) => (
               <motion.div
@@ -68,15 +99,6 @@ export default function Loader({
               />
             ))}
           </div>
-
-          <motion.div
-            className={styles.loader__logo}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: progress / 100 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Icon name="logo" size={60} color="accent" />
-          </motion.div>
         </div>
 
         <div className={styles.loader__progressContainer}>

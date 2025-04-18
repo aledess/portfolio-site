@@ -54,7 +54,6 @@
       pointer-events: none;
     }
 
-    // Hover solo se non c'è la classe di disabilitazione
     &:not(.hero__imageNoHover):hover .hero__photoHover {
       opacity: 1;
     }
@@ -63,7 +62,6 @@
       opacity: 0;
     }
 
-    // Disabilita effetto hover se specificato
     &.hero__imageNoHover {
       pointer-events: none;
 
@@ -100,6 +98,9 @@
 
   &__description {
     max-width: 600px;
+
+    // ✅ Riserva spazio per circa 3 righe di testo
+    min-height: 5em; // 3 righe * line-height 1.5 (standard)
   }
 
   &__cta {
