@@ -9,6 +9,7 @@ import About from "@sections/About";
 import Navigation from "./components/layout/Navigation";
 import LoaderWrapper from "@components/layout/LoaderWrapper";
 import Header from "@/app/components/layout/Header";
+import BackToTop from "./components/ui/BackToTop";
 
 export default function Home() {
   return (
@@ -41,6 +42,8 @@ export default function Home() {
         <SlideIn direction="up" duration={0.5} delay={0.3}>
           <Contact />
         </SlideIn>
+
+        <BackToTop />
       </>
     </LoaderWrapper>
   );

@@ -65,7 +65,11 @@ export default function Navigation() {
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  smoothScrollToId(id, 1400, navHeight);
+                  if (id === "home") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    smoothScrollToId(id, 1400, navHeight);
+                  }
                 }}
                 className={classNames(styles.nav__link, {
                   [styles["nav__link--active"]]: isActive,
