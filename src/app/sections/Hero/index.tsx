@@ -10,7 +10,7 @@ export default function HeroSection() {
 
   return (
     <section className={styles.hero}>
-      <Section id="home">
+      <Section id="home" compact>
         <div className={styles.hero__container}>
           <div
             className={`${styles.hero__image} ${!ENABLE_HOVER ? styles.hero__imageNoHover : ""}`}

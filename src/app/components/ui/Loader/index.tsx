@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
+import Icon from "@components/ui/Icon";
 
 type LoaderProps = {
   isVisible: boolean;
@@ -28,7 +29,10 @@ export default function Loader({
       if (percentage < 100) {
         requestAnimationFrame(update);
       } else {
-        onComplete?.();
+        // Delay finale di 500ms prima di onComplete
+        setTimeout(() => {
+          onComplete?.();
+        }, 1000);
       }
     }
 
@@ -44,21 +48,35 @@ export default function Loader({
         exit={{ opacity: 0 }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
       >
-        <div className={styles.loader__bars}>
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              className={styles.loader__bar}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: [0, 1, 0] }}
-              transition={{
-                delay: i * 0.15,
-                duration: 0.6,
-                ease: "easeInOut",
-                repeat: Infinity,
-              }}
-            />
-          ))}
+        <div className={styles.loader__barWrapper}>
+          <div className={styles.loader__bars}>
+            {[0, 1, 2].map((i) => (
+              <motion.div
+                key={i}
+                className={styles.loader__bar}
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: [0, 1, 0] }}
+                transition={{
+                  delay: i * 0.15,
+                  duration: 0.6,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+                style={{
+                  opacity: 1 - progress / 100,
+                }}
+              />
+            ))}
+          </div>
+
+          <motion.div
+            className={styles.loader__logo}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: progress / 100 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Icon name="logo" size={60} color="accent" />
+          </motion.div>
         </div>
 
         <div className={styles.loader__progressContainer}>

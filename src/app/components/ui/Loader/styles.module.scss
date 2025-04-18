@@ -11,6 +11,15 @@
   justify-content: center;
   align-items: center;
 
+  &__barWrapper {
+    position: relative;
+    width: 220px;
+    height: 96px; // 32px * 3 + gap
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__bars {
     display: flex;
     flex-direction: column;
@@ -21,6 +30,15 @@
     height: 32px;
     width: 220px;
     transform-origin: center;
+  }
+
+  &__logo {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
   }
 
   &__progressContainer {

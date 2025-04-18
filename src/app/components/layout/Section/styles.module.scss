@@ -26,6 +26,10 @@
     max-width: 1000px;
   }
 
+  &--compact {
+    padding: 2rem !important;
+  }
+
   &--full {
     max-width: none;
     width: 100%;
