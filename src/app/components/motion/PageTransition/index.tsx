@@ -12,7 +12,7 @@ export default function PageTransition({ onComplete }: Props) {
       initial={{ y: "-100%" }} // ⬆️ parte da sopra
       animate={{ y: 0 }} // ⬇️ entra scorrendo verso il basso
       exit={{ y: "-100%" }} // ⬆️ esce di nuovo verso l’alto
-      transition={{ duration: 0.6, ease: "easeInOut" }}
+      transition={{ duration: 0.6, ease: "circOut" }}
       onAnimationComplete={onComplete}
     />
   );

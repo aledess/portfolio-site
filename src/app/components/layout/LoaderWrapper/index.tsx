@@ -19,7 +19,7 @@ export default function LoaderWrapper({ children }: Props) {
     if (phase === "transition") {
       const timeout = setTimeout(() => {
         setPhase("content");
-      }, 1100); // tempo transizione visiva PageTransition
+      }, 600); // tempo transizione visiva PageTransition
       return () => clearTimeout(timeout);
     }
   }, [phase]);
