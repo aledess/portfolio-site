@@ -1,0 +1,24 @@
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  stroke: currentColor;
+  transition:
+    color 0.3s ease,
+    fill 0.3s ease;
+
+  &--white {
+    color: var(--color-text-contrast);
+  }
+
+  &--black {
+    color: var(--color-text);
+  }
+
+  &--contrast {
+    color: var(--color-text-contrast);
+  }
+
+  &--accent {
+    color: var(--color-accent);
+  }
+}

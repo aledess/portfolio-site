@@ -30,6 +30,6 @@
     ],
     
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/motion/PageTransition"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/motion/PageTransition", "next.config.mjs"],
   "exclude": ["node_modules"]
 }

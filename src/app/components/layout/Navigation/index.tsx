@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useLayoutEffect, useState } from "react";
+import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { smoothScrollToId } from "@utils/scrollTo";
@@ -23,6 +23,7 @@ export const links: NavLink[] = [
 export default function Navigation() {
   const navRef = useRef<HTMLElement>(null);
   const [navHeight, setNavHeight] = useState(0);
+  const [activeSection, setActiveSection] = useState<string>("home");
 
   useLayoutEffect(() => {
     if (navRef.current) {
@@ -30,11 +31,33 @@ export default function Navigation() {
     }
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: `-${navHeight + 1}px 0px 0px 0px`,
+        threshold: 0.4,
+      },
+    );
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [navHeight]);
+
   return (
     <nav className={styles.nav__wrapper} ref={navRef}>
       <ul className={styles.nav__menu}>
         {links.map((link) => {
           const id = link.href.replace("#", "");
+          const isActive = activeSection === id;
 
           return (
             <li key={link.href} className={styles.nav__item}>
@@ -44,7 +67,9 @@ export default function Navigation() {
                   e.preventDefault();
                   smoothScrollToId(id, 1400, navHeight);
                 }}
-                className={classNames(styles.nav__link)}
+                className={classNames(styles.nav__link, {
+                  [styles["nav__link--active"]]: isActive,
+                })}
               >
                 <Text
                   variant="labelL"
