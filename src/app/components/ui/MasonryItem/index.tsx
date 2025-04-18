@@ -24,15 +24,15 @@ export default function MasonryItem({
   const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
 
   return (
-    <div className={styles.item} style={{ height }} ref={ref}>
-      <div className={styles.imageWrapper}>
+    <div className={styles["masonry-item"]} style={{ height }} ref={ref}>
+      <div className={styles["masonry-item__image-wrapper"]}>
         <motion.div
-          className={styles.revealMask}
+          className={styles["masonry-item__reveal-mask"]}
           initial={{ y: 0 }}
           animate={isInView ? { y: "-100%" } : {}}
           transition={{
             duration: 0.8,
-            delay: index * 0.1, // 👈 effetto cascade
+            delay: index * 0.1,
             ease: "easeInOut",
           }}
         />
@@ -41,11 +41,12 @@ export default function MasonryItem({
           src={src}
           alt={alt}
           fill
-          className={styles.image}
+          className={styles["masonry-item__image"]}
           sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>
-      {/* <Text as="span" variant="labelL" className={styles.caption}>
+
+      {/* <Text as="span" variant="labelL" className={styles["masonry-item__caption"]}>
         {caption}
       </Text> */}
     </div>
