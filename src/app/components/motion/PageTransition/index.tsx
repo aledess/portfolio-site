@@ -9,10 +9,10 @@ export default function PageTransition({ onComplete }: Props) {
   return (
     <motion.div
       className={styles.reveal}
-      initial={{ y: "100%" }} // ⬇️ parte da sotto
-      animate={{ y: 0 }} // ⬆️ entra verso l'alto
-      exit={{ y: "100%" }} // ⬇️ esce di nuovo verso il basso
-      transition={{ duration: 1.1, ease: "easeInOut" }}
+      initial={{ y: "-100%" }} // ⬆️ parte da sopra
+      animate={{ y: 0 }} // ⬇️ entra scorrendo verso il basso
+      exit={{ y: "-100%" }} // ⬆️ esce di nuovo verso l’alto
+      transition={{ duration: 0.6, ease: "easeInOut" }}
       onAnimationComplete={onComplete}
     />
   );
