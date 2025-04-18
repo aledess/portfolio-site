@@ -37,6 +37,7 @@ export default function About() {
             alt={item.title}
             caption={item.title}
             height={item.height}
+            index={i}
           />
         ))}
       </div>
