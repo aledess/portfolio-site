@@ -26,9 +26,9 @@ export default function MasonryItem({
           sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>
-      <Text as="span" variant="labelL" className={styles.caption}>
+      {/* <Text as="span" variant="labelL" className={styles.caption}>
         {caption}
-      </Text>
+      </Text> */}
     </div>
   );
 }
