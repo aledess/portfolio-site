@@ -1,57 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useTheme } from "@/app/context/ThemeProvider";
 import styles from "./styles.module.scss";
+import { motion } from "framer-motion";
 import Icon from "@components/ui/Icon";
 
-type Theme = "light" | "dark";
-
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme | null>(null); // inizialmente null per evitare mismatch SSR/CSR
-
-  useEffect(() => {
-    const saved = localStorage.getItem("theme") as Theme | null;
-    const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-    const initial = saved || systemPref;
-
-    setTheme(initial);
-    document.documentElement.setAttribute("data-theme", initial);
-  }, []);
-
-  const toggleTheme = () => {
-    if (!theme) return;
-
-    const newTheme = theme === "light" ? "dark" : "light";
-
-    // Applica classe per animazione
-    document.documentElement.classList.add("theme-transition");
-
-    // Cambia il tema
-    setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-
-    // Rimuove la classe dopo l’animazione
-    setTimeout(() => {
-      document.documentElement.classList.remove("theme-transition");
-    }, 300); // deve combaciare con la durata del transition nel CSS
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <button
       onClick={toggleTheme}
       className={styles["theme-toggle"]}
       aria-label="Toggle theme"
-      disabled={!theme} // blocca temporaneamente finché non è pronto
     >
       <div className={styles["theme-toggle__track"]}>
         <motion.div
           className={styles["theme-toggle__thumb"]}
-          animate={{ x: theme === "dark" ? 40 : 0 }}
-          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+          animate={{ x: theme === "dark" ? 42 : -2 }} // overshoot
+          transition={{ type: "spring", stiffness: 180, damping: 12 }}
         />
         <div className={styles["theme-toggle__icon"]}>
           <Icon

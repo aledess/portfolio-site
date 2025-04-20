@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 
 import "@/styles/main.scss";
+import { ThemeProvider } from "@context/ThemeProvider"; // ✅ usa il tuo context React
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"], // usa solo quelli che ti servono
+  weight: ["300", "400", "500", "700"],
   variable: "--font-primary",
 });
 
@@ -20,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="it" data-theme="dark" className={dmSans.variable}>
+    <html lang="it" className={dmSans.variable} suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
@@ -28,9 +29,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div className="page-bg">
-          <div className="site-wrapper">{children}</div>
-        </div>
+        <ThemeProvider>
+          <div className="page-bg">
+            <div className="site-wrapper">{children}</div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

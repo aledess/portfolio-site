@@ -8,7 +8,9 @@
       "@sections/*": ["src/app/sections/*"],
       "@utils/*": ["src/app/utils/*"],
       "@hooks/*": ["src/app/hooks/*"],
-      "@styles/*": ["src/app/styles/*"]
+      "@styles/*": ["src/app/styles/*"],
+      "@context/*": ["src/app/context/*"]
+
     },
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
