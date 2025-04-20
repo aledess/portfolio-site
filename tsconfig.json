@@ -9,8 +9,9 @@
       "@utils/*": ["src/app/utils/*"],
       "@hooks/*": ["src/app/hooks/*"],
       "@styles/*": ["src/app/styles/*"],
-      "@context/*": ["src/app/context/*"]
-
+      "@context/*": ["src/app/context/*"],
+      "@sanity/*": ["src/app/sanity/*"],
+      "@types/*": ["src/app/types/*"]
     },
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],

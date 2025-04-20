@@ -1,19 +1,43 @@
+"use client";
+
+import { useEffect } from "react";
 import Image from "next/image";
 
 import Section from "@components/layout/Section";
-// import Text from "@/app/components/ui/Text";
+import TypewriterText from "@components/ui/TypewriterText";
 import styles from "./styles.module.scss";
-import TypewriterText from "@/app/components/ui/TypewriterText";
 
-export default function HeroSection() {
+type HeroData = {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  image?: {
+    asset?: {
+      url: string;
+    };
+    alt?: string;
+  };
+};
+
+type Props = {
+  data: HeroData;
+};
+
+export default function Hero({ data }: Props) {
   const ENABLE_HOVER = false;
+
+  useEffect(() => {
+    console.log("🔥 Hero data:", data);
+  }, [data]);
 
   return (
     <section className={styles.hero}>
       <Section id="home" compact>
         <div className={styles.hero__container}>
           <div
-            className={`${styles.hero__image} ${!ENABLE_HOVER ? styles.hero__imageNoHover : ""}`}
+            className={`${styles.hero__image} ${
+              !ENABLE_HOVER ? styles.hero__imageNoHover : ""
+            }`}
           >
             <Image
               src="/assets/images/photo5.png"
@@ -30,6 +54,7 @@ export default function HeroSection() {
               className={`${styles.hero__photo} ${styles.hero__photoHover}`}
             />
           </div>
+
           <div className={styles.hero__content}>
             <TypewriterText
               words={["FRONTEND WEB DEVELOPER"]}
@@ -41,7 +66,6 @@ export default function HeroSection() {
               pause={0}
               className={styles.hero__badge}
               as="span"
-              // Parte dopo che l’h1 è finito (1.4s)
               delay={1400}
             />
 

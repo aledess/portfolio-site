@@ -10,15 +10,24 @@ import Navigation from "./components/layout/Navigation";
 import LoaderWrapper from "@components/layout/LoaderWrapper";
 import Header from "@/app/components/layout/Header";
 import BackToTop from "./components/ui/BackToTop";
+import { getSections } from "@sanity/sections";
 
-export default function Home() {
+export default async function Home() {
+  const lang = "it"; // oppure "en"
+  const { hero, skills } = await getSections(lang);
+
+  // 🧪 Log lato server
+  console.log("🧪 Fetching sections for lang:", lang);
+  console.log("🪄 Hero result:", hero);
+  console.log("🛠 Skills result:", skills);
+
   return (
     <LoaderWrapper minDelay={1500}>
       <>
         <Header />
 
         <SlideIn direction="up" duration={0.5} delay={0.05}>
-          <Hero />
+          <Hero data={hero} />
         </SlideIn>
 
         <Navigation />
