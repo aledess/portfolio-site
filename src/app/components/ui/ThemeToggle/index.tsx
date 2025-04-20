@@ -17,7 +17,7 @@ export default function ThemeToggle() {
       <div className={styles["theme-toggle__track"]}>
         <motion.div
           className={styles["theme-toggle__thumb"]}
-          animate={{ x: theme === "dark" ? 42 : -2 }} // overshoot
+          animate={{ x: theme === "dark" ? 40 : 0 }} // ← torna a 0–40 preciso
           transition={{ type: "spring", stiffness: 180, damping: 12 }}
         />
         <div className={styles["theme-toggle__icon"]}>
