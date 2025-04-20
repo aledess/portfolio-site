@@ -12,4 +12,6 @@ export type SkillItem = {
 export type SkillsData = {
   sectionTitle: string[];
   items: SkillItem[];
+  _id: string;
+  _translations: [];
 };

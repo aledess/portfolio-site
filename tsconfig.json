@@ -11,7 +11,9 @@
       "@styles/*": ["src/app/styles/*"],
       "@context/*": ["src/app/context/*"],
       "@sanity/*": ["src/app/sanity/*"],
-      "@types/*": ["src/app/types/*"]
+      "@mock/*": ["src/app/mock/*"],
+      "@types/*": ["src/app/types/*"],
+
     },
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
