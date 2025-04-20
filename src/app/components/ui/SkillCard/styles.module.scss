@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--color-bg-contrast);
+  color: var(--color-text-contrast);
   border-radius: 0.75rem;
 
   width: 160px;
@@ -24,7 +24,7 @@
   &__icon {
     font-size: 2rem;
     margin-bottom: 0.75rem;
-    color: var(--color-accent);
+    color: var(--color-accent-contrast);
   }
 
   &__label {

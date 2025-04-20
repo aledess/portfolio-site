@@ -13,6 +13,7 @@
 
   --color-accent: var(--color-accent-light);
   --color-accent-rgb: var(--color-accent-light-rgb);
+  --color-accent-contrast: var(--color-accent-dark);
 }
 
 [data-theme="dark"] {
@@ -30,4 +31,5 @@
 
   --color-accent: var(--color-accent-dark);
   --color-accent-rgb: var(--color-accent-dark-rgb);
+  --color-accent-contrast: var(--color-accent-light);
 }

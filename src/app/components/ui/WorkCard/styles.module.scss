@@ -1,7 +1,9 @@
 .work-card {
   display: flex;
   gap: 1.5rem;
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-bg-contrast);
+  color: var(--color-text-contrast);
+
   border-radius: 1rem;
   padding: 1.5rem;
   border: 1px solid var(--color-border); // 👈 sostituisce la shadow
