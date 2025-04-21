@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Section from "@components/layout/Section";
 import TypewriterText from "@components/ui/TypewriterText";
@@ -11,15 +9,16 @@ type Props = {
 };
 
 export default function Hero({ data }: Props) {
-  console.log("Hero Section Data", data);
+  const { title, subtitle, description, image } = data;
+
   return (
     <section className={styles.hero}>
       <Section id="home" compact>
         <div className={styles.hero__container}>
           <div className={styles.hero__image}>
             <Image
-              src={data.image.asset.url}
-              alt={data.image.alt}
+              src={image.asset.url}
+              alt={image.alt}
               width={800}
               height={800}
               className={styles.hero__photo}
@@ -28,7 +27,7 @@ export default function Hero({ data }: Props) {
 
           <div className={styles.hero__content}>
             <TypewriterText
-              words={[data.subtitle]}
+              words={[subtitle]}
               variant="labelS"
               color="accent"
               align="left"
@@ -41,7 +40,7 @@ export default function Hero({ data }: Props) {
             />
 
             <TypewriterText
-              words={[data.title]}
+              words={[title]}
               variant="headingL"
               align="left"
               loop={false}
@@ -50,19 +49,21 @@ export default function Hero({ data }: Props) {
               as="h1"
             />
 
-            <div className={styles.hero__descriptionWrapper}>
-              <TypewriterText
-                words={[data.description]}
-                variant="body"
-                color="secondary"
-                align="left"
-                loop={false}
-                typingSpeed={25}
-                className={styles.hero__description}
-                as="p"
-                delay={3100}
-              />
-            </div>
+            {description && (
+              <div className={styles.hero__descriptionWrapper}>
+                <TypewriterText
+                  words={[description]}
+                  variant="body"
+                  color="secondary"
+                  align="left"
+                  loop={false}
+                  typingSpeed={25}
+                  className={styles.hero__description}
+                  as="p"
+                  delay={3100}
+                />
+              </div>
+            )}
           </div>
         </div>
       </Section>

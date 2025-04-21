@@ -13,7 +13,9 @@
       "@sanity/*": ["src/app/sanity/*"],
       "@schemas/*": ["src/app/types/*"],
       "@mock/*": ["src/app/mock/*"],
-      "@mock": ["src/app/mock/index.ts"]
+      "@mock": ["src/app/mock/index.ts"],
+      "@config": ["src/config"],
+      "@config/*": ["src/config/*"]
     },
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],

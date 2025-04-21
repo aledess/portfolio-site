@@ -5,6 +5,7 @@ import { WorksData } from "@schemas/works";
 import { AboutData } from "@schemas/about";
 import { ContactData } from "@schemas/contact";
 
+import { fetchWithLocalizedMock } from "@utils/fetchWithLocalizedMock";
 import { sanityClient } from "./client";
 import {
   heroQuery,
@@ -15,15 +16,6 @@ import {
   contactQuery,
 } from "./queries";
 
-import {
-  mockHero,
-  mockSkills,
-  mockExperience,
-  mockWorks,
-  mockAbout,
-  mockContact,
-} from "@mock";
-
 export async function getSections(lang: string): Promise<{
   hero: HeroData;
   skills: SkillsData;
@@ -32,56 +24,48 @@ export async function getSections(lang: string): Promise<{
   about: AboutData;
   contact: ContactData;
 }> {
-  const results = {
-    hero: mockHero,
-    skills: mockSkills,
-    experience: mockExperience,
-    works: mockWorks,
-    about: mockAbout,
-    contact: mockContact,
+  const hero = await fetchWithLocalizedMock<HeroData>(
+    "hero",
+    () => sanityClient.fetch(heroQuery, { lang }),
+    lang,
+  );
+
+  const skills = await fetchWithLocalizedMock<SkillsData>(
+    "skills",
+    () => sanityClient.fetch(skillsQuery, { lang }),
+    lang,
+  );
+
+  const experience = await fetchWithLocalizedMock<ExperienceData>(
+    "experience",
+    () => sanityClient.fetch(experienceQuery, { lang }),
+    lang,
+  );
+
+  const works = await fetchWithLocalizedMock<WorksData>(
+    "works",
+    () => sanityClient.fetch(worksQuery, { lang }),
+    lang,
+  );
+
+  const about = await fetchWithLocalizedMock<AboutData>(
+    "about",
+    () => sanityClient.fetch(aboutQuery, { lang }),
+    lang,
+  );
+
+  const contact = await fetchWithLocalizedMock<ContactData>(
+    "contact",
+    () => sanityClient.fetch(contactQuery, { lang }),
+    lang,
+  );
+
+  return {
+    hero,
+    skills,
+    experience,
+    works,
+    about,
+    contact,
   };
-
-  try {
-    const data = await sanityClient.fetch(heroQuery, { lang });
-    if (data) results.hero = data;
-  } catch (err) {
-    console.warn("⚠️ Hero fetch failed, using mock", err);
-  }
-
-  try {
-    const data = await sanityClient.fetch(skillsQuery, { lang });
-    if (data) results.skills = data;
-  } catch (err) {
-    console.warn("⚠️ Skills fetch failed, using mock", err);
-  }
-
-  try {
-    const data = await sanityClient.fetch(experienceQuery, { lang });
-    if (data) results.experience = data;
-  } catch (err) {
-    console.warn("⚠️ Experience fetch failed, using mock", err);
-  }
-
-  try {
-    const data = await sanityClient.fetch(worksQuery, { lang });
-    if (data) results.works = data;
-  } catch (err) {
-    console.warn("⚠️ Works fetch failed, using mock", err);
-  }
-
-  try {
-    const data = await sanityClient.fetch(aboutQuery, { lang });
-    if (data) results.about = data;
-  } catch (err) {
-    console.warn("⚠️ About fetch failed, using mock", err);
-  }
-
-  try {
-    const data = await sanityClient.fetch(contactQuery, { lang });
-    if (data) results.contact = data;
-  } catch (err) {
-    console.warn("⚠️ Contact fetch failed, using mock", err);
-  }
-
-  return results;
 }

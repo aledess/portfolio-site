@@ -1,7 +1,7 @@
 export type HeroData = {
   title: string;
   subtitle: string;
-  description: string;
+  description?: string;
   image: {
     asset: {
       url: string;
@@ -13,7 +13,7 @@ export type HeroData = {
     _id: string;
     title: string;
     subtitle: string;
-    description: string;
+    description?: string;
     language: string;
   }[];
 };
