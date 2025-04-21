@@ -10,10 +10,31 @@ const structure = (S: StructureBuilder) =>
       S.listItem().title("Skills").child(
         S.document().schemaType("skills").documentId("skills"), // 👈 ID singleton Skills
       ),
-      // Filtra entrambi dalla lista generica in fondo
+      S.listItem()
+        .title("Experience")
+        .child(S.document().schemaType("experience").documentId("experience")),
+      S.listItem()
+        .title("Works")
+        .child(S.document().schemaType("experience").documentId("works")),
+      S.listItem()
+        .title("About")
+        .child(S.document().schemaType("about").documentId("about")),
+      S.listItem()
+        .title("Contact")
+        .child(S.document().schemaType("contact").documentId("contact")),
       ...S.documentTypeListItems().filter((item) => {
         const id = item.getId();
-        return id && !["hero", "skills"].includes(id);
+        return (
+          id &&
+          ![
+            "hero",
+            "skills",
+            "experience",
+            "works",
+            "about",
+            "contact",
+          ].includes(id)
+        );
       }),
     ]);
 

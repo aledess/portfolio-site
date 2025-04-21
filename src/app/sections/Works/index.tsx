@@ -1,6 +1,5 @@
 import Section from "@components/layout/Section";
 import WorkCard from "@/app/components/ui/WorkCard";
-import Text from "@components/ui/Text";
 import styles from "./styles.module.scss";
 
 const works = [

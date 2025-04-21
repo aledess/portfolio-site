@@ -20,7 +20,14 @@ export default defineConfig({
         { id: "it", title: "Italiano" },
         { id: "en", title: "English" },
       ],
-      schemaTypes: ["hero", "skills"],
+      schemaTypes: [
+        "hero",
+        "skills",
+        "experience",
+        "works",
+        "about",
+        "contact",
+      ],
     }),
   ],
   schema: {
