@@ -2,6 +2,7 @@ import Section from "@components/layout/Section";
 import Text from "@components/ui/Text";
 import styles from "./styles.module.scss";
 import MasonryItem from "@/app/components/ui/MasonryItem";
+import { AboutData } from "@schemas/about";
 
 const items = [
   { title: "Scandinavia", image: "/assets/images/about1.png", height: 500 },
@@ -11,8 +12,12 @@ const items = [
   { title: "Pixel Art", image: "/assets/images/about1.png", height: 240 },
   { title: "Sketching", image: "/assets/images/about2.png", height: 500 },
 ];
+type Props = {
+  data: AboutData;
+};
 
-export default function About() {
+export default function About({ data }: Props) {
+  console.log("About Section Data", data);
   return (
     <Section
       contrastBg

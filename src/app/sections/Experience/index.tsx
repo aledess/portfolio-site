@@ -1,5 +1,6 @@
 import Section from "@/app/components/layout/Section";
 import ExperienceList from "@/app/components/ui/ExperienceList";
+import { ExperienceData } from "@schemas/experience";
 
 const experiences = [
   {
@@ -29,7 +30,13 @@ const experienceTitleLoop = [
   "Experience",
 ];
 
-export default function Experience() {
+type Props = {
+  data: ExperienceData;
+};
+
+export default function Experience({ data }: Props) {
+  console.log("Experience Section Data", data);
+
   return (
     <Section id="experience" titleLoop={experienceTitleLoop} tight>
       <ExperienceList experiences={experiences} />

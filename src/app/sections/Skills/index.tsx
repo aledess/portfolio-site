@@ -1,5 +1,6 @@
 import Section from "@/app/components/layout/Section";
 import SkillsCarousel from "@/app/components/ui/SkillsCarousel";
+import { SkillsData } from "@schemas/skills";
 
 const skills = [
   { label: "HTML", icon: "devicon-html5-plain" },
@@ -23,7 +24,12 @@ const skillsTitleLoop = [
   "Skills",
 ];
 
-export default function Skills() {
+type Props = {
+  data: SkillsData;
+};
+
+export default function Skills({ data }: Props) {
+  console.log("Skills Section Data", data);
   return (
     <Section id="skills" titleLoop={skillsTitleLoop} full>
       <SkillsCarousel skills={skills} />

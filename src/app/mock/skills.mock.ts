@@ -1,4 +1,4 @@
-import { SkillsData } from "../types/skills";
+import { SkillsData } from "@schemas/skills";
 
 export const mockSkills: SkillsData = {
   sectionTitle: ["Tecnologie principali"],

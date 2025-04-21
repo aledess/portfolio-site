@@ -1,4 +1,4 @@
-import type { AboutData } from "../types/about";
+import type { AboutData } from "@schemas/about";
 
 export const mockAbout: AboutData = {
   sectionTitle: ["About Me", "Things I Love", "Random Facts"],

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["picsum.photos"],
+    domains: ["cdn.sanity.io", "picsum.photos"],
   },
   webpack(config) {
     config.module.rules.push({

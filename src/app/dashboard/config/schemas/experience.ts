@@ -1,20 +1,15 @@
 // ./schemas/experience.ts
 import { defineType, defineField } from "sanity";
+import { sectionTitle } from "./fields/sectionTitle";
+import { language } from "./fields/language";
 
 export default defineType({
   name: "experience",
   title: "Esperienza",
   type: "document",
   fields: [
-    defineField({
-      name: "sectionTitle",
-      title: "Titolo della sezione",
-      description: "Lista di titoli localizzati (es. per animazione)",
-      type: "array",
-      of: [{ type: "string" }],
-      validation: (Rule) =>
-        Rule.required().min(1).error("Inserisci almeno un titolo"),
-    }),
+    sectionTitle,
+    language,
     defineField({
       name: "items",
       title: "Esperienze",

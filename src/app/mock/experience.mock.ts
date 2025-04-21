@@ -1,4 +1,4 @@
-import type { ExperienceData } from "../types/experience";
+import type { ExperienceData } from "@schemas/experience";
 
 export const mockExperience: ExperienceData = {
   sectionTitle: [

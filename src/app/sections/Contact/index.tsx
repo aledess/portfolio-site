@@ -5,6 +5,7 @@ import Section from "@components/layout/Section";
 import Text from "@components/ui/Text";
 import Toast from "@components/ui/Toast";
 import styles from "./styles.module.scss";
+import { ContactData } from "@schemas/contact";
 
 const contactTitleLoop = [
   "Let’s work together",
@@ -13,7 +14,13 @@ const contactTitleLoop = [
   "Say hello",
 ];
 
-export default function Contact() {
+type Props = {
+  data: ContactData;
+};
+
+export default function Contact({ data }: Props) {
+  console.log("Contact Section Data", data);
+
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",

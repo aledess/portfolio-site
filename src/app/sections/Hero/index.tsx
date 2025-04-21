@@ -1,63 +1,34 @@
 "use client";
 
-import { useEffect } from "react";
 import Image from "next/image";
-
 import Section from "@components/layout/Section";
 import TypewriterText from "@components/ui/TypewriterText";
 import styles from "./styles.module.scss";
-
-type HeroData = {
-  title: string;
-  subtitle?: string;
-  description?: string;
-  image?: {
-    asset?: {
-      url: string;
-    };
-    alt?: string;
-  };
-};
+import type { HeroData } from "@schemas/hero";
 
 type Props = {
   data: HeroData;
 };
 
 export default function Hero({ data }: Props) {
-  const ENABLE_HOVER = false;
-
-  useEffect(() => {
-    console.log("🔥 Hero data:", data);
-  }, [data]);
-
+  console.log("Hero Section Data", data);
   return (
     <section className={styles.hero}>
       <Section id="home" compact>
         <div className={styles.hero__container}>
-          <div
-            className={`${styles.hero__image} ${
-              !ENABLE_HOVER ? styles.hero__imageNoHover : ""
-            }`}
-          >
+          <div className={styles.hero__image}>
             <Image
-              src="/assets/images/photo5.png"
-              alt="Foto 1"
+              src={data.image.asset.url}
+              alt={data.image.alt}
               width={800}
               height={800}
-              className={`${styles.hero__photo}`}
-            />
-            <Image
-              src="/assets/images/photo1.png"
-              alt="Foto alternativa"
-              width={500}
-              height={500}
-              className={`${styles.hero__photo} ${styles.hero__photoHover}`}
+              className={styles.hero__photo}
             />
           </div>
 
           <div className={styles.hero__content}>
             <TypewriterText
-              words={["FRONTEND WEB DEVELOPER"]}
+              words={[data.subtitle]}
               variant="labelS"
               color="accent"
               align="left"
@@ -70,7 +41,7 @@ export default function Hero({ data }: Props) {
             />
 
             <TypewriterText
-              words={["Alessandro Dessì"]}
+              words={[data.title]}
               variant="headingL"
               align="left"
               loop={false}
@@ -81,9 +52,7 @@ export default function Hero({ data }: Props) {
 
             <div className={styles.hero__descriptionWrapper}>
               <TypewriterText
-                words={[
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-                ]}
+                words={[data.description]}
                 variant="body"
                 color="secondary"
                 align="left"

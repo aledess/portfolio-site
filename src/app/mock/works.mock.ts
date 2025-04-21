@@ -1,4 +1,4 @@
-import type { WorksData } from "../types/works";
+import type { WorksData } from "@schemas/works";
 
 export const mockWorks: WorksData = {
   sectionTitle: ["Selected Works", "Recent Projects", "UI Concepts"],

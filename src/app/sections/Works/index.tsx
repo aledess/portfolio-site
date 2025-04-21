@@ -1,6 +1,7 @@
 import Section from "@components/layout/Section";
 import WorkCard from "@/app/components/ui/WorkCard";
 import styles from "./styles.module.scss";
+import { WorksData } from "@schemas/works";
 
 const works = [
   {
@@ -41,7 +42,12 @@ const works = [
   },
 ];
 
-export default function Works() {
+type Props = {
+  data: WorksData;
+};
+
+export default function Works({ data }: Props) {
+  console.log("Works Section Data", data);
   return (
     <Section
       id="works"

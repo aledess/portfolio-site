@@ -1,6 +1,7 @@
 import { defineType, defineField } from "sanity";
 // import type { Rule } from "sanity";
 import { sectionTitle } from "./fields/sectionTitle";
+import { language } from "./fields/language";
 
 export default defineType({
   name: "skills",
@@ -8,6 +9,7 @@ export default defineType({
   type: "document",
   fields: [
     sectionTitle,
+    language,
     defineField({
       name: "items",
       title: "Elenco Skill",

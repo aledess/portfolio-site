@@ -6,20 +6,18 @@ import Works from "@sections/Works";
 import Contact from "@sections/Contact";
 import About from "@sections/About";
 
-import Navigation from "./components/layout/Navigation";
+import Navigation from "@components/layout/Navigation";
 import LoaderWrapper from "@components/layout/LoaderWrapper";
-import Header from "@/app/components/layout/Header";
-import BackToTop from "./components/ui/BackToTop";
+import Header from "@components/layout/Header";
+import BackToTop from "@components/ui/BackToTop";
+
 import { getSections } from "@sanity/sections";
+import type { SectionsData } from "@schemas/sections";
 
 export default async function Home() {
-  const lang = "it"; // oppure "en"
-  const { hero, skills } = await getSections(lang);
-
-  // 🧪 Log lato server
-  console.log("🧪 Fetching sections for lang:", lang);
-  console.log("🪄 Hero result:", hero);
-  console.log("🛠 Skills result:", skills);
+  const lang = "it";
+  const sections: SectionsData = await getSections(lang);
+  const { hero, skills, experience, works, about, contact } = sections;
 
   return (
     <LoaderWrapper minDelay={1500}>
@@ -33,23 +31,23 @@ export default async function Home() {
         <Navigation />
 
         <SlideIn direction="up" duration={0.5} delay={0.1}>
-          <Skills />
+          <Skills data={skills} />
         </SlideIn>
 
         <SlideIn direction="up" duration={0.5} delay={0.15}>
-          <Experience />
+          <Experience data={experience} />
         </SlideIn>
 
         <SlideIn direction="up" duration={0.5} delay={0.2}>
-          <Works />
+          <Works data={works} />
         </SlideIn>
 
         <SlideIn direction="up" duration={0.5} delay={0.25}>
-          <About />
+          <About data={about} />
         </SlideIn>
 
         <SlideIn direction="up" duration={0.5} delay={0.3}>
-          <Contact />
+          <Contact data={contact} />
         </SlideIn>
 
         <BackToTop />

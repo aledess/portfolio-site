@@ -1,5 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { sectionTitle } from "./fields/sectionTitle";
+import { language } from "./fields/language";
 
 export default defineType({
   name: "contact",
@@ -7,6 +8,7 @@ export default defineType({
   type: "document",
   fields: [
     sectionTitle,
+    language,
     defineField({
       name: "description",
       title: "Descrizione introduttiva",
