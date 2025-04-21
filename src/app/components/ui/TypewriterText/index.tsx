@@ -84,6 +84,16 @@ export default function TypewriterText({
     startTyping,
   ]);
 
+  // Reset dello stato quando cambia la parola da scrivere (es: cambio lingua)
+  useEffect(() => {
+    setCurrentWordIndex(0);
+    setDisplayedText("");
+    setIsDeleting(false);
+    setStartTyping(false);
+    const timer = setTimeout(() => setStartTyping(true), delay);
+    return () => clearTimeout(timer);
+  }, [words, delay]);
+
   return (
     <Text
       as={as || "span"}

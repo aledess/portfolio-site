@@ -1,7 +1,21 @@
-.lang {
-  background: none;
-  border: none;
-  color: var(--color-text);
-  cursor: pointer;
-  font-size: 0.875rem;
+.langSwitcher {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  &__button {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+
+    &--active {
+      opacity: 1;
+    }
+  }
 }

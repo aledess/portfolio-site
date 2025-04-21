@@ -10,6 +10,7 @@ type Props = {
 
 export default function Hero({ data }: Props) {
   const { title, subtitle, description, image } = data;
+  console.log("🚀 HERO DATA:", data);
 
   return (
     <section className={styles.hero}>
@@ -24,7 +25,6 @@ export default function Hero({ data }: Props) {
               className={styles.hero__photo}
             />
           </div>
-
           <div className={styles.hero__content}>
             <TypewriterText
               words={[subtitle]}

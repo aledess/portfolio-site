@@ -4,7 +4,7 @@ import { USE_MOCKS } from "@config";
 
 export async function fetchWithLocalizedMock<T>(
   sectionName: keyof typeof localizedMocks,
-  fetcher: () => Promise<T | null | undefined>,
+  fetcher: (lang: string) => Promise<T | null | undefined>,
   lang: string,
   fallbackLang: string = "it",
 ): Promise<T> {
@@ -18,11 +18,19 @@ export async function fetchWithLocalizedMock<T>(
   }
 
   try {
-    const data = await fetcher();
+    const data = await fetcher(lang);
     if (data) return data;
+
+    if (lang !== fallbackLang) {
+      console.warn(
+        `🌐 Nessun dato per "${sectionName}" in "${lang}", fallback a "${fallbackLang}"`,
+      );
+      const fallbackData = await fetcher(fallbackLang);
+      if (fallbackData) return fallbackData;
+    }
   } catch (err) {
     console.warn(
-      `⚠️ Fetch failed for "${sectionName}" in lang "${lang}", uso mock`,
+      `⚠️ Fetch failed per "${sectionName}" in lang "${lang}", uso mock`,
       err,
     );
   }

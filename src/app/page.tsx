@@ -16,17 +16,24 @@ import BackToTop from "@components/ui/BackToTop";
 import { getSections } from "@sanity/sections";
 import type { SectionsData } from "@schemas/sections";
 
-export default async function Home() {
-  const lang = "it";
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: { lang?: string };
+}) {
+  const lang = searchParams.lang === "en" ? "en" : "it"; // fallback su IT
+
   const { isEnabled: isPreview } = await draftMode(); // 👈 rileva preview mode
   const sections: SectionsData = await getSections(lang, isPreview); // 👈 abilita preview
 
   const { hero, skills, experience, works, about, contact } = sections;
 
+  console.log("ì------", hero);
+
   return (
     <LoaderWrapper minDelay={1500}>
       <>
-        <Header isPreview={isPreview} />
+        <Header isPreview={isPreview} lang={lang} />
 
         <SlideIn direction="up" duration={0.5} delay={0.05}>
           <Hero data={hero} />

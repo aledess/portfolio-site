@@ -1,17 +1,17 @@
 "use client";
 
-import styles from "./styles.module.scss";
-import LangSwitcher from "@/app/components/ui/LangSwitcher";
-import ThemeToggle from "@/app/components/ui/ThemeToggle";
-import Icon from "@/app/components/ui/Icon";
-import Text from "@/app/components/ui/Text"; // 👈 importa Text
 import { useRouter } from "next/navigation";
+import styles from "./styles.module.scss";
+import LangSwitcher from "@components/ui/LangSwitcher";
+import ThemeToggle from "@components/ui/ThemeToggle";
+import Icon from "@components/ui/Icon";
 
 type Props = {
   isPreview?: boolean;
+  lang: "it" | "en";
 };
 
-export default function Header({ isPreview = false }: Props) {
+export default function Header({ isPreview = false, lang }: Props) {
   const router = useRouter();
 
   const handleLogoClick = () => {
@@ -32,20 +32,15 @@ export default function Header({ isPreview = false }: Props) {
           onClick={handleLogoClick}
         >
           {isPreview && (
-            <Text
-              as="span"
-              variant="labelS"
-              color="contrast"
-              className={styles["header__logo--preview-badge"]}
-            >
+            <span className={styles["header__logo--preview-badge"]}>
               Preview
-            </Text>
+            </span>
           )}
           <Icon name="logo" size={60} color="accent" />
         </div>
 
         <div className={styles.header__actions}>
-          <LangSwitcher />
+          <LangSwitcher lang={lang} />
           <ThemeToggle />
         </div>
       </div>
