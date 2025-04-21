@@ -6,7 +6,7 @@ import { AboutData } from "@schemas/about";
 import { ContactData } from "@schemas/contact";
 
 import { fetchWithLocalizedMock } from "@utils/fetchWithLocalizedMock";
-import { sanityClient } from "./client";
+import { getClient } from "./client"; // usa getClient al posto di sanityClient
 import {
   heroQuery,
   skillsQuery,
@@ -16,7 +16,10 @@ import {
   contactQuery,
 } from "./queries";
 
-export async function getSections(lang: string): Promise<{
+export async function getSections(
+  lang: string,
+  preview: boolean = false,
+): Promise<{
   hero: HeroData;
   skills: SkillsData;
   experience: ExperienceData;
@@ -24,39 +27,41 @@ export async function getSections(lang: string): Promise<{
   about: AboutData;
   contact: ContactData;
 }> {
+  const client = getClient(preview);
+
   const hero = await fetchWithLocalizedMock<HeroData>(
     "hero",
-    () => sanityClient.fetch(heroQuery, { lang }),
+    () => client.fetch(heroQuery, { lang }),
     lang,
   );
 
   const skills = await fetchWithLocalizedMock<SkillsData>(
     "skills",
-    () => sanityClient.fetch(skillsQuery, { lang }),
+    () => client.fetch(skillsQuery, { lang }),
     lang,
   );
 
   const experience = await fetchWithLocalizedMock<ExperienceData>(
     "experience",
-    () => sanityClient.fetch(experienceQuery, { lang }),
+    () => client.fetch(experienceQuery, { lang }),
     lang,
   );
 
   const works = await fetchWithLocalizedMock<WorksData>(
     "works",
-    () => sanityClient.fetch(worksQuery, { lang }),
+    () => client.fetch(worksQuery, { lang }),
     lang,
   );
 
   const about = await fetchWithLocalizedMock<AboutData>(
     "about",
-    () => sanityClient.fetch(aboutQuery, { lang }),
+    () => client.fetch(aboutQuery, { lang }),
     lang,
   );
 
   const contact = await fetchWithLocalizedMock<ContactData>(
     "contact",
-    () => sanityClient.fetch(contactQuery, { lang }),
+    () => client.fetch(contactQuery, { lang }),
     lang,
   );
 

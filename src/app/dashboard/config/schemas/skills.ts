@@ -2,6 +2,7 @@ import { defineType, defineField } from "sanity";
 // import type { Rule } from "sanity";
 import { sectionTitle } from "./fields/sectionTitle";
 import { language } from "./fields/language";
+import { previewField } from "./fields/previewField";
 
 export default defineType({
   name: "skills",
@@ -60,4 +61,5 @@ export default defineType({
       return { title: "Skills" };
     },
   },
+  ...previewField,
 });

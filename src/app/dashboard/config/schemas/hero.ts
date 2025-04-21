@@ -1,5 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { language } from "./fields/language";
+import { previewField } from "./fields/previewField";
 // import type { Rule } from "sanity";
 
 export default defineType({
@@ -49,4 +50,5 @@ export default defineType({
       };
     },
   },
+  ...previewField,
 });

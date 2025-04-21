@@ -3,8 +3,12 @@ import { structureTool } from "sanity/structure";
 import { documentInternationalization } from "@sanity/document-internationalization";
 import { visionTool } from "@sanity/vision";
 
+import dotenv from "dotenv";
+
 import { schemaTypes } from "./schemas";
 import structure from "./structure";
+
+dotenv.config(); // 👈 va qui, una volta sola!
 
 export default defineConfig({
   name: "default",
@@ -13,13 +17,14 @@ export default defineConfig({
   dataset: "db",
   basePath: "/dashboard",
   plugins: [
-    visionTool(),
     structureTool({ structure }),
+    visionTool(),
     documentInternationalization({
       supportedLanguages: [
         { id: "it", title: "Italiano" },
         { id: "en", title: "English" },
       ],
+
       schemaTypes: [
         "hero",
         "skills",

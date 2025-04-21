@@ -1,3 +1,5 @@
+import { draftMode } from "next/headers"; // 👈 importa draftMode
+
 import SlideIn from "@components/motion/SlideIn";
 import Hero from "@sections/Hero";
 import Skills from "@sections/Skills";
@@ -16,13 +18,15 @@ import type { SectionsData } from "@schemas/sections";
 
 export default async function Home() {
   const lang = "it";
-  const sections: SectionsData = await getSections(lang);
+  const { isEnabled: isPreview } = await draftMode(); // 👈 rileva preview mode
+  const sections: SectionsData = await getSections(lang, isPreview); // 👈 abilita preview
+
   const { hero, skills, experience, works, about, contact } = sections;
 
   return (
     <LoaderWrapper minDelay={1500}>
       <>
-        <Header />
+        <Header isPreview={isPreview} />
 
         <SlideIn direction="up" duration={0.5} delay={0.05}>
           <Hero data={hero} />

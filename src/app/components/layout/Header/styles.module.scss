@@ -12,9 +12,28 @@
   }
 
   &__logo {
+    position: relative;
     font-weight: bold;
     font-size: 1.125rem;
     color: var(--color-text);
+    cursor: pointer;
+
+    &--preview-badge {
+      position: absolute;
+      top: -2px;
+      left: -6px;
+      background-color: var(--color-bg-contrast);
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 4px;
+      border-radius: 4px;
+      z-index: 2;
+      transform: rotate(-13deg);
+    }
+
+    &--preview::after {
+      opacity: 1; // 👈 visibile solo in preview
+    }
   }
 
   &__actions {
