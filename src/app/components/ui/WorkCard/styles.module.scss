@@ -1,13 +1,24 @@
+.work-card__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.work-card__reveal-mask {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-accent); // colore ben visibile
+  z-index: 2;
+  pointer-events: none;
+}
+
 .work-card {
   display: flex;
   gap: 1.5rem;
   background-color: var(--color-bg-contrast);
   color: var(--color-text-contrast);
-
   border-radius: 1rem;
   padding: 1.5rem;
-  border: 1px solid var(--color-border); // 👈 sostituisce la shadow
-
+  border: 1px solid var(--color-border);
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease;
@@ -18,9 +29,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 0.75rem;
-    background-color: var(
-      --color-border
-    ); // fallback in caso l'immagine non carichi
+    background-color: var(--color-border);
   }
 
   &__image {
@@ -28,7 +37,7 @@
     transition: transform 0.3s ease;
 
     .work-card:hover & {
-      transform: scale(1.02); // 👈 effetto soft flat
+      transform: scale(1.02);
     }
   }
 
