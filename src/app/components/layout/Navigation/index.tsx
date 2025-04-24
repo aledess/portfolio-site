@@ -1,26 +1,26 @@
 "use client";
+
 import { useRef, useLayoutEffect, useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { smoothScrollToId } from "@utils/scrollTo";
 import Text from "@components/ui/Text";
+import { useTranslation } from "@/app/i18n/useTranslation";
 
-type NavLink = {
-  label: string;
-  href: string;
-  external?: boolean;
-};
+export default function Navigation({ lang }: { lang: "it" | "en" }) {
+  const t = useTranslation(lang);
 
-export const links: NavLink[] = [
-  { label: "Home", href: "#home" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Works", href: "#works" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
+  const links = [
+    { label: t("navigation.home"), href: "#home" },
+    { label: t("navigation.skills"), href: "#skills" },
+    { label: t("navigation.experience"), href: "#experience" },
+    { label: t("navigation.works"), href: "#works" },
+    { label: t("navigation.about"), href: "#about" },
+    { label: t("navigation.contact"), href: "#contact" },
+  ];
 
-export default function Navigation() {
   const navRef = useRef<HTMLElement>(null);
   const [navHeight, setNavHeight] = useState(0);
   const [activeSection, setActiveSection] = useState<string>("home");
@@ -56,7 +56,11 @@ export default function Navigation() {
 
   return (
     <nav className={styles.nav__wrapper} ref={navRef}>
-      <ul className={styles.nav__menu}>
+      <motion.ul
+        layout
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className={styles.nav__menu}
+      >
         {links.map((link) => {
           const id = link.href.replace("#", "");
           const isActive = activeSection === id;
@@ -88,7 +92,7 @@ export default function Navigation() {
             </li>
           );
         })}
-      </ul>
+      </motion.ul>
     </nav>
   );
 }

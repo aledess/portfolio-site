@@ -6,6 +6,7 @@ import Text from "@components/ui/Text";
 import Toast from "@components/ui/Toast";
 import styles from "./styles.module.scss";
 import { ContactData } from "@schemas/contact";
+import { useTranslation } from "@/app/i18n/useTranslation";
 
 const contactTitleLoop = [
   "Let’s work together",
@@ -16,10 +17,12 @@ const contactTitleLoop = [
 
 type Props = {
   data: ContactData;
+  lang: "it" | "en";
 };
 
-export default function Contact({ data }: Props) {
+export default function Contact({ data, lang }: Props) {
   console.log("Contact Section Data", data);
+  const t = useTranslation(lang);
 
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -39,7 +42,7 @@ export default function Contact({ data }: Props) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    setToast({ message: "Invio in corso...", type: "loading" });
+    setToast({ message: t("contact.toastSending"), type: "loading" });
 
     try {
       const res = await fetch("/api/contact", {
@@ -53,13 +56,10 @@ export default function Contact({ data }: Props) {
       if (result.success) {
         setStatus("sent");
         setForm({ name: "", email: "", message: "" });
-        setToast({
-          message: "Messaggio inviato con successo!",
-          type: "success",
-        });
+        setToast({ message: t("contact.toastSuccess"), type: "success" });
       } else {
         setStatus("error");
-        setToast({ message: "Errore durante l'invio", type: "error" });
+        setToast({ message: t("contact.toastError"), type: "error" });
       }
     } catch (error) {
       console.error("Errore durante l'invio:", error);
@@ -83,7 +83,7 @@ export default function Contact({ data }: Props) {
       <form className={styles.contact__form} onSubmit={handleSubmit}>
         <div className={styles.contact__field}>
           <Text as="label" variant="label" htmlFor="name">
-            Name
+            {t("contact.name")}
           </Text>
           <input
             id="name"
@@ -97,7 +97,7 @@ export default function Contact({ data }: Props) {
 
         <div className={styles.contact__field}>
           <Text as="label" variant="label" htmlFor="email">
-            Email
+            {t("contact.email")}
           </Text>
           <input
             id="email"
@@ -111,7 +111,7 @@ export default function Contact({ data }: Props) {
 
         <div className={styles.contact__field}>
           <Text as="label" variant="label" htmlFor="message">
-            Message
+            {t("contact.message")}
           </Text>
           <textarea
             id="message"
@@ -129,10 +129,10 @@ export default function Contact({ data }: Props) {
           disabled={status === "sending"}
         >
           <Text as="span" variant="label" color="inherit">
-            {status === "sending" && "Sending..."}
-            {status === "sent" && "Message Sent!"}
-            {status === "error" && "Error, try again"}
-            {status === "idle" && "Send Message"}
+            {status === "sending" && t("contact.sending")}
+            {status === "sent" && t("contact.sent")}
+            {status === "error" && t("contact.error")}
+            {status === "idle" && t("contact.send")}
           </Text>
         </button>
       </form>

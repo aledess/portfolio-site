@@ -28,8 +28,6 @@ export default async function Home({
 
   const { hero, skills, experience, works, about, contact } = sections;
 
-  console.log("ì------", hero);
-
   return (
     <LoaderWrapper minDelay={1500}>
       <>
@@ -39,7 +37,7 @@ export default async function Home({
           <Hero data={hero} />
         </SlideIn>
 
-        <Navigation />
+        <Navigation lang={lang} />
 
         <SlideIn direction="up" duration={0.5} delay={0.1}>
           <Skills data={skills} />
@@ -58,7 +56,7 @@ export default async function Home({
         </SlideIn>
 
         <SlideIn direction="up" duration={0.5} delay={0.3}>
-          <Contact data={contact} />
+          <Contact data={contact} lang={lang} />
         </SlideIn>
 
         <BackToTop />
