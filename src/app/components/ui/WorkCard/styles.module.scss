@@ -1,14 +1,18 @@
 .work-card__wrapper {
-  position: relative;
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  position: relative; // necessario per la mask
   overflow: hidden;
+  border-radius: 1rem;
 }
 
 .work-card__reveal-mask {
   position: absolute;
   inset: 0;
-  background-color: var(--color-accent); // colore ben visibile
+  background-color: var(--color-accent);
   z-index: 2;
   pointer-events: none;
+  border-radius: 1rem;
 }
 
 .work-card {

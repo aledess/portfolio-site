@@ -25,14 +25,14 @@ export default function WorkCard({
 
   return (
     <div className={styles["work-card__wrapper"]} ref={ref}>
+      {/* Reveal Mask */}
       <motion.div
         className={styles["work-card__reveal-mask"]}
-        initial={{ x: 0 }}
-        animate={isInView ? { x: "-100%" } : {}}
+        initial={{ y: 0, opacity: 1 }}
+        animate={isInView ? { y: "-100%" } : {}}
         transition={{ duration: 0.8, ease: "easeInOut" }}
       />
 
-      {/* Contenuto vero della card */}
       <div className={styles["work-card"]}>
         <div className={styles["work-card__imageWrapper"]}>
           <Image
