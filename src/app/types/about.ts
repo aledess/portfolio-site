@@ -1,6 +1,8 @@
+import type { ImageAsset } from "./shared";
+
 export type AboutItem = {
   title: string;
-  image: string;
+  image: ImageAsset;
   height: number;
 };
 

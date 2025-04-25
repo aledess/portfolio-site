@@ -4,14 +4,6 @@ import styles from "./styles.module.scss";
 import MasonryItem from "@/app/components/ui/MasonryItem";
 import { AboutData } from "@schemas/about";
 
-const items = [
-  { title: "Scandinavia", image: "/assets/images/about1.png", height: 500 },
-  { title: "Design", image: "/assets/images/about2.png", height: 400 },
-  { title: "SerieTv", image: "/assets/images/about3.png", height: 240 },
-  { title: "Caffè", image: "/assets/images/about4.png", height: 600 },
-  { title: "Pixel Art", image: "/assets/images/about1.png", height: 240 },
-  { title: "Sketching", image: "/assets/images/about2.png", height: 500 },
-];
 type Props = {
   data: AboutData;
 };
@@ -22,24 +14,23 @@ export default function About({ data }: Props) {
     <Section
       contrastBg
       id="about"
-      title="About Me"
-      titleLoop={["Hobbies", "Passions", "Random Facts"]}
+      title={data.sectionTitle[0]}
+      titleLoop={data.sectionTitle.slice(1)}
     >
       <Text
         variant="body"
         color="contrast"
         className={styles["about__description"]}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate
-        libero et velit interdum, ac aliquet odio mattis.
+        {data.description}
       </Text>
 
       <div className={styles["about__masonry"]}>
-        {items.map((item, i) => (
+        {data.items.map((item, i) => (
           <MasonryItem
             key={i}
-            src={item.image}
-            alt={item.title}
+            src={item.image.asset.url}
+            alt={item.image.alt || item.title}
             caption={item.title}
             height={item.height}
             index={i}
