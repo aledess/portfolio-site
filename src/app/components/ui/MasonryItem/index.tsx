@@ -10,21 +10,21 @@ type MasonryItemProps = {
   alt: string;
   caption: string;
   height: number;
+  heightMobile?: number; // 👈 aggiunto opzionale
   index: number;
 };
 
 export default function MasonryItem({
   src,
   alt,
-  // caption,
   height,
+  heightMobile,
   index,
 }: MasonryItemProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
 
   const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 600);
@@ -34,10 +34,15 @@ export default function MasonryItem({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // 👉 calcoliamo dinamicamente
+  const finalHeight = isMobile
+    ? (heightMobile ?? 250) // Se esiste heightMobile uso quello, se no fallback 250px
+    : height;
+
   return (
     <div
       className={styles["masonry-item"]}
-      style={{ height: isMobile ? "250px" : `${height}px` }} // 👈 qui gestiamo
+      style={{ height: `${finalHeight}px` }}
       ref={ref}
     >
       <div className={styles["masonry-item__image-wrapper"]}>
@@ -51,7 +56,6 @@ export default function MasonryItem({
             ease: "easeInOut",
           }}
         />
-
         <Image
           src={src}
           alt={alt}
@@ -60,11 +64,6 @@ export default function MasonryItem({
           sizes="(max-width: 768px) 50vw, 33vw"
         />
       </div>
-
-      {/* Caption disabilitata */}
-      {/* <Text as="span" variant="labelL" className={styles["masonry-item__caption"]}>
-        {caption}
-      </Text> */}
     </div>
   );
 }

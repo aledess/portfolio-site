@@ -4,6 +4,7 @@ export type AboutItem = {
   title: string;
   image: ImageAsset;
   height: number;
+  heightMobile?: number;
 };
 
 export type AboutData = {

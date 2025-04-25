@@ -33,6 +33,7 @@ export default function About({ data }: Props) {
             alt={item.image.alt || item.title}
             caption={item.title}
             height={item.height}
+            heightMobile={item.heightMobile}
             index={i}
           />
         ))}
