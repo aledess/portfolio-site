@@ -3,9 +3,11 @@
 import { useState } from "react";
 import Section from "@components/layout/Section";
 import Text from "@components/ui/Text";
+import Socialbar from "@/app/components/ui/Socialbar";
 import Toast from "@components/ui/Toast";
 import styles from "./styles.module.scss";
-import { ContactData } from "@schemas/contact";
+import type { ContactData } from "@schemas/contact";
+import type { SocialData } from "@schemas/social";
 import { useTranslation } from "@/app/i18n/useTranslation";
 
 const contactTitleLoop = [
@@ -17,11 +19,11 @@ const contactTitleLoop = [
 
 type Props = {
   data: ContactData;
+  socialData: SocialData;
   lang: "it" | "en";
 };
 
-export default function Contact({ data, lang }: Props) {
-  console.log("Contact Section Data", data);
+export default function Contact({ data, socialData, lang }: Props) {
   const t = useTranslation(lang);
 
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -69,15 +71,17 @@ export default function Contact({ data, lang }: Props) {
   };
 
   return (
-    <Section id="contact" titleLoop={contactTitleLoop}>
+    <Section id="contact" titleLoop={contactTitleLoop} full>
+      <div className={styles.contact__sidebar}>
+        <Socialbar items={socialData.items} layout="sidebar" />
+      </div>
       <Text
         as="p"
         variant="body"
         color="secondary"
         className={styles.contact__intro}
       >
-        Want to collaborate or just say hi? Fill out the form below and I’ll get
-        back to you soon.
+        {data.description}
       </Text>
 
       <form className={styles.contact__form} onSubmit={handleSubmit}>

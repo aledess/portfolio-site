@@ -26,7 +26,7 @@ export default async function Home({
   const { isEnabled: isPreview } = await draftMode(); // 👈 rileva preview mode
   const sections: SectionsData = await getSections(lang, isPreview); // 👈 abilita preview
 
-  const { hero, skills, experience, works, about, contact } = sections;
+  const { hero, skills, experience, works, about, contact, social } = sections;
 
   return (
     <LoaderWrapper minDelay={1500}>
@@ -56,7 +56,7 @@ export default async function Home({
         </SlideIn>
 
         <SlideIn direction="up" duration={0.5} delay={0.3}>
-          <Contact data={contact} lang={lang} />
+          <Contact data={contact} socialData={social} lang={lang} />
         </SlideIn>
 
         <BackToTop />

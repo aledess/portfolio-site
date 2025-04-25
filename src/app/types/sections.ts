@@ -5,6 +5,7 @@ import { ExperienceData } from "./experience";
 import { WorksData } from "./works";
 import { AboutData } from "./about";
 import { ContactData } from "./contact";
+import { SocialData } from "./social";
 
 export type SectionsData = {
   hero: HeroData;
@@ -13,4 +14,5 @@ export type SectionsData = {
   works: WorksData;
   about: AboutData;
   contact: ContactData;
+  social: SocialData;
 };

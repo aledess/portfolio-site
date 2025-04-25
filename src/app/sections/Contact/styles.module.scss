@@ -1,3 +1,6 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
 .contact {
   min-height: 60vh;
   max-width: 700px; // larghezza massima form
@@ -6,6 +9,16 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
+
+  &__sidebar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    left: 1rem;
+  }
 
   &__intro {
     text-align: center;

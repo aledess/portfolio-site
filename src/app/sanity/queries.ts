@@ -145,3 +145,27 @@ export const contactQuery = /* groq */ `
     }
   }
 `;
+
+export const socialQuery = /* groq */ `
+  *[_type == "social" && language == $lang][0]{
+    socials[]{
+      label,
+      url,
+      icon
+    },
+    showSocialInContact,
+    showSocialSidebar,
+    "_translations": *[
+      _type == "translation.metadata" && references(^._id)
+    ][0].translations[].value->{
+      socials[]{
+        label,
+        url,
+        icon
+      },
+      showSocialInContact,
+      showSocialSidebar,
+      language
+    }
+  }
+`;

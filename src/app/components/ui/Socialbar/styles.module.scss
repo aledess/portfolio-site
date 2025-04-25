@@ -1,0 +1,24 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.socialLinks {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 500px;
+
+  &--sidebar {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+}
