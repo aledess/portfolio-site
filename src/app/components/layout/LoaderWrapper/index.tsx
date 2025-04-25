@@ -16,6 +16,18 @@ export default function LoaderWrapper({ children }: Props) {
   );
 
   useEffect(() => {
+    if (phase === "loader" || phase === "transition") {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [phase]);
+
+  useEffect(() => {
     if (phase === "transition") {
       const timeout = setTimeout(() => {
         setPhase("content");
