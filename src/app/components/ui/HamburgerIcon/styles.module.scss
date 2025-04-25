@@ -1,0 +1,19 @@
+.hamburger {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.hamburger__line {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-accent);
+  border-radius: 1px;
+  display: block;
+}

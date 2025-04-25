@@ -5,6 +5,7 @@
   width: 100%;
   padding: 1rem 0;
   background: transparent;
+  z-index: 1000; // serve solo se fixed sopra altre cose, qui non serve
 
   &__content {
     max-width: 1200px;
@@ -36,7 +37,6 @@
       left: -8px;
       background-color: var(--color-bg-contrast);
       color: var(--color-text-contrast);
-
       font-size: 12px;
       font-weight: 200;
       padding: 2px 4px;
@@ -44,15 +44,31 @@
       z-index: 2;
       transform: rotate(-13deg);
     }
-
-    &--preview::after {
-      opacity: 1;
-    }
   }
 
   &__actions {
     display: flex;
     align-items: center;
     gap: 1rem;
+    position: relative;
+  }
+
+  &__desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    @include respond-max("md") {
+      display: none;
+    }
+  }
+
+  &__hamburger {
+    display: block;
+    cursor: pointer;
+    position: fixed; // 👈 Ora è fixed
+    top: 3rem;
+    right: 3rem;
+    z-index: 1100; // Sopra header, sopra mobile menu
   }
 }

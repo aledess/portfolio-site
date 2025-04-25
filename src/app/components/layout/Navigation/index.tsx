@@ -2,25 +2,14 @@
 
 import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { smoothScrollToId } from "@utils/scrollTo";
 import Text from "@components/ui/Text";
-import { useTranslation } from "@/app/i18n/useTranslation";
+import { useNavigationLinks } from "@/app/hooks/useNavigationLinks";
 
 export default function Navigation({ lang }: { lang: "it" | "en" }) {
-  const t = useTranslation(lang);
-
-  const links = [
-    { label: t("navigation.home"), href: "#home" },
-    { label: t("navigation.skills"), href: "#skills" },
-    { label: t("navigation.experience"), href: "#experience" },
-    { label: t("navigation.works"), href: "#works" },
-    { label: t("navigation.about"), href: "#about" },
-    { label: t("navigation.contact"), href: "#contact" },
-  ];
-
+  const links = useNavigationLinks(lang);
   const navRef = useRef<HTMLElement>(null);
   const [navHeight, setNavHeight] = useState(0);
   const [activeSection, setActiveSection] = useState<string>("home");
@@ -44,7 +33,7 @@ export default function Navigation({ lang }: { lang: "it" | "en" }) {
       },
       {
         rootMargin: `-${navHeight + 1}px 0px 0px 0px`,
-        threshold: 0.6, // più stabile
+        threshold: 0.6,
       },
     );
 

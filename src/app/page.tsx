@@ -8,9 +8,9 @@ import Works from "@sections/Works";
 import Contact from "@sections/Contact";
 import About from "@sections/About";
 
-import Navigation from "@components/layout/Navigation";
 import LoaderWrapper from "@components/layout/LoaderWrapper";
 import Header from "@components/layout/Header";
+import Navigation from "@components/layout/Navigation";
 import BackToTop from "@components/ui/BackToTop";
 
 import { getSections } from "@sanity/sections";
