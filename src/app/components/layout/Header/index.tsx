@@ -33,7 +33,6 @@ export default function Header({ isPreview = false, lang }: Props) {
       document.body.style.overflow = "";
     }
 
-    // reset super-safe
     return () => {
       document.body.style.overflow = "";
     };
@@ -73,7 +72,11 @@ export default function Header({ isPreview = false, lang }: Props) {
               Preview
             </span>
           )}
-          <Icon name="logo" size={60} color="accent" />
+          <Icon
+            name="logo"
+            color="accent"
+            className={styles["header__logo-icon"]}
+          />
         </div>
 
         <div className={styles.header__actions}>

@@ -5,7 +5,6 @@
   width: 100%;
   padding: 1rem 0;
   background: transparent;
-  z-index: 1000; // serve solo se fixed sopra altre cose, qui non serve
 
   &__content {
     max-width: 1200px;
@@ -13,7 +12,7 @@
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; // 👈 Importante: centra verticalmente logo + hamburger
 
     @include respond-max("md") {
       padding: 0 1.5rem;
@@ -25,13 +24,15 @@
   }
 
   &__logo {
+    display: flex;
+    align-items: center;
     position: relative;
     font-weight: bold;
     font-size: 1.125rem;
     color: var(--color-text);
     cursor: pointer;
 
-    &--preview-badge {
+    &-preview-badge {
       position: absolute;
       top: -6px;
       left: -8px;
@@ -44,13 +45,27 @@
       z-index: 2;
       transform: rotate(-13deg);
     }
+
+    &-icon {
+      width: 60px;
+      height: 60px;
+
+      @include respond-max("md") {
+        width: 40px;
+        height: 40px;
+      }
+
+      @include respond-max("sm") {
+        width: 32px;
+        height: 32px;
+      }
+    }
   }
 
   &__actions {
     display: flex;
     align-items: center;
     gap: 1rem;
-    position: relative;
   }
 
   &__desktop-actions {
@@ -63,12 +78,14 @@
     }
   }
 
-  &__hamburger {
-    display: block;
+  .header__hamburger {
+    display: none;
     cursor: pointer;
-    position: fixed; // 👈 Ora è fixed
-    top: 3rem;
-    right: 3rem;
-    z-index: 1100; // Sopra header, sopra mobile menu
+    z-index: 1000;
+    position: fixed;
+
+    @include respond-max("md") {
+      display: block;
+    }
   }
 }

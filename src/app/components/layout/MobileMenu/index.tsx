@@ -92,9 +92,7 @@ export default function MobileMenu({ lang, toggleMenu, isClosing }: Props) {
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
               >
-                <Text variant="headingM" color="accent">
-                  {link.label}
-                </Text>
+                <Text variant="headingM">{link.label}</Text>
               </a>
             </motion.li>
           ))}
