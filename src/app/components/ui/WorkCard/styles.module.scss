@@ -20,8 +20,7 @@
 
 .work-card {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  flex-direction: column; // 👈 Sempre colonna, SEMPRE!
   background-color: var(--color-bg-contrast);
   color: var(--color-text-contrast);
   border-radius: 1rem;
@@ -30,45 +29,42 @@
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease;
+  gap: 1rem;
+}
 
-  &__top {
-    display: flex;
-    gap: 1.5rem;
+.work-card__image-wrapper {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background-color: var(--color-border);
+}
+
+.work-card__image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  .work-card:hover & {
+    transform: scale(1.02);
   }
+}
 
-  &__image-wrapper {
-    flex: 0 0 160px;
-    aspect-ratio: 1 / 1;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.75rem;
-    background-color: var(--color-border);
-  }
+.work-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
 
-  &__image {
-    object-fit: cover;
-    transition: transform 0.3s ease;
-
-    .work-card:hover & {
-      transform: scale(1.02);
-    }
-  }
-
-  &__content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  &__tech-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    justify-content: flex-start;
-  }
+.work-card__tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  margin-top: 1rem;
+  list-style: none;
 }
