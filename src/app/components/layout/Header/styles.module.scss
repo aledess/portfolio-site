@@ -20,11 +20,13 @@
 
     &--preview-badge {
       position: absolute;
-      top: -2px;
-      left: -6px;
+      top: -6px;
+      left: -8px;
       background-color: var(--color-bg-contrast);
-      font-size: 10px;
-      font-weight: bold;
+      color: var(--color-text-contrast);
+
+      font-size: 12px;
+      font-weight: 200;
       padding: 2px 4px;
       border-radius: 4px;
       z-index: 2;
