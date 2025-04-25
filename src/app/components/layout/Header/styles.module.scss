@@ -1,3 +1,6 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
 .header {
   width: 100%;
   padding: 1rem 0;
@@ -6,9 +9,18 @@
   &__content {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include respond-max("md") {
+      padding: 0 1.5rem;
+    }
+
+    @include respond-max("sm") {
+      padding: 0 1rem;
+    }
   }
 
   &__logo {
@@ -34,7 +46,7 @@
     }
 
     &--preview::after {
-      opacity: 1; // 👈 visibile solo in preview
+      opacity: 1;
     }
   }
 

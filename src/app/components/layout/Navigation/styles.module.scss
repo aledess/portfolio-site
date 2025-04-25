@@ -1,3 +1,5 @@
+@use "@/styles/mixins" as *;
+
 .nav {
   &__wrapper {
     position: sticky;
@@ -7,6 +9,9 @@
     justify-content: center;
     background: var(--color-bg); // opzionale
     padding: 1rem;
+    @include respond-max("md") {
+      display: none;
+    }
   }
 
   &__menu {

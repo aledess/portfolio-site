@@ -1,8 +1,15 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
 .section {
   padding: 2rem;
-  max-width: 1400px;
+  max-width: $container-width;
   margin: 0 auto;
   min-height: 50vh;
+
+  @include respond-max("md") {
+    padding: 1.5rem;
+  }
 
   &--contrast {
     background-color: var(--color-bg-contrast);
@@ -28,6 +35,10 @@
 
   &--compact {
     padding: 2rem !important;
+
+    @include respond-max("md") {
+      padding: 1rem !important;
+    }
   }
 
   &--full {
@@ -46,12 +57,18 @@
     justify-content: center;
     text-align: center;
 
+    @include respond-max("md") {
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
     &--contrast {
-      color: var(--color-text-contrast); // Usa bianco o nero a seconda del tema
+      color: var(--color-text-contrast);
     }
 
     &--accent {
-      color: var(--color-black); // Sempre nero, come richiesto
+      color: var(--color-black);
     }
   }
 
@@ -59,5 +76,9 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    @include respond-max("sm") {
+      gap: 1rem;
+    }
   }
 }

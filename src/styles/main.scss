@@ -1,3 +1,4 @@
-@use "themes";
-@use "base";
-@use "variables";
+@use "@/styles/themes"; // Tema light/dark
+@use "@/styles/base"; // Reset generale
+@use "@/styles/variables"; // Variabili SASS
+@use "@/styles/mixins"; // Mixins responsive

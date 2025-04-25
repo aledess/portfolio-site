@@ -1,24 +1,31 @@
-:root {
-  --font-family: var(--font-primary), sans-serif;
+// ====================
+// SASS Variables (compile time)
+// ====================
 
-  // Colori base
-  --color-white: #f5f5f5;
-  --color-white-soft: #ffffff;
-  --color-black: #1f1f1f;
-  --color-black-soft: #121212;
+// Breakpoints
+$breakpoints: (
+  "xs": 375px,
+  "sm": 480px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+);
 
-  // Grigi
-  --color-gray: #888888;
-  --color-gray-dark: #2a2a2a;
+// Base spacing
+$spacing: 1rem;
 
-  // Border
-  --color-border-light: #e0e0e0;
+// Container width
+$container-width: 1400px;
 
-  // Accent
-  --color-accent-light: #5893d4;
-  --color-accent-light-rgb: 88, 147, 212;
-
-  --color-accent-dark: #a5c9ea;
-  // f2b5a3, b3cde0
-  --color-accent-dark-rgb: 165, 201, 234;
-}
+// Font sizes
+$font-sizes: (
+  "font-xxl": 3rem,
+  // Hero molto grande
+  "font-xl": 2.5rem,
+  // Titoli di sezione
+  "font-lg": 2rem,
+  // Sottotitoli
+  "font-md": 1rem,
+  // Corpo del testo
+  "font-sm": 0.875rem, // Testo piccolo
+);
