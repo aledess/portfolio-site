@@ -1,10 +1,16 @@
+@use "@/styles/mixins" as *;
+
 .works {
-  column-count: 2;
-  column-gap: 1rem;
+  column-count: 3; // Default desktop: 3 colonne
+  column-gap: 1.5rem;
   margin-bottom: 3rem;
 
-  @media (min-width: 1024px) {
-    column-count: 3;
+  @include respond-max("lg") {
+    column-count: 2; // Tablet landscape: 2 colonne
+  }
+
+  @include respond-max("md") {
+    column-count: 1; // Tablet portrait e mobile: 1 colonna
   }
 
   &__cta {

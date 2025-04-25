@@ -11,17 +11,17 @@ export const mockAboutIT: AboutData = {
     {
       title: "Scandinavia",
       image: { asset: { url: about1.src }, alt: "Scandinavia" },
-      height: 500,
+      height: 240,
     },
     {
       title: "Design",
       image: { asset: { url: about2.src }, alt: "Design" },
-      height: 400,
+      height: 300,
     },
     {
       title: "SerieTv",
       image: { asset: { url: about3.src }, alt: "SerieTv" },
-      height: 240,
+      height: 200,
     },
     {
       title: "Caffè",

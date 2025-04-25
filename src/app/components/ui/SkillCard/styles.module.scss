@@ -1,3 +1,6 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
 .skill-card {
   display: flex;
   flex-direction: column;
@@ -7,19 +10,29 @@
   background-color: var(--color-bg-contrast);
   color: var(--color-text-contrast);
   border-radius: 0.75rem;
-
-  width: 160px;
-  height: 160px;
+  border: 1px solid var(--color-border); // 👈 bordino soft
+  box-shadow: none;
   padding: 1.25rem;
   margin-right: 1rem;
 
-  border: 1px solid var(--color-border); // 👈 bordino soft
-  box-shadow: none; // 👈 niente ombre
+  width: 160px;
+  height: 160px;
 
   transition:
     transform 0.25s ease,
     background-color 0.25s ease,
     border-color 0.25s ease;
+
+  @include respond-max("md") {
+    width: 140px;
+    height: 140px;
+  }
+
+  @include respond-max("sm") {
+    width: 120px;
+    height: 120px;
+    margin-right: 0;
+  }
 
   &__icon {
     font-size: 2rem;

@@ -34,33 +34,36 @@ export default function WorkCard({
       />
 
       <div className={styles["work-card"]}>
-        <div className={styles["work-card__imageWrapper"]}>
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className={styles["work-card__image"]}
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
+        <div className={styles["work-card__top"]}>
+          <div className={styles["work-card__image-wrapper"]}>
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className={styles["work-card__image"]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+
+          <div className={styles["work-card__content"]}>
+            <Text as="h3" variant="headingM">
+              {title}
+            </Text>
+            <Text as="p" variant="body" color="secondary">
+              {description}
+            </Text>
+          </div>
         </div>
 
-        <div className={styles["work-card__content"]}>
-          <Text as="h3" variant="headingM">
-            {title}
-          </Text>
-          <Text as="p" variant="body" color="secondary">
-            {description}
-          </Text>
-          {tech.length > 0 && (
-            <ul className={styles["work-card__techList"]}>
-              {tech.map((item, i) => (
-                <li key={`tech-${item}-${i}`}>
-                  <Chip label={item} />
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        {tech.length > 0 && (
+          <ul className={styles["work-card__tech-list"]}>
+            {tech.map((item, i) => (
+              <li key={`tech-${item}-${i}`}>
+                <Chip label={item} />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
