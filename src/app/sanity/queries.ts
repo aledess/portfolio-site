@@ -26,11 +26,19 @@ export const skillsQuery = /* groq */ `
     sectionTitle,
     items[]{
       label,
-      icon,
-      image {
+      icon {
         asset->{url},
         alt
-      }
+      },
+      light {
+        asset->{url},
+        alt
+      },
+      dark {
+        asset->{url},
+        alt
+      },
+      iconClass, // 👈 questo è il nuovo nome per evitare conflitti
     },
     "_translations": *[
       _type == "translation.metadata" && references(^._id)

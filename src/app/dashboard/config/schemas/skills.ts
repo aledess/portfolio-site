@@ -26,30 +26,60 @@ export default defineType({
               type: "string",
             }),
             defineField({
-              name: "icon",
-              title: "Classe Icona (es. devicon-react-original)",
-              type: "string",
-            }),
-            defineField({
-              name: "image",
-              title: "Icona personalizzata (immagine)",
+              name: "light",
+              title: "Icona per tema chiaro",
               type: "image",
-              options: {
-                hotspot: true,
-              },
+              options: { hotspot: true },
               fields: [
                 {
                   name: "alt",
                   type: "string",
                   title: "Testo alternativo (alt)",
-                  description:
-                    "Descrizione dell'immagine per SEO e accessibilità",
                   validation: (Rule) =>
                     Rule.required().error(
                       "Il testo alternativo è obbligatorio",
                     ),
                 },
               ],
+            }),
+            defineField({
+              name: "dark",
+              title: "Icona per tema scuro",
+              type: "image",
+              options: { hotspot: true },
+              fields: [
+                {
+                  name: "alt",
+                  type: "string",
+                  title: "Testo alternativo (alt)",
+                  validation: (Rule) =>
+                    Rule.required().error(
+                      "Il testo alternativo è obbligatorio",
+                    ),
+                },
+              ],
+            }),
+            defineField({
+              name: "icon",
+              title: "Icona base",
+              type: "image",
+              options: { hotspot: true },
+              fields: [
+                {
+                  name: "alt",
+                  type: "string",
+                  title: "Testo alternativo (alt)",
+                  validation: (Rule) =>
+                    Rule.required().error(
+                      "Il testo alternativo è obbligatorio",
+                    ),
+                },
+              ],
+            }),
+            defineField({
+              name: "iconClass",
+              title: "Classe Icona (es. devicon-react-original)",
+              type: "string",
             }),
           ],
         },
