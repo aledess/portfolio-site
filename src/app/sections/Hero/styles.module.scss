@@ -5,12 +5,12 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 100dvh;
+  min-height: calc(
+    100dvh - #{$header-height-desktop} - #{$navigation-height} - #{$hero-offset}
+  );
 
   @include respond-max("md") {
-  }
-
-  @include respond-max("sm") {
+    min-height: calc(100dvh - #{$header-height-mobile});
   }
 
   &::after,
@@ -43,7 +43,7 @@
   }
 
   &__content {
-    flex: 1 1 40%;
+    flex: 1 1 50%;
     min-width: 300px;
     display: flex;
     flex-direction: column;
@@ -60,7 +60,7 @@
   }
 
   &__image {
-    flex: 1 1 60%;
+    flex: 1 1 50%;
     min-width: 250px;
     max-width: 600px;
     display: flex;

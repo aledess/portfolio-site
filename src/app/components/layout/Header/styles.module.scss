@@ -5,6 +5,11 @@
   width: 100%;
   padding: 1rem 0;
   background: transparent;
+  height: $header-height-desktop;
+
+  @include respond-max("md") {
+    height: $header-height-mobile;
+  }
 
   &__content {
     max-width: 1200px;
@@ -12,7 +17,7 @@
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center; // 👈 Importante: centra verticalmente logo + hamburger
+    align-items: center;
 
     @include respond-max("md") {
       padding: 0 1.5rem;

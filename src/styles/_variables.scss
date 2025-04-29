@@ -5,19 +5,29 @@
 // Breakpoints
 $breakpoints: (
   "xs": 375px,
+  // Mobile piccolo
   "sm": 480px,
+  // Mobile grande
   "md": 768px,
+  // Tablet
   "lg": 1024px,
-  "xl": 1280px,
+  // Desktop medio
+  "xl": 1280px, // Desktop largo
 );
 
-// Base spacing
+// Spaziatura base
 $spacing: 1rem;
 
-// Container width
+// Larghezza massima contenitore
 $container-width: 1400px;
 
-// Font sizes
+// Altezze fisse
+$header-height-desktop: 80px; // Altezza header desktop
+$header-height-mobile: 64px; // Altezza header mobile
+$navigation-height: 86px; // Altezza navigation sticky
+$hero-offset: 10rem; // Offset aggiuntivo per regolare la distanza della hero
+
+// Font sizes per variante + breakpoint
 $font-sizes: (
   "heading": (
     "mobile": 1.3rem,

@@ -10,6 +10,7 @@ import About from "@sections/About";
 
 import LoaderWrapper from "@components/layout/LoaderWrapper";
 import Header from "@components/layout/Header";
+import Navigation from "@components/layout/Navigation";
 import BackToTop from "@components/ui/BackToTop";
 
 import { getSections } from "@sanity/sections";
@@ -32,8 +33,10 @@ export default async function Home({
       <Header isPreview={isPreview} lang={lang} />
 
       <SlideIn direction="up" duration={0.5} delay={0.05}>
-        <Hero data={hero} social={social} lang={lang} />
+        <Hero data={hero} social={social} />
       </SlideIn>
+
+      <Navigation lang={lang} />
 
       <SlideIn direction="up" duration={0.5} delay={0.1}>
         <Skills data={skills} />
