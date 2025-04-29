@@ -43,3 +43,14 @@ body.theme-transition,
     0 0 0 1px rgba(0, 0, 0, 0.03),
     0 0 20px rgba(0, 0, 0, 0.05);
 }
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0; // oppure right: 0 per metterla a destra
+  width: 4px;
+  height: 0; // partiamo da zero
+  background-color: var(--color-accent);
+  z-index: 9999;
+  transition: height 0.2s ease-out;
+}
