@@ -6,11 +6,11 @@ export const mockSocialIT: SocialData = {
     {
       label: "LinkedIn",
       light: {
-        asset: { url: "/icons/socials/linkedin-light.svg" },
+        asset: { url: "/icons/social/linkedin-light.svg" },
         alt: "LinkedIn chiaro",
       },
       dark: {
-        asset: { url: "/icons/socials/linkedin-dark.svg" },
+        asset: { url: "/icons/social/linkedin-dark.svg" },
         alt: "LinkedIn scuro",
       },
       url: "https://www.linkedin.com/in/tuo-profilo",
@@ -18,11 +18,11 @@ export const mockSocialIT: SocialData = {
     {
       label: "Curriculum",
       light: {
-        asset: { url: "/icons/socials/cv-light.svg" },
+        asset: { url: "/icons/social/cv-light.svg" },
         alt: "CV chiaro",
       },
       dark: {
-        asset: { url: "/icons/socials/cv-dark.svg" },
+        asset: { url: "/icons/social/cv-dark.svg" },
         alt: "CV scuro",
       },
       file: {
@@ -32,11 +32,11 @@ export const mockSocialIT: SocialData = {
     {
       label: "GitHub",
       light: {
-        asset: { url: "/icons/socials/github-light.svg" },
+        asset: { url: "/icons/social/github-light.svg" },
         alt: "GitHub chiaro",
       },
       dark: {
-        asset: { url: "/icons/socials/github-dark.svg" },
+        asset: { url: "/icons/social/github-dark.svg" },
         alt: "GitHub scuro",
       },
       url: "https://github.com/tuo-username",
@@ -51,11 +51,11 @@ export const mockSocialEN: SocialData = {
     {
       label: "LinkedIn",
       light: {
-        asset: { url: "/icons/socials/linkedin-light.svg" },
+        asset: { url: "/icons/social/linkedin-light.svg" },
         alt: "LinkedIn light",
       },
       dark: {
-        asset: { url: "/icons/socials/linkedin-dark.svg" },
+        asset: { url: "/icons/social/linkedin-dark.svg" },
         alt: "LinkedIn dark",
       },
       url: "https://www.linkedin.com/in/your-profile",
@@ -63,11 +63,11 @@ export const mockSocialEN: SocialData = {
     {
       label: "Resume",
       light: {
-        asset: { url: "/icons/socials/cv-light.svg" },
+        asset: { url: "/icons/social/cv-light.svg" },
         alt: "Resume light",
       },
       dark: {
-        asset: { url: "/icons/socials/cv-dark.svg" },
+        asset: { url: "/icons/social/cv-dark.svg" },
         alt: "Resume dark",
       },
       file: {
@@ -77,11 +77,11 @@ export const mockSocialEN: SocialData = {
     {
       label: "GitHub",
       light: {
-        asset: { url: "/icons/socials/github-light.svg" },
+        asset: { url: "/icons/social/github-light.svg" },
         alt: "GitHub light",
       },
       dark: {
-        asset: { url: "/icons/socials/github-dark.svg" },
+        asset: { url: "/icons/social/github-dark.svg" },
         alt: "GitHub dark",
       },
       url: "https://github.com/your-username",

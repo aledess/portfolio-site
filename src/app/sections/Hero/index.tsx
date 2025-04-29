@@ -4,6 +4,7 @@ import TypewriterText from "@components/ui/TypewriterText";
 import styles from "./styles.module.scss";
 import type { HeroData } from "@schemas/hero";
 import { SocialData } from "@/app/types/social";
+import SocialBar from "@/app/components/ui/Socialbar";
 
 type Props = {
   data: HeroData;
@@ -11,7 +12,7 @@ type Props = {
 };
 
 export default function Hero({ data, social }: Props) {
-  const { title, subtitle, description, image } = data;
+  const { title, subtitle, image } = data;
   console.log("🚀 HERO DATA:", data, social);
 
   return (
@@ -51,21 +52,7 @@ export default function Hero({ data, social }: Props) {
               as="h1"
             />
 
-            {description && (
-              <div className={styles.hero__descriptionWrapper}>
-                <TypewriterText
-                  words={[description]}
-                  variant="body"
-                  color="secondary"
-                  align="left"
-                  loop={false}
-                  typingSpeed={25}
-                  className={styles.hero__description}
-                  as="p"
-                  delay={3100}
-                />
-              </div>
-            )}
+            <SocialBar data={social} />
           </div>
         </div>
       </Section>

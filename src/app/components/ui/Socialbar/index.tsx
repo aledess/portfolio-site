@@ -1,43 +1,44 @@
-/* eslint-disable @next/next/no-img-element */
-import { useTheme } from "@/app/context/ThemeProvider";
-import type { SocialData } from "@/app/types/social";
-import styles from "./styles.module.scss"; // Stile da creare
+"use client";
 
-type SocialBarProps = {
-  social: SocialData;
+import { useTheme } from "@/app/context/ThemeProvider";
+import styles from "./styles.module.scss";
+import Image from "@components/ui/Image"; // 👈 nostro componente custom
+import type { SocialData } from "@/app/types/social";
+
+type Props = {
+  data: SocialData;
 };
 
-export default function SocialBar({ social }: SocialBarProps) {
+export default function SocialBar({ data }: Props) {
   const { theme } = useTheme();
 
-  if (!social?.items?.length) return null;
-
+  if (!data?.items?.length) return null;
+  console.log("dasasasaaas", data);
   return (
     <div className={styles.socialBar}>
-      {social.items.map((item) => {
-        const icon = theme === "light" ? item.light : item.dark;
+      {data.items.map((item, index) => {
+        const icon = theme === "dark" ? item.dark : item.light;
 
-        if (!icon?.asset?.url) return null;
-
+        const href = item.url || item.file?.asset.url;
         const isDownload = !!item.file;
 
-        const href = item.url || item.file?.asset.url || "#";
+        if (!href || !icon) return null;
 
         return (
           <a
-            key={item.label}
+            key={index}
             href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            download={isDownload}
+            target={isDownload ? "_self" : "_blank"}
+            rel={isDownload ? undefined : "noopener noreferrer"}
+            download={isDownload ? true : undefined}
             aria-label={item.label}
             className={styles.socialBar__link}
           >
-            <img
+            <Image
               src={icon.asset.url}
               alt={icon.alt || item.label}
-              width={32}
-              height={32}
+              width={24}
+              height={24}
               className={styles.socialBar__icon}
             />
           </a>
