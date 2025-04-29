@@ -19,13 +19,29 @@ $container-width: 1400px;
 
 // Font sizes
 $font-sizes: (
-  "font-xxl": 3rem,
-  // Hero molto grande
-  "font-xl": 2.5rem,
-  // Titoli di sezione
-  "font-lg": 2rem,
-  // Sottotitoli
-  "font-md": 1rem,
-  // Corpo del testo
-  "font-sm": 0.875rem, // Testo piccolo
+  "heading": (
+    "mobile": 1.2rem,
+    "tablet": 2rem,
+    "desktop": 2.5rem,
+  ),
+  "headingSmall": (
+    "mobile": 1.2rem,
+    "tablet": 2rem,
+    "desktop": 2rem,
+  ),
+  "body": (
+    "mobile": 0.875rem,
+    "tablet": 1rem,
+    "desktop": 1rem,
+  ),
+  "label": (
+    "mobile": 0.875rem,
+    "tablet": 0.875rem,
+    "desktop": 0.9rem,
+  ),
+  "caption": (
+    "mobile": 0.75rem,
+    "tablet": 0.875rem,
+    "desktop": 0.875rem,
+  ),
 );

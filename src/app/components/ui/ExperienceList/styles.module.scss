@@ -1,47 +1,56 @@
+@use "@/styles/mixins" as *;
+
 .experience-list {
   display: flex;
   position: relative;
   padding: 4rem 2rem;
-}
 
-.experience-list__timeline {
-  position: relative;
-  width: 4px;
-  margin-right: 5rem;
-}
+  &__timeline {
+    position: relative;
+    width: 4px;
+    margin-right: 4rem;
+    background: var(--color-surface-contrast);
+  }
 
-.experience-list__line {
-  position: sticky;
-  top: 4rem;
-  width: 4px;
-  height: 200px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
+  &__line {
+    position: sticky;
+    top: 4rem;
+    width: 4px;
+    height: 150px;
+    background: var(--color-accent);
+    border-radius: 2px;
+  }
 
-.experience-list__content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-.experience-list__item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 
-.experience-list__date {
-  color: var(--color-text-muted);
-}
+  &__date {
+    color: var(--color-accent);
+  }
 
-.experience-list__company {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
+  &__company {
+    font-weight: 600;
+  }
 
-.experience-list__description {
-  font-size: 1rem;
-  line-height: 1.4;
+  &__description {
+    line-height: 1.4;
+  }
+
+  @include respond-max("sm") {
+    padding: 2rem 0;
+
+    &__timeline {
+      margin-right: 1.2rem;
+    }
+  }
 }

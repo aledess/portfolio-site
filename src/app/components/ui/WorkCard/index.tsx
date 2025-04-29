@@ -45,7 +45,7 @@ export default function WorkCard({
         </div>
 
         <div className={styles["work-card__content"]}>
-          <Text as="h3" variant="headingM">
+          <Text as="h3" variant="body">
             {title}
           </Text>
           <Text as="p" variant="body" color="secondary">

@@ -41,7 +41,7 @@ export default function Section({
       {title && !titleLoop && (
         <Text
           as="h2"
-          variant="headingL"
+          variant="heading"
           className={classNames(styles.section__title, {
             [styles["section__title--contrast"]]: contrastBg,
             [styles["section__title--accent"]]: accentBg,

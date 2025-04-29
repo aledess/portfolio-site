@@ -23,10 +23,20 @@
 }
 
 // Font size helper
-@mixin font-size($name) {
-  @if map-has-key($font-sizes, $name) {
-    font-size: map-get($font-sizes, $name);
+@mixin font-size($key) {
+  $sizes: map-get($font-sizes, $key);
+
+  @if $sizes {
+    font-size: map-get($sizes, "mobile");
+
+    @include respond("md") {
+      font-size: map-get($sizes, "tablet");
+    }
+
+    @include respond("lg") {
+      font-size: map-get($sizes, "desktop");
+    }
   } @else {
-    @warn "Font size #{$name} non definito.";
+    @warn "Font size `#{$key}` non trovato.";
   }
 }

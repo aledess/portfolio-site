@@ -30,7 +30,7 @@ export default function TypewriterText({
   className,
   align = "center",
   loop = true,
-  variant = "headingL",
+  variant = "heading",
   color = "primary",
   as,
   delay = 0, // default a 0 se non specificato

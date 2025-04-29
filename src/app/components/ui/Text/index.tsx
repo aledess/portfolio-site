@@ -2,14 +2,7 @@ import { ReactNode, ElementType, ComponentPropsWithoutRef } from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-export type Variant =
-  | "headingM"
-  | "headingL"
-  | "headingXL"
-  | "body"
-  | "label"
-  | "labelS"
-  | "labelL";
+export type Variant = "heading" | "headingS" | "body" | "label" | "caption";
 
 export type Color =
   | "primary"

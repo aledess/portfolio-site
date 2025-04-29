@@ -1,4 +1,3 @@
-"use client";
 import styles from "./styles.module.scss";
 import Text from "@components/ui/Text";
 
@@ -21,12 +20,17 @@ export default function ExperienceList({
       <div className={styles["experience-list__content"]}>
         {experiences.map((exp, index) => (
           <div key={index} className={styles["experience-list__item"]}>
-            <Text as="span" variant="label" color="secondary">
+            <Text
+              as="span"
+              variant="label"
+              color="secondary"
+              className={styles["experience-list__date"]}
+            >
               {exp.date}
             </Text>
             <Text
               as="h3"
-              variant="headingM"
+              variant="body"
               className={styles["experience-list__company"]}
             >
               {exp.company}

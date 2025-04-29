@@ -31,7 +31,7 @@ export default function Hero({ data, social }: Props) {
           <div className={styles.hero__content}>
             <TypewriterText
               words={[subtitle]}
-              variant="labelS"
+              variant="label"
               color="accent"
               align="left"
               loop={false}
@@ -44,7 +44,7 @@ export default function Hero({ data, social }: Props) {
 
             <TypewriterText
               words={[title]}
-              variant="headingL"
+              variant="heading"
               align="left"
               loop={false}
               typingSpeed={80}

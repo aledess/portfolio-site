@@ -57,7 +57,7 @@ export default function SkillCard({
         <i className={`${iconClass} ${styles["skill-card__icon"]}`} />
       ) : null}
 
-      <Text variant="label" className={styles["skill-card__label"]}>
+      <Text variant="caption" className={styles["skill-card__label"]}>
         {label}
       </Text>
     </div>

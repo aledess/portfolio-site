@@ -114,7 +114,7 @@ export default function Contact({ data, lang }: Props) {
           <textarea
             id="message"
             name="message"
-            rows={5}
+            rows={10}
             value={form.message}
             onChange={handleChange}
             required

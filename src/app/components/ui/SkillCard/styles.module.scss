@@ -7,10 +7,10 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--color-bg-contrast);
-  color: var(--color-text-contrast);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   border-radius: 0.75rem;
-  border: 1px solid var(--color-border); // 👈 bordino soft
+  border: 1px solid var(--color-accent);
   box-shadow: none;
   padding: 1.25rem;
   margin-right: 1rem;
@@ -29,21 +29,17 @@
   }
 
   @include respond-max("sm") {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     margin-right: 0;
   }
 
   &__icon {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-    color: var(--color-accent-contrast);
+    margin-bottom: 0.9rem;
   }
 
   &__label {
     text-align: center;
-    font-weight: 500;
-    font-size: 0.875rem;
     letter-spacing: 0.02em;
   }
 }

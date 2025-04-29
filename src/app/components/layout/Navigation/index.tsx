@@ -71,7 +71,7 @@ export default function Navigation({ lang }: { lang: "it" | "en" }) {
                 })}
               >
                 <Text
-                  variant="labelL"
+                  variant="label"
                   className={styles.nav__text}
                   color="contrast"
                 >
