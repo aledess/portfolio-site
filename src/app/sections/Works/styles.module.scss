@@ -3,7 +3,6 @@
 .works {
   column-count: 3; // Default desktop: 3 colonne
   column-gap: 1.5rem;
-  margin-bottom: 3rem;
 
   @include respond-max("lg") {
     column-count: 2; // Tablet landscape: 2 colonne
@@ -11,12 +10,6 @@
 
   @include respond-max("md") {
     column-count: 1; // Tablet portrait e mobile: 1 colonna
-  }
-
-  &__cta {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
   }
 
   &__link {

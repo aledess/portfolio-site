@@ -58,11 +58,14 @@
       width: 30%;
 
       @include respond-max("md") {
-        width: 80%;
+        width: 100%;
       }
     }
     textarea {
       width: 80%;
+      @include respond-max("md") {
+        width: 100%;
+      }
     }
   }
 

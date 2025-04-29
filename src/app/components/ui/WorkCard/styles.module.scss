@@ -21,16 +21,18 @@
 
 .work-card {
   display: flex;
-  flex-direction: column; // 👈 Sempre colonna, SEMPRE!
-  // background-color: var(--color-bg-contrast);
-  // color: var(--color-text-contrast);
+  flex-direction: column;
   border-radius: 1rem;
   padding: 1.5rem;
+
   border: 1px solid var(--color-accent);
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease;
   gap: 1rem;
+  @include respond-max("sm") {
+    padding: 0.8rem;
+  }
 }
 
 .work-card__image-wrapper {

@@ -35,7 +35,7 @@ export default function Section({
         [styles["section--full"]]: full,
         [styles["section--contrast"]]: contrastBg,
         [styles["section--accent"]]: accentBg,
-        [styles["section--compact"]]: compact, // 👈 applicata qui
+        [styles["section--compact"]]: compact,
       })}
     >
       {title && !titleLoop && (

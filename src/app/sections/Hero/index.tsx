@@ -5,13 +5,15 @@ import styles from "./styles.module.scss";
 import type { HeroData } from "@schemas/hero";
 import { SocialData } from "@/app/types/social";
 import SocialBar from "@/app/components/ui/Socialbar";
+import Navigation from "@/app/components/layout/Navigation";
 
 type Props = {
   data: HeroData;
   social: SocialData;
+  lang: "it" | "en";
 };
 
-export default function Hero({ data, social }: Props) {
+export default function Hero({ data, social, lang }: Props) {
   const { title, subtitle, image } = data;
   console.log("🚀 HERO DATA:", data, social);
 
@@ -54,6 +56,9 @@ export default function Hero({ data, social }: Props) {
 
             <SocialBar data={social} />
           </div>
+        </div>
+        <div className={styles.hero__navigation}>
+          <Navigation lang={lang} />
         </div>
       </Section>
     </section>

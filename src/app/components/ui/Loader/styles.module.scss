@@ -26,7 +26,7 @@
   }
 
   &__bar {
-    background-color: var(--color-bg-contrast);
+    background-color: var(--color-accent);
     height: 32px;
     width: 220px;
     transform-origin: center;
@@ -47,6 +47,7 @@
     width: 220px;
     height: 12px;
     background-color: var(--color-bg-contrast);
+    opacity: 0.8;
     border-radius: 2px;
     overflow: hidden;
   }

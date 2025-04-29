@@ -68,7 +68,7 @@ export default function Contact({ data, lang }: Props) {
   };
 
   return (
-    <Section id="contact" titleLoop={contactTitleLoop} full>
+    <Section id="contact" titleLoop={contactTitleLoop}>
       <Text
         as="p"
         variant="body"

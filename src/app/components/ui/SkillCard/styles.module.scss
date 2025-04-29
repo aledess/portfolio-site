@@ -34,8 +34,22 @@
     margin-right: 0;
   }
 
-  &__icon {
+  &__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 0.9rem;
+  }
+
+  &__icon-image,
+  &__icon-font {
+    width: 40px;
+    height: 40px;
+
+    @include respond-max("sm") {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   &__label {

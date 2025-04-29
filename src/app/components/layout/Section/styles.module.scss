@@ -2,83 +2,95 @@
 @use "@/styles/mixins" as *;
 
 .section {
-  padding: 2rem;
   max-width: $container-width;
-  margin: 0 auto;
-  min-height: 50vh;
+  margin: 10rem auto 0;
 
   @include respond-max("md") {
-    padding: 1.5rem;
+    margin-top: 5rem;
   }
 
-  &--contrast {
-    background-color: var(--color-bg-contrast);
-    color: var(--color-text);
-    padding-left: 0;
-    padding-right: 0;
-    max-width: none;
-    width: 100%;
-  }
-
-  &--accent {
-    background-color: var(--color-accent);
-    color: var(--color-text);
-    padding-left: 0;
-    padding-right: 0;
-    max-width: none;
-    width: 100%;
-  }
-
+  // Varianti layout
   &--tight {
     max-width: 1000px;
-  }
-
-  &--compact {
-    padding: 2rem !important;
-
-    @include respond-max("md") {
-      padding: 1rem !important;
-    }
   }
 
   &--full {
     max-width: none;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
   }
 
-  &__title {
-    margin-bottom: 4rem;
-    margin-top: 8rem;
-    color: var(--color-text);
+  &--compact {
+    margin-top: 0;
+  }
 
-    display: flex;
-    justify-content: center;
-    text-align: center;
+  &--contrast {
+    background-color: var(--color-bg-contrast);
+    color: var(--color-text-contrast);
+    width: 100%;
+    max-width: none;
+    padding: 2.5rem 0;
+    margin-top: 6.5rem;
 
     @include respond-max("md") {
-      margin-top: 4rem;
-      margin-bottom: 2rem;
+      margin-top: 2.5rem;
+    }
+  }
+
+  // Titolo della sezione
+  &__title {
+    color: var(--color-text);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    transition: box-shadow 0.3s ease;
+
+    @include respond-max("md") {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      padding: 0.8rem 0;
+      background-color: var(--color-bg);
     }
 
     &--contrast {
       color: var(--color-text-contrast);
+
+      @include respond-max("md") {
+        background-color: var(--color-bg-contrast);
+      }
     }
 
     &--accent {
       color: var(--color-black);
+
+      @include respond-max("md") {
+        background-color: var(--color-accent);
+      }
     }
   }
 
+  // Contenuto della sezione
   &__content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     position: relative;
+    padding: 4rem 4rem 0;
+
+    @include respond-max("md") {
+      padding: 2.5rem 2rem 0;
+    }
 
     @include respond-max("sm") {
+      padding: 2rem 1.5rem 0;
       gap: 1rem;
     }
+  }
+
+  // Override per .section--full
+  &--full &__content {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

@@ -49,37 +49,37 @@ export const mockAboutEN: AboutData = {
   items: [
     {
       title: "Scandinavia",
-      image: { asset: { url: "/images/about/about1.png" }, alt: "Scandinavia" },
+      image: { asset: { url: "/images/about1.png" }, alt: "Scandinavia" },
       height: 240,
       heightMobile: 250,
     },
     {
       title: "Design",
-      image: { asset: { url: "/images/about/about2.png" }, alt: "Design" },
+      image: { asset: { url: "/images/about2.png" }, alt: "Design" },
       height: 300,
       heightMobile: 200,
     },
     {
       title: "SerieTv",
-      image: { asset: { url: "/images/about/about3.png" }, alt: "SerieTv" },
+      image: { asset: { url: "/images/about3.png" }, alt: "SerieTv" },
       height: 200,
       heightMobile: 300,
     },
     {
       title: "Caffè",
-      image: { asset: { url: "/images/about/about4.png" }, alt: "Caffè" },
+      image: { asset: { url: "/images/about4.png" }, alt: "Caffè" },
       height: 600,
       heightMobile: 220,
     },
     {
       title: "Pixel Art",
-      image: { asset: { url: "/images/about/about1.png" }, alt: "Pixel Art" },
+      image: { asset: { url: "/images/about1.png" }, alt: "Pixel Art" },
       height: 240,
       heightMobile: 230,
     },
     {
       title: "Sketching",
-      image: { asset: { url: "/images/about/about2.png" }, alt: "Sketching" },
+      image: { asset: { url: "/images/about2.png" }, alt: "Sketching" },
       height: 500,
       heightMobile: 200,
     },

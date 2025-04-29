@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 
 export default function ScrollProgress() {
   const [progressHeight, setProgressHeight] = useState(0);
@@ -15,32 +16,23 @@ export default function ScrollProgress() {
       const scrollPercent = (scrollTop / docHeight) * 100;
 
       setProgressHeight(scrollPercent);
-
-      if (scrollTop > 20) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
+      setVisible(scrollTop > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <>
-      <div
-        className={`${styles["scroll-progress__bar"]} ${
-          visible ? styles["scroll-progress__bar--visible"] : ""
-        } ${styles["scroll-progress__bar--left"]}`}
-        style={{ height: `${progressHeight}vh` }}
-      />
-      {/* <div
-        className={`${styles["scroll-progress__bar"]} ${
-          visible ? styles["scroll-progress__bar--visible"] : ""
-        } ${styles["scroll-progress__bar--right"]}`}
-        style={{ height: `${progressHeight}vh` }}
-      /> */}
-    </>
+    <div
+      className={classNames(
+        styles["scroll-progress__bar"],
+        styles["scroll-progress__bar--left"],
+        {
+          [styles["scroll-progress__bar--visible"]]: visible,
+        },
+      )}
+      style={{ height: `${progressHeight}vh` }}
+    />
   );
 }

@@ -14,7 +14,7 @@ export default function HamburgerIcon({ isOpen }: Props) {
         className={styles.hamburger__line}
         animate={{
           rotate: isOpen ? 45 : 0,
-          translateY: isOpen ? 8 : 0,
+          translateY: isOpen ? 5 : 0,
         }}
         transition={{ duration: 0.3 }}
       />
@@ -29,7 +29,7 @@ export default function HamburgerIcon({ isOpen }: Props) {
         className={styles.hamburger__line}
         animate={{
           rotate: isOpen ? -45 : 0,
-          translateY: isOpen ? -8 : 0,
+          translateY: isOpen ? -5 : 0,
         }}
         transition={{ duration: 0.3 }}
       />

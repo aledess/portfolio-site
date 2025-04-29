@@ -44,18 +44,19 @@ export default function SkillCard({
 
   return (
     <div className={styles["skill-card"]}>
-      {selectedIcon ? (
-        <div className={styles["skill-card__image-wrapper"]}>
+      <div className={styles["skill-card__icon-wrapper"]}>
+        {selectedIcon ? (
           <Image
             src={selectedIcon.url}
             alt={selectedIcon.alt}
             width={40}
             height={40}
+            className={styles["skill-card__icon-image"]}
           />
-        </div>
-      ) : iconClass ? (
-        <i className={`${iconClass} ${styles["skill-card__icon"]}`} />
-      ) : null}
+        ) : iconClass ? (
+          <i className={`${iconClass} ${styles["skill-card__icon-font"]}`} />
+        ) : null}
+      </div>
 
       <Text variant="caption" className={styles["skill-card__label"]}>
         {label}
