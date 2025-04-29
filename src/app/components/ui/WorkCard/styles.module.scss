@@ -13,6 +13,7 @@
   position: absolute;
   inset: 0;
   background-color: var(--color-accent);
+  margin-top: -1px;
   z-index: 2;
   pointer-events: none;
   border-radius: 1rem;
@@ -21,11 +22,11 @@
 .work-card {
   display: flex;
   flex-direction: column; // 👈 Sempre colonna, SEMPRE!
-  background-color: var(--color-bg-contrast);
-  color: var(--color-text-contrast);
+  // background-color: var(--color-bg-contrast);
+  // color: var(--color-text-contrast);
   border-radius: 1rem;
   padding: 1.5rem;
-  border: 1px solid var(--color-border);
+  // border: 1px solid var(--color-border);
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease;

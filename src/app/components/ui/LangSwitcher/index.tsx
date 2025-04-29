@@ -2,12 +2,10 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import Image from "next/image";
-import itFlag from "@/assets/images/it.png";
-import enFlag from "@/assets/images/en.png";
 
 const LANGUAGES = [
-  { id: "it", label: "Italiano", icon: itFlag },
-  { id: "en", label: "English", icon: enFlag },
+  { id: "it", label: "Italiano", icon: "/images/it.png" },
+  { id: "en", label: "English", icon: "/images/en.png" },
 ];
 
 type Props = {
@@ -36,7 +34,13 @@ export default function LangSwitcher({ lang }: Props) {
           })}
           aria-label={`Cambia lingua in ${label}`}
         >
-          <Image src={icon} alt={label} width={20} height={20} />
+          <Image
+            src={icon}
+            alt={label}
+            width={20}
+            height={20}
+            className={styles.langSwitcher__flag}
+          />
         </button>
       ))}
     </div>

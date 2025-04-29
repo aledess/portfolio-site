@@ -1,8 +1,4 @@
 import type { AboutData } from "@schemas/about";
-import about1 from "@/assets/images/about1.png";
-import about2 from "@/assets/images/about2.png";
-import about3 from "@/assets/images/about3.png";
-import about4 from "@/assets/images/about4.png";
 
 export const mockAboutIT: AboutData = {
   sectionTitle: ["Chi sono", "Hobby", "Curiosità"],
@@ -10,39 +6,39 @@ export const mockAboutIT: AboutData = {
   items: [
     {
       title: "Scandinavia",
-      image: { asset: { url: about1.src }, alt: "Scandinavia" },
+      image: { asset: { url: "/images/about1.png" }, alt: "Scandinavia" },
       height: 240,
-      heightMobile: 250, // 👈 nuovo opzionale
+      heightMobile: 250,
     },
     {
       title: "Design",
-      image: { asset: { url: about2.src }, alt: "Design" },
+      image: { asset: { url: "/images/about2.png" }, alt: "Design" },
       height: 300,
-      heightMobile: 200, // 👈 nuovo opzionale
+      heightMobile: 200,
     },
     {
       title: "SerieTv",
-      image: { asset: { url: about3.src }, alt: "SerieTv" },
+      image: { asset: { url: "/images/about3.png" }, alt: "SerieTv" },
       height: 200,
-      heightMobile: 240, // 👈 nuovo opzionale
+      heightMobile: 240,
     },
     {
       title: "Caffè",
-      image: { asset: { url: about4.src }, alt: "Caffè" },
+      image: { asset: { url: "/images/about4.png" }, alt: "Caffè" },
       height: 600,
-      heightMobile: 220, // 👈 nuovo opzionale
+      heightMobile: 220,
     },
     {
       title: "Pixel Art",
-      image: { asset: { url: about1.src }, alt: "Pixel Art" },
+      image: { asset: { url: "/images/about1.png" }, alt: "Pixel Art" },
       height: 240,
-      heightMobile: 230, // 👈 nuovo opzionale
+      heightMobile: 230,
     },
     {
       title: "Sketching",
-      image: { asset: { url: about2.src }, alt: "Sketching" },
+      image: { asset: { url: "/images/about2.png" }, alt: "Sketching" },
       height: 500,
-      heightMobile: 200, // 👈 nuovo opzionale
+      heightMobile: 200,
     },
   ],
 };
@@ -53,39 +49,39 @@ export const mockAboutEN: AboutData = {
   items: [
     {
       title: "Scandinavia",
-      image: { asset: { url: about1.src }, alt: "Scandinavia" },
+      image: { asset: { url: "/images/about/about1.png" }, alt: "Scandinavia" },
       height: 240,
-      heightMobile: 250, // 👈 nuovo opzionale
+      heightMobile: 250,
     },
     {
       title: "Design",
-      image: { asset: { url: about2.src }, alt: "Design" },
+      image: { asset: { url: "/images/about/about2.png" }, alt: "Design" },
       height: 300,
-      heightMobile: 200, // 👈 nuovo opzionale
+      heightMobile: 200,
     },
     {
       title: "SerieTv",
-      image: { asset: { url: about3.src }, alt: "SerieTv" },
+      image: { asset: { url: "/images/about/about3.png" }, alt: "SerieTv" },
       height: 200,
-      heightMobile: 300, // 👈 nuovo opzionale
+      heightMobile: 300,
     },
     {
       title: "Caffè",
-      image: { asset: { url: about4.src }, alt: "Caffè" },
+      image: { asset: { url: "/images/about/about4.png" }, alt: "Caffè" },
       height: 600,
-      heightMobile: 220, // 👈 nuovo opzionale
+      heightMobile: 220,
     },
     {
       title: "Pixel Art",
-      image: { asset: { url: about1.src }, alt: "Pixel Art" },
+      image: { asset: { url: "/images/about/about1.png" }, alt: "Pixel Art" },
       height: 240,
-      heightMobile: 230, // 👈 nuovo opzionale
+      heightMobile: 230,
     },
     {
       title: "Sketching",
-      image: { asset: { url: about2.src }, alt: "Sketching" },
+      image: { asset: { url: "/images/about/about2.png" }, alt: "Sketching" },
       height: 500,
-      heightMobile: 200, // 👈 nuovo opzionale
+      heightMobile: 200,
     },
   ],
 };

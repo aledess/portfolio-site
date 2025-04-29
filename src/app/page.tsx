@@ -1,4 +1,4 @@
-import { draftMode } from "next/headers"; // 👈 importa draftMode
+import { draftMode } from "next/headers";
 
 import SlideIn from "@components/motion/SlideIn";
 import Hero from "@sections/Hero";
@@ -30,37 +30,35 @@ export default async function Home({
 
   return (
     <LoaderWrapper minDelay={1500}>
-      <>
-        <Header isPreview={isPreview} lang={lang} />
+      <Header isPreview={isPreview} lang={lang} />
 
-        <SlideIn direction="up" duration={0.5} delay={0.05}>
-          <Hero data={hero} />
-        </SlideIn>
+      <SlideIn direction="up" duration={0.5} delay={0.05}>
+        <Hero data={hero} social={social} />
+      </SlideIn>
 
-        <Navigation lang={lang} />
+      <Navigation lang={lang} />
 
-        <SlideIn direction="up" duration={0.5} delay={0.1}>
-          <Skills data={skills} />
-        </SlideIn>
+      <SlideIn direction="up" duration={0.5} delay={0.1}>
+        <Skills data={skills} />
+      </SlideIn>
 
-        <SlideIn direction="up" duration={0.5} delay={0.15}>
-          <Experience data={experience} />
-        </SlideIn>
+      <SlideIn direction="up" duration={0.5} delay={0.15}>
+        <Experience data={experience} />
+      </SlideIn>
 
-        <SlideIn direction="up" duration={0.5} delay={0.2}>
-          <Works data={works} />
-        </SlideIn>
+      <SlideIn direction="up" duration={0.5} delay={0.2}>
+        <Works data={works} />
+      </SlideIn>
 
-        <SlideIn direction="up" duration={0.5} delay={0.25}>
-          <About data={about} />
-        </SlideIn>
+      <SlideIn direction="up" duration={0.5} delay={0.25}>
+        <About data={about} />
+      </SlideIn>
 
-        <SlideIn direction="up" duration={0.5} delay={0.3}>
-          <Contact data={contact} socialData={social} lang={lang} />
-        </SlideIn>
+      <SlideIn direction="up" duration={0.5} delay={0.3}>
+        <Contact data={contact} lang={lang} />
+      </SlideIn>
 
-        <BackToTop />
-      </>
+      <BackToTop />
     </LoaderWrapper>
   );
 }

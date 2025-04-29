@@ -1,36 +1,48 @@
-"use client";
+/* eslint-disable @next/next/no-img-element */
+import { useTheme } from "@/app/context/ThemeProvider";
+import type { SocialData } from "@/app/types/social";
+import styles from "./styles.module.scss"; // Stile da creare
 
-import Image from "next/image";
-import styles from "./styles.module.scss";
-import { SocialItem } from "@/app/types/social";
-
-type Props = {
-  items: SocialItem[];
-  layout?: "contact" | "sidebar"; // 👈 poi lo useremo per i layout diversi
+type SocialBarProps = {
+  social: SocialData;
 };
 
-export default function Socialbar({ items, layout = "contact" }: Props) {
+export default function SocialBar({ social }: SocialBarProps) {
+  const { theme } = useTheme();
+
+  if (!social?.items?.length) return null;
+
   return (
-    <div
-      className={`${styles.socialLinks} ${styles[`socialLinks--${layout}`]}`}
-    >
-      {items.map((item) => (
-        <a
-          key={item.label}
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.socialLinks__item}
-          aria-label={item.label}
-        >
-          <Image
-            src={item.icon.asset.url}
-            alt={item.icon.alt || item.label}
-            width={40}
-            height={40}
-          />
-        </a>
-      ))}
+    <div className={styles.socialBar}>
+      {social.items.map((item) => {
+        const icon = theme === "light" ? item.light : item.dark;
+
+        if (!icon?.asset?.url) return null;
+
+        const isDownload = !!item.file;
+
+        const href = item.url || item.file?.asset.url || "#";
+
+        return (
+          <a
+            key={item.label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            download={isDownload}
+            aria-label={item.label}
+            className={styles.socialBar__link}
+          >
+            <img
+              src={icon.asset.url}
+              alt={icon.alt || item.label}
+              width={32}
+              height={32}
+              className={styles.socialBar__icon}
+            />
+          </a>
+        );
+      })}
     </div>
   );
 }

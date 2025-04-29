@@ -1,5 +1,4 @@
-import { HeroData } from "@schemas/hero";
-import heroImage from "@/assets/images/photo.png";
+import type { HeroData } from "@schemas/hero";
 
 export const mockHeroIT: HeroData = {
   _id: "mock-hero-it",
@@ -8,7 +7,7 @@ export const mockHeroIT: HeroData = {
   description: "Descrizione IT Mocked",
   image: {
     asset: {
-      url: heroImage.src,
+      url: "/images/photo.png",
     },
     alt: "Foto Hero",
   },
@@ -22,7 +21,7 @@ export const mockHeroEN: HeroData = {
   description: "Descrizione EN Mocked",
   image: {
     asset: {
-      url: heroImage.src,
+      url: "/images/photo.png",
     },
     alt: "Hero Image",
   },

@@ -33,7 +33,7 @@ export default function BackToTop() {
           transition={{ duration: 0.3 }}
           aria-label="Back to top"
         >
-          <Icon name="arrowUp" size={16} />
+          <Icon name="arrow-up" size={20} />
         </motion.button>
       )}
     </AnimatePresence>

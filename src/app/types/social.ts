@@ -1,16 +1,25 @@
 export type SocialItem = {
   label: string;
-  url: string;
-  icon: {
-    asset: {
-      url: string;
-    };
+  light?: {
+    asset: { url: string };
     alt?: string;
+  };
+  dark?: {
+    asset: { url: string };
+    alt?: string;
+  };
+  url?: string;
+  file?: {
+    asset: { url: string };
   };
 };
 
 export type SocialData = {
+  _id: string;
   items: SocialItem[];
-  showSocialInContact: boolean;
-  showSocialSidebar: boolean;
+  _translations?: Array<{
+    _id: string;
+    items: SocialItem[];
+    language: string;
+  }>;
 };

@@ -1,29 +1,41 @@
-import icons, { IconName } from "@/assets/icons";
+"use client";
+
+import { useTheme } from "@/app/context/ThemeProvider";
 import styles from "./styles.module.scss";
+import { useState } from "react";
 
 type IconProps = {
-  name: IconName;
-  size?: number; // continua a supportare il size classico
-  color?: "white" | "black" | "accent" | "contrast";
+  name: string; // esempio base: "logo", "react", "linkedin"
+  folder?: "icons" | "icons/skills" | "icons/social"; // default = icons
+  size?: number;
   className?: string;
+  alt?: string;
 };
 
 export default function Icon({
   name,
+  folder = "icons",
   size = 24,
-  color,
   className = "",
+  alt = "",
 }: IconProps) {
-  const Component = icons[name];
-  const colorClass = color ? styles[`icon--${color}`] : "";
+  const { theme } = useTheme();
+  const [fallback, setFallback] = useState(false);
 
-  const sizeProps = size ? { width: size, height: size } : {}; // 👈 Se size undefined non passi niente!
+  const suffix = fallback ? "" : `-${theme}`; // se fallback, rimuove il suffisso
+  const src = `/${folder}/${name}${suffix}.svg`;
+
+  const sizeProps = size ? { width: size, height: size } : {};
 
   return (
-    <Component
-      {...sizeProps} // 👈 solo se serve
-      className={`${styles.icon} ${colorClass} ${className}`}
-      aria-hidden="true"
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={alt || name}
+      {...sizeProps}
+      onError={() => setFallback(true)} // 👈 se errore, fallback
+      className={`${styles.icon} ${className}`}
+      aria-hidden={!alt}
     />
   );
 }

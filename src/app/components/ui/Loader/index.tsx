@@ -76,7 +76,7 @@ export default function Loader({
               opacity: { duration: 0.6 },
             }}
           >
-            <Icon name="logo" size={60} color="accent" />
+            <Icon name="logo" size={60} />
           </motion.div>
 
           {/* Barre animate con opacità decrescente */}

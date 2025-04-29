@@ -3,11 +3,9 @@
 import { useState } from "react";
 import Section from "@components/layout/Section";
 import Text from "@components/ui/Text";
-import Socialbar from "@/app/components/ui/Socialbar";
 import Toast from "@components/ui/Toast";
 import styles from "./styles.module.scss";
 import type { ContactData } from "@schemas/contact";
-import type { SocialData } from "@schemas/social";
 import { useTranslation } from "@/app/i18n/useTranslation";
 
 const contactTitleLoop = [
@@ -19,11 +17,10 @@ const contactTitleLoop = [
 
 type Props = {
   data: ContactData;
-  socialData: SocialData;
   lang: "it" | "en";
 };
 
-export default function Contact({ data, socialData, lang }: Props) {
+export default function Contact({ data, lang }: Props) {
   const t = useTranslation(lang);
 
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -72,9 +69,6 @@ export default function Contact({ data, socialData, lang }: Props) {
 
   return (
     <Section id="contact" titleLoop={contactTitleLoop} full>
-      <div className={styles.contact__sidebar}>
-        <Socialbar items={socialData.items} layout="sidebar" />
-      </div>
       <Text
         as="p"
         variant="body"

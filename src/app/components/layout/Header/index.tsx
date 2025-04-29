@@ -72,11 +72,7 @@ export default function Header({ isPreview = false, lang }: Props) {
               Preview
             </span>
           )}
-          <Icon
-            name="logo"
-            color="accent"
-            className={styles["header__logo-icon"]}
-          />
+          <Icon name="logo" className={styles["header__logo-icon"]} />
         </div>
 
         <div className={styles.header__actions}>

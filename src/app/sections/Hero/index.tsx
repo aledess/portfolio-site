@@ -3,14 +3,16 @@ import Section from "@components/layout/Section";
 import TypewriterText from "@components/ui/TypewriterText";
 import styles from "./styles.module.scss";
 import type { HeroData } from "@schemas/hero";
+import { SocialData } from "@/app/types/social";
 
 type Props = {
   data: HeroData;
+  social: SocialData;
 };
 
-export default function Hero({ data }: Props) {
+export default function Hero({ data, social }: Props) {
   const { title, subtitle, description, image } = data;
-  console.log("🚀 HERO DATA:", data);
+  console.log("🚀 HERO DATA:", data, social);
 
   return (
     <section className={styles.hero}>

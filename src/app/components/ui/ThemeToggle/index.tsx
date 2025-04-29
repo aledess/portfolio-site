@@ -17,22 +17,22 @@ export default function ThemeToggle() {
       <div className={styles["theme-toggle__track"]}>
         <motion.div
           className={styles["theme-toggle__thumb"]}
-          animate={{ x: theme === "dark" ? 40 : 0 }} // ← torna a 0–40 preciso
+          animate={{ x: theme === "dark" ? 40 : 0 }}
           transition={{ type: "spring", stiffness: 180, damping: 12 }}
         />
-        <div className={styles["theme-toggle__icon"]}>
-          <Icon
-            name="sun"
-            size={16}
-            color={theme === "light" ? "contrast" : "black"}
-          />
+        <div
+          className={`${styles["theme-toggle__icon"]} ${
+            theme === "light" ? styles["theme-toggle__icon--active"] : ""
+          }`}
+        >
+          <Icon name="sun" size={16} />
         </div>
-        <div className={styles["theme-toggle__icon"]}>
-          <Icon
-            name="moon"
-            size={16}
-            color={theme === "dark" ? "contrast" : "black"}
-          />
+        <div
+          className={`${styles["theme-toggle__icon"]} ${
+            theme === "dark" ? styles["theme-toggle__icon--active"] : ""
+          }`}
+        >
+          <Icon name="moon" size={16} />
         </div>
       </div>
     </button>

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { useTheme } from "@/app/context/ThemeProvider";
-import styles from "./styles.module.scss";
 import Text from "@components/ui/Text";
+import Image from "@components/ui/Image";
+import styles from "./styles.module.scss";
 
 type SkillCardProps = {
   label: string;

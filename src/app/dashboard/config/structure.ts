@@ -11,7 +11,7 @@ const structure = (S: StructureBuilder) =>
       withPreviewView(S, "works", "works-single", "Works"),
       withPreviewView(S, "about", "about-single", "About"),
       withPreviewView(S, "contact", "contact-single", "Contact"),
-
+      withPreviewView(S, "social", "social-single", "Social"),
       S.listItem()
         .title("Translation metadata")
         .child(

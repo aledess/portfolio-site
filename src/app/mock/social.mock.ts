@@ -1,64 +1,91 @@
-import { SocialData } from "@app/types/social";
-import itImage from "@/assets/images/it.png";
+import type { SocialData } from "@/app/types/social";
 
 export const mockSocialIT: SocialData = {
+  _id: "mock-socials-it",
   items: [
     {
       label: "LinkedIn",
-      url: "https://linkedin.com/in/tuo-profilo",
-      icon: {
-        asset: { url: itImage.src },
-        alt: "LinkedIn",
+      light: {
+        asset: { url: "/icons/socials/linkedin-light.svg" },
+        alt: "LinkedIn chiaro",
+      },
+      dark: {
+        asset: { url: "/icons/socials/linkedin-dark.svg" },
+        alt: "LinkedIn scuro",
+      },
+      url: "https://www.linkedin.com/in/tuo-profilo",
+    },
+    {
+      label: "Curriculum",
+      light: {
+        asset: { url: "/icons/socials/cv-light.svg" },
+        alt: "CV chiaro",
+      },
+      dark: {
+        asset: { url: "/icons/socials/cv-dark.svg" },
+        alt: "CV scuro",
+      },
+      file: {
+        asset: { url: "/files/curriculum.pdf" },
       },
     },
     {
       label: "GitHub",
+      light: {
+        asset: { url: "/icons/socials/github-light.svg" },
+        alt: "GitHub chiaro",
+      },
+      dark: {
+        asset: { url: "/icons/socials/github-dark.svg" },
+        alt: "GitHub scuro",
+      },
       url: "https://github.com/tuo-username",
-      icon: {
-        asset: { url: itImage.src },
-        alt: "GitHub",
-      },
-    },
-    {
-      label: "Scarica CV",
-      url: "/cv-ita.pdf",
-      icon: {
-        asset: { url: itImage.src },
-        alt: "CV",
-      },
     },
   ],
-  showSocialInContact: true,
-  showSocialSidebar: false,
+  _translations: [],
 };
 
 export const mockSocialEN: SocialData = {
+  _id: "mock-socials-en",
   items: [
     {
       label: "LinkedIn",
-      url: "https://linkedin.com/in/your-profile",
-      icon: {
-        asset: { url: itImage.src },
-        alt: "LinkedIn",
+      light: {
+        asset: { url: "/icons/socials/linkedin-light.svg" },
+        alt: "LinkedIn light",
+      },
+      dark: {
+        asset: { url: "/icons/socials/linkedin-dark.svg" },
+        alt: "LinkedIn dark",
+      },
+      url: "https://www.linkedin.com/in/your-profile",
+    },
+    {
+      label: "Resume",
+      light: {
+        asset: { url: "/icons/socials/cv-light.svg" },
+        alt: "Resume light",
+      },
+      dark: {
+        asset: { url: "/icons/socials/cv-dark.svg" },
+        alt: "Resume dark",
+      },
+      file: {
+        asset: { url: "/files/resume.pdf" },
       },
     },
     {
       label: "GitHub",
+      light: {
+        asset: { url: "/icons/socials/github-light.svg" },
+        alt: "GitHub light",
+      },
+      dark: {
+        asset: { url: "/icons/socials/github-dark.svg" },
+        alt: "GitHub dark",
+      },
       url: "https://github.com/your-username",
-      icon: {
-        asset: { url: itImage.src },
-        alt: "GitHub",
-      },
-    },
-    {
-      label: "Download CV",
-      url: "/cv-en.pdf",
-      icon: {
-        asset: { url: itImage.src },
-        alt: "CV",
-      },
     },
   ],
-  showSocialInContact: true,
-  showSocialSidebar: false,
+  _translations: [],
 };

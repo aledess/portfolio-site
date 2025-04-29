@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
+import Image from "@components/ui/Image";
 import styles from "./styles.module.scss";
 
 type MasonryItemProps = {
@@ -10,7 +10,7 @@ type MasonryItemProps = {
   alt: string;
   caption: string;
   height: number;
-  heightMobile?: number; // 👈 aggiunto opzionale
+  heightMobile?: number;
   index: number;
 };
 
@@ -34,10 +34,7 @@ export default function MasonryItem({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // 👉 calcoliamo dinamicamente
-  const finalHeight = isMobile
-    ? (heightMobile ?? 250) // Se esiste heightMobile uso quello, se no fallback 250px
-    : height;
+  const finalHeight = isMobile ? (heightMobile ?? 250) : height;
 
   return (
     <div

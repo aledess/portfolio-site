@@ -148,23 +148,53 @@ export const contactQuery = /* groq */ `
 
 export const socialQuery = /* groq */ `
   *[_type == "social" && language == $lang][0]{
-    socials[]{
+    _id,
+    items[] {
       label,
+      light {
+        asset->{
+          url
+        },
+        alt
+      },
+      dark {
+        asset->{
+          url
+        },
+        alt
+      },
       url,
-      icon
+      file {
+        asset->{
+          url
+        }
+      }
     },
-    showSocialInContact,
-    showSocialSidebar,
     "_translations": *[
       _type == "translation.metadata" && references(^._id)
     ][0].translations[].value->{
-      socials[]{
+      _id,
+      items[] {
         label,
+        light {
+          asset->{
+            url
+          },
+          alt
+        },
+        dark {
+          asset->{
+            url
+          },
+          alt
+        },
         url,
-        icon
+        file {
+          asset->{
+            url
+          }
+        }
       },
-      showSocialInContact,
-      showSocialSidebar,
       language
     }
   }

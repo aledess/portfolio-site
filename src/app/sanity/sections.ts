@@ -69,7 +69,7 @@ export async function getSections(
     lang,
   );
 
-  const social = await fetchWithLocalizedMock<SocialData>( // 👈 fetch dei social
+  const social = await fetchWithLocalizedMock<SocialData>(
     "social",
     () => client.fetch(socialQuery, { lang }),
     lang,

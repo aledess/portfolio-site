@@ -28,6 +28,7 @@ export default defineConfig({
         "works",
         "about",
         "contact",
+        "social",
       ],
     }),
   ],
