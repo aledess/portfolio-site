@@ -77,48 +77,56 @@ export default function Contact({ data, lang }: Props) {
       >
         {data.description}
       </Text>
-
       <form className={styles.contact__form} onSubmit={handleSubmit}>
         <div className={styles.contact__field}>
-          <Text as="label" variant="label" htmlFor="name">
-            {t("contact.name")}
-          </Text>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
+          <div className={styles.contact__floating}>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={form.name}
+              onChange={handleChange}
+              required
+              className={form.name ? styles.filled : ""}
+            />
+            <Text as="label" htmlFor="name" variant="label">
+              {t("contact.name")}
+            </Text>
+          </div>
         </div>
 
         <div className={styles.contact__field}>
-          <Text as="label" variant="label" htmlFor="email">
-            {t("contact.email")}
-          </Text>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
+          <div className={styles.contact__floating}>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+              className={form.email ? styles.filled : ""}
+            />
+            <Text as="label" htmlFor="email" variant="label">
+              {t("contact.email")}
+            </Text>
+          </div>
         </div>
 
         <div className={styles.contact__field}>
-          <Text as="label" variant="label" htmlFor="message">
-            {t("contact.message")}
-          </Text>
-          <textarea
-            id="message"
-            name="message"
-            rows={10}
-            value={form.message}
-            onChange={handleChange}
-            required
-          />
+          <div className={styles.contact__floating}>
+            <textarea
+              id="message"
+              name="message"
+              rows={10}
+              value={form.message}
+              onChange={handleChange}
+              required
+              className={form.message ? styles.filled : ""}
+            />
+            <Text as="label" htmlFor="message" variant="label">
+              {t("contact.message")}
+            </Text>
+          </div>
         </div>
 
         <button

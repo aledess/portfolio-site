@@ -3,22 +3,12 @@
 
 .contact {
   min-height: 60vh;
-  max-width: 700px; // larghezza massima form
+  max-width: 700px;
   margin: 0 auto;
   padding: 4rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  position: relative;
-
-  &__sidebar {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    left: 1rem;
-  }
 
   &__intro {
     text-align: center;
@@ -37,35 +27,62 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    width: 100%;
+  }
+
+  &__floating {
+    position: relative;
+    width: 100%;
+    max-width: 40rem;
 
     input,
     textarea {
-      padding: 0.75rem 1rem;
+      width: 100%;
+      padding: 1.25rem 1rem 0.5rem;
       border-radius: 0.5rem;
-      border: 1px solid var(--color-accent);
-      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
       color: var(--color-text);
-      transition: border 0.3s ease;
+      font-size: 1rem;
+      font-family: var(--font-primary);
+      resize: vertical;
+      transition: border-color 0.3s ease;
 
       &:focus {
         outline: none;
         border-color: var(--color-accent);
       }
-    }
 
-    input {
-      width: 30%;
-
-      @include respond-max("md") {
-        width: 100%;
+      &::placeholder {
+        font-family: var(--font-primary);
+        color: transparent;
+        text-transform: capitalize;
       }
     }
-    textarea {
-      width: 80%;
-      @include respond-max("md") {
-        width: 100%;
-      }
+
+    label {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      text-transform: capitalize;
+      pointer-events: none;
+      transform-origin: left top;
+      transition:
+        transform 0.2s ease,
+        font-size 0.2s ease,
+        opacity 0.2s ease;
+      opacity: 0.7;
+    }
+
+    input.filled + label,
+    textarea.filled + label,
+    input:focus + label,
+    textarea:focus + label {
+      transform: translateY(-0.6rem) scale(0.85);
+      opacity: 1;
     }
   }
 
@@ -75,15 +92,22 @@
     border-radius: 999px;
     background: var(--color-accent);
     color: #fff;
-    font-weight: bold;
     border: none;
     cursor: pointer;
     transition: background 0.3s ease;
 
     span {
       display: inline-block;
-      text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+
+    &:hover {
+      background: var(--color-accent-contrast);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 }
