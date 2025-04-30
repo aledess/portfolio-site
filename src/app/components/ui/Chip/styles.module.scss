@@ -2,16 +2,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-
-  background-color: var(--color-accent);
-
   white-space: nowrap;
   line-height: 1;
+  pointer-events: none;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  background-color: var(--color-accent);
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
     border-color 0.3s ease;
+
+  &--small {
+    padding: 0.25rem 0.6rem;
+  }
 }

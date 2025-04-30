@@ -61,7 +61,7 @@ export default function WorkCard({
             <ul className={styles["work-card__tech-list"]}>
               {tech.map((item, i) => (
                 <li key={`tech-${item}-${i}`}>
-                  <Chip label={item} />
+                  <Chip label={item} animated={false} />
                 </li>
               ))}
             </ul>

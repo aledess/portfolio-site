@@ -3,8 +3,8 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "@components/ui/Image";
+import Chip from "@components/ui/Chip";
 import styles from "./styles.module.scss";
-import Text from "../Text";
 
 type MasonryItemProps = {
   src: string;
@@ -63,22 +63,9 @@ export default function MasonryItem({
           sizes="(max-width: 768px) 50vw, 33vw"
         />
         {caption && (
-          <Text
-            as={motion.span}
-            variant="caption"
-            className={styles["masonry-item__badge"]}
-            animate={{
-              scale: [1, 1.04, 1],
-              opacity: [0.95, 1, 0.95],
-            }}
-            transition={{
-              duration: 3,
-              ease: "easeInOut",
-              repeat: Infinity,
-            }}
-          >
-            {caption}
-          </Text>
+          <div className={styles["masonry-item__badge"]}>
+            <Chip label={caption} small />
+          </div>
         )}
       </div>
     </div>
