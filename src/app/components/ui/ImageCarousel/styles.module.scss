@@ -1,0 +1,29 @@
+.image-carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background-color: rgba(var(--color-accent-rgb), 0.3);
+}
+
+.image-carousel__image {
+  position: absolute;
+  inset: 0;
+}
+
+.image-carousel__img {
+  object-fit: cover;
+}
+
+.image-carousel__progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 100%;
+  background-color: var(--color-accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 5;
+}

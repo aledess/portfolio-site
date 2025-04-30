@@ -3,61 +3,23 @@ import WorkCard from "@/app/components/ui/WorkCard";
 import styles from "./styles.module.scss";
 import { WorksData } from "@schemas/works";
 
-const works = [
-  {
-    title: "Portfolio Website",
-    description: "A personal portfolio built with Next.js and Sanity CMS.",
-    image: "https://picsum.photos/400?random=1",
-    tech: ["Next.js", "Sanity", "SCSS"],
-  },
-  {
-    title: "E-commerce UI",
-    description: "Modern e-commerce frontend interface with custom animations.",
-    image: "https://picsum.photos/400?random=2",
-    tech: ["React", "Tailwind", "Framer Motion"],
-  },
-  {
-    title: "Admin Dashboard",
-    description: "Internal dashboard for managing data and analytics.",
-    image: "https://picsum.photos/400?random=3",
-    tech: ["Vite", "TypeScript", "Chart.js", "Vite", "TypeScript", "Chart.js"],
-  },
-  {
-    title: "Mobile Landing Page",
-    description: "Optimized landing for mobile-first startup campaigns.",
-    image: "https://picsum.photos/400?random=4",
-    tech: ["HTML", "CSS", "GSAP"],
-  },
-  {
-    title: "CMS Blog Theme",
-    description: "A minimalist blog layout powered by headless CMS.",
-    image: "https://picsum.photos/400?random=5",
-    tech: ["Gatsby", "GraphQL", "Contentful"],
-  },
-  {
-    title: "Design System",
-    description: "Reusable UI components built with accessibility in mind.",
-    image: "https://picsum.photos/400?random=6",
-    tech: ["Storybook", "TypeScript", "SCSS Modules"],
-  },
-];
-
 type Props = {
   data: WorksData;
 };
 
 export default function Works({ data }: Props) {
   console.log("Works Section Data", data);
+
   return (
-    <Section
-      id="works"
-      titleLoop={["Selected Works", "Recent Projects", "UI Concepts"]}
-    >
+    <Section id="works" titleLoop={data.sectionTitle}>
       <div className={styles.works}>
-        {works.map((work, i) => (
+        {data.items.map((work, i) => (
           <WorkCard
             key={i}
-            image={work.image}
+            images={work.images.map((img) => ({
+              url: img.asset.url,
+              alt: img.alt,
+            }))}
             title={work.title}
             description={work.description}
             tech={work.tech}

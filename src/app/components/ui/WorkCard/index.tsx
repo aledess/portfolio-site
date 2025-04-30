@@ -2,20 +2,24 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
 import Text from "@components/ui/Text";
 import Chip from "@components/ui/Chip";
+import ImageCarousel from "@components/ui/ImageCarousel";
+
 import styles from "./styles.module.scss";
 
 type WorkCardProps = {
-  image: string;
+  images: {
+    url: string;
+    alt: string;
+  }[];
   title: string;
   description: string;
   tech?: string[];
 };
 
 export default function WorkCard({
-  image,
+  images,
   title,
   description,
   tech = [],
@@ -35,17 +39,18 @@ export default function WorkCard({
 
       <div className={styles["work-card"]}>
         <div className={styles["work-card__image-wrapper"]}>
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className={styles["work-card__image"]}
-            sizes="(max-width: 768px) 100vw, 33vw"
+          <ImageCarousel
+            images={images.map((img) => img.url)}
+            alt={images[0]?.alt || title}
           />
         </div>
 
         <div className={styles["work-card__content"]}>
-          <Text as="h3" variant="body">
+          <Text
+            as="h3"
+            variant="body"
+            className={styles["work-card__content__title"]}
+          >
             {title}
           </Text>
           <Text as="p" variant="body" color="secondary">

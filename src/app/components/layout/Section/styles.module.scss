@@ -79,11 +79,11 @@
     padding: 4rem 4rem 0;
 
     @include respond-max("md") {
-      padding: 2.5rem 2rem 0;
+      padding: 2.5rem 1.5rem 0;
     }
 
     @include respond-max("sm") {
-      padding: 2rem 1.5rem 0;
+      padding: 2rem 1rem 0;
       gap: 1rem;
     }
   }

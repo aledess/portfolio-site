@@ -1,12 +1,12 @@
 export type WorkItem = {
   title: string;
   description: string;
-  image: {
+  images: {
     asset: {
       url: string;
     };
     alt: string;
-  };
+  }[];
   tech: string[];
 };
 

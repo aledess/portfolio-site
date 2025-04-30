@@ -33,20 +33,27 @@ export default defineType({
               validation: (Rule) => Rule.required(),
             }),
             defineField({
-              name: "image",
-              title: "Immagine",
-              type: "image",
-              options: { hotspot: true },
-              fields: [
-                defineField({
-                  name: "alt",
-                  title: "Testo alternativo (alt)",
-                  type: "string",
-                  validation: (Rule) =>
-                    Rule.required().error("L'alt è obbligatorio"),
-                }),
+              name: "images",
+              title: "Immagini",
+              type: "array",
+              of: [
+                {
+                  type: "image",
+                  options: { hotspot: true },
+                  fields: [
+                    defineField({
+                      name: "alt",
+                      title: "Testo alternativo (alt)",
+                      type: "string",
+                      validation: (Rule) =>
+                        Rule.required().error("L'alt è obbligatorio"),
+                    }),
+                  ],
+                },
               ],
+              validation: (Rule) => Rule.required().min(1),
             }),
+
             defineField({
               name: "tech",
               title: "Tecnologie utilizzate",

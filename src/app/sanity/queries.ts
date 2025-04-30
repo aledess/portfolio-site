@@ -73,7 +73,6 @@ export const experienceQuery = /* groq */ `
     }
   }
 `;
-
 export const worksQuery = /* groq */ `
   *[_type == "works" && language == $lang][0]{
     _id,
@@ -82,7 +81,7 @@ export const worksQuery = /* groq */ `
       title,
       description,
       tech,
-      image {
+      images[]{
         asset->{url},
         alt
       }
@@ -95,7 +94,11 @@ export const worksQuery = /* groq */ `
       items[]{
         title,
         description,
-        tech
+        tech,
+        images[]{
+          asset->{url},
+          alt
+        }
       },
       language
     }

@@ -6,13 +6,33 @@ export const mockWorksIT: WorksData = {
     {
       title: "Sito Portfolio",
       description: "Portfolio personale con Next.js e Sanity CMS.",
-      image: {
-        asset: { url: "https://picsum.photos/400?random=1" },
-        alt: "Screenshot del sito portfolio",
-      },
+      images: [
+        {
+          asset: { url: "https://picsum.photos/400?random=1" },
+          alt: "Screenshot del sito portfolio 1",
+        },
+        {
+          asset: { url: "https://picsum.photos/400?random=2" },
+          alt: "Screenshot del sito portfolio 2",
+        },
+      ],
       tech: ["Next.js", "Sanity", "SCSS"],
     },
-    // altri progetti...
+    {
+      title: "Sito Portfolio",
+      description: "Portfolio personale con Next.js e Sanity CMS.",
+      images: [
+        {
+          asset: { url: "https://picsum.photos/400?random=3" },
+          alt: "Screenshot del sito portfolio 1",
+        },
+        {
+          asset: { url: "https://picsum.photos/400?random=4" },
+          alt: "Screenshot del sito portfolio 2",
+        },
+      ],
+      tech: ["Next.js", "Sanity", "SCSS"],
+    },
   ],
   _id: "mock-works-it",
   _translations: [],
@@ -24,13 +44,33 @@ export const mockWorksEN: WorksData = {
     {
       title: "Portfolio Website",
       description: "Personal portfolio built with Next.js and Sanity CMS.",
-      image: {
-        asset: { url: "https://picsum.photos/400?random=1" },
-        alt: "Portfolio website screenshot",
-      },
+      images: [
+        {
+          asset: { url: "https://picsum.photos/400?random=1" },
+          alt: "Screenshot del sito portfolio 1",
+        },
+        {
+          asset: { url: "https://picsum.photos/400?random=2" },
+          alt: "Screenshot del sito portfolio 2",
+        },
+      ],
       tech: ["Next.js", "Sanity", "SCSS"],
     },
-    // altri progetti...
+    {
+      title: "Portfolio Website",
+      description: "Personal portfolio built with Next.js and Sanity CMS.",
+      images: [
+        {
+          asset: { url: "https://picsum.photos/400?random=3" },
+          alt: "Screenshot del sito portfolio 1",
+        },
+        {
+          asset: { url: "https://picsum.photos/400?random=4" },
+          alt: "Screenshot del sito portfolio 2",
+        },
+      ],
+      tech: ["Next.js", "Sanity", "SCSS"],
+    },
   ],
   _id: "mock-works-en",
   _translations: [],
