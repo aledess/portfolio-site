@@ -23,6 +23,7 @@ export default function Works({ data }: Props) {
             title={work.title}
             description={work.description}
             tech={work.tech}
+            link={work.link}
           />
         ))}
       </div>

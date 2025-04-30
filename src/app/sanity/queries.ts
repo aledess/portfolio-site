@@ -82,7 +82,8 @@ export const worksQuery = /* groq */ `
       images[]{
         asset->{url},
         alt
-      }
+      }, 
+      link, 
     },
     "_translations": *[
       _type == "translation.metadata" && references(^._id)
@@ -96,7 +97,8 @@ export const worksQuery = /* groq */ `
         images[]{
           asset->{url},
           alt
-        }
+        },
+      link, 
       },
       language
     }

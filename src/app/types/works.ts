@@ -8,6 +8,7 @@ export type WorkItem = {
     alt: string;
   }[];
   tech: string[];
+  link?: string;
 };
 
 export type TranslationEntry = {

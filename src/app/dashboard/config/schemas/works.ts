@@ -32,6 +32,15 @@ export default defineType({
               rows: 4,
               validation: (Rule) => Rule.required(),
             }),
+            {
+              name: "link",
+              title: "Project Link",
+              type: "url",
+              description:
+                "Opzionale. Inserisci il link al progetto online, se disponibile",
+              validation: (Rule) =>
+                Rule.uri({ scheme: ["http", "https"] }).optional(),
+            },
             defineField({
               name: "images",
               title: "Immagini",

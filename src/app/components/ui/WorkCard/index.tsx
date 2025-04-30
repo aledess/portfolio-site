@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Text from "@components/ui/Text";
 import Chip from "@components/ui/Chip";
 import ImageCarousel from "@components/ui/ImageCarousel";
+import Icon from "@components/ui/Icon";
 
 import styles from "./styles.module.scss";
 
@@ -16,6 +17,7 @@ type WorkCardProps = {
   title: string;
   description: string;
   tech?: string[];
+  link?: string;
 };
 
 export default function WorkCard({
@@ -23,10 +25,11 @@ export default function WorkCard({
   title,
   description,
   tech = [],
+  link,
 }: WorkCardProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
-
+  console.log("asasaas", link);
   return (
     <div className={styles["work-card__wrapper"]} ref={ref}>
       {/* Reveal Mask */}
@@ -52,6 +55,17 @@ export default function WorkCard({
             className={styles["work-card__content__title"]}
           >
             {title}
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles["work-card__link-icon"]}
+                aria-label={`Open ${title}`}
+              >
+                <Icon name="link" size={20} />
+              </a>
+            )}
           </Text>
           <Text as="p" variant="body" color="secondary">
             {description}
