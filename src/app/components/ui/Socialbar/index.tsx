@@ -2,7 +2,7 @@
 
 import { useTheme } from "@/app/context/ThemeProvider";
 import styles from "./styles.module.scss";
-import Image from "@components/ui/Image"; // 👈 nostro componente custom
+import Image from "@components/ui/Image";
 import type { SocialData } from "@/app/types/social";
 
 type Props = {
@@ -13,14 +13,12 @@ export default function SocialBar({ data }: Props) {
   const { theme } = useTheme();
 
   if (!data?.items?.length) return null;
-  console.log("dasasasaaas", data);
+
   return (
     <div className={styles.socialBar}>
       {data.items.map((item, index) => {
         const icon = theme === "dark" ? item.dark : item.light;
-
         const href = item.url || item.file?.asset.url;
-        const isDownload = !!item.file;
 
         if (!href || !icon) return null;
 
@@ -28,9 +26,8 @@ export default function SocialBar({ data }: Props) {
           <a
             key={index}
             href={href}
-            target={isDownload ? "_self" : "_blank"}
-            rel={isDownload ? undefined : "noopener noreferrer"}
-            download={isDownload ? true : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label={item.label}
             className={styles.socialBar__link}
           >

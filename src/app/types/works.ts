@@ -1,12 +1,9 @@
+import type { ImageAsset } from "./shared";
+
 export type WorkItem = {
   title: string;
   description: string;
-  images: {
-    asset: {
-      url: string;
-    };
-    alt: string;
-  }[];
+  images: ImageAsset[];
   tech: string[];
   link?: string;
 };

@@ -2,44 +2,16 @@ import Section from "@/app/components/layout/Section";
 import ExperienceList from "@/app/components/ui/ExperienceList";
 import { ExperienceData } from "@schemas/experience";
 
-const experiences = [
-  {
-    date: "2022 - Present",
-    company: "Tech Solutions",
-    description:
-      "Frontend Developer – React, Next.js, e sviluppo UI component-driven. Collaborazione con team di prodotto per la definizione e l'implementazione di componenti riutilizzabili, con attenzione a performance, accessibilità e responsive design. Responsabile della documentazione interna e code review.",
-  },
-  {
-    date: "2020 - 2022",
-    company: "Innovatech",
-    description:
-      "Junior Developer – Progetti Angular/Ionic, supporto al team UX. Partecipazione attiva a design sprint, implementazione di schermate complesse, interazione con API REST e lavoro in team Agile con metodologia Scrum. Contribuito al miglioramento della design system aziendale.",
-  },
-  {
-    date: "2018 - 2020",
-    company: "DevStart",
-    description:
-      "Stage e primo impiego in HTML/CSS, JS Vanilla, Sass, Git. Creazione di pagine marketing responsive, interfacce dinamiche e supporto all'integrazione con CMS WordPress. Apprendimento continuo su GitFlow e principi base di architettura frontend.",
-  },
-];
-
-const experienceTitleLoop = [
-  "Work Experience",
-  "Career Journey",
-  "Companies I've Worked With",
-  "Experience",
-];
-
 type Props = {
   data: ExperienceData;
 };
 
 export default function Experience({ data }: Props) {
   console.log("Experience Section Data", data);
-
+  const { items, sectionTitle } = data;
   return (
-    <Section id="experience" titleLoop={experienceTitleLoop} tight>
-      <ExperienceList experiences={experiences} />
+    <Section id="experience" titleLoop={sectionTitle} tight>
+      <ExperienceList experiences={items} />
     </Section>
   );
 }

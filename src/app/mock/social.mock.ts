@@ -1,45 +1,62 @@
-import type { SocialData } from "@/app/types/social";
+import { SocialData } from "@schemas/social";
 
 export const mockSocialIT: SocialData = {
   _id: "mock-socials-it",
   items: [
     {
-      label: "LinkedIn",
+      label: "linkedin",
       light: {
-        asset: { url: "/icons/social/linkedin-light.svg" },
-        alt: "LinkedIn chiaro",
+        asset: {
+          url: "icons/social/linkedin-light.svg",
+        },
+        alt: "Linkedin icon",
       },
       dark: {
-        asset: { url: "/icons/social/linkedin-dark.svg" },
-        alt: "LinkedIn scuro",
+        asset: {
+          url: "icons/social/linkedin-dark.svg",
+        },
+        alt: "Linkedin icon",
       },
-      url: "https://www.linkedin.com/in/tuo-profilo",
+      url: "https://www.linkedin.com/in/alessandrodess/",
+      file: { asset: null },
     },
     {
-      label: "Curriculum",
+      label: "Github",
       light: {
-        asset: { url: "/icons/social/cv-light.svg" },
-        alt: "CV chiaro",
+        asset: {
+          url: "icons/social/github-light.svg",
+        },
+        alt: "Github icon",
       },
       dark: {
-        asset: { url: "/icons/social/cv-dark.svg" },
-        alt: "CV scuro",
+        asset: {
+          url: "icons/social/github-dark.svg",
+        },
+        alt: "Github icon",
       },
+      url: "https://github.com/aledess",
+      file: { asset: null },
+    },
+    {
+      label: "cv",
+      light: {
+        asset: {
+          url: "icons/social/cv-light.svg",
+        },
+        alt: "CV Icon",
+      },
+      dark: {
+        asset: {
+          url: "icons/social/cv-dark.svg",
+        },
+        alt: "CV Icon",
+      },
+      url: null,
       file: {
-        asset: { url: "/files/curriculum.pdf" },
+        asset: {
+          url: "files/cv.pdf",
+        },
       },
-    },
-    {
-      label: "GitHub",
-      light: {
-        asset: { url: "/icons/social/github-light.svg" },
-        alt: "GitHub chiaro",
-      },
-      dark: {
-        asset: { url: "/icons/social/github-dark.svg" },
-        alt: "GitHub scuro",
-      },
-      url: "https://github.com/tuo-username",
     },
   ],
   _translations: [],
@@ -49,42 +66,59 @@ export const mockSocialEN: SocialData = {
   _id: "mock-socials-en",
   items: [
     {
-      label: "LinkedIn",
+      label: "linkedin",
       light: {
-        asset: { url: "/icons/social/linkedin-light.svg" },
-        alt: "LinkedIn light",
+        asset: {
+          url: "icons/social/linkedin-light.svg",
+        },
+        alt: "Linkedin icon",
       },
       dark: {
-        asset: { url: "/icons/social/linkedin-dark.svg" },
-        alt: "LinkedIn dark",
+        asset: {
+          url: "icons/social/linkedin-dark.svg",
+        },
+        alt: "Linkedin icon",
       },
-      url: "https://www.linkedin.com/in/your-profile",
+      url: "https://www.linkedin.com/in/alessandrodess/",
+      file: { asset: null },
     },
     {
-      label: "Resume",
+      label: "Github",
       light: {
-        asset: { url: "/icons/social/cv-light.svg" },
-        alt: "Resume light",
+        asset: {
+          url: "icons/social/github-light.svg",
+        },
+        alt: "Github icon",
       },
       dark: {
-        asset: { url: "/icons/social/cv-dark.svg" },
-        alt: "Resume dark",
+        asset: {
+          url: "icons/social/github-dark.svg",
+        },
+        alt: "Github icon",
       },
+      url: "https://github.com/aledess",
+      file: { asset: null },
+    },
+    {
+      label: "cv",
+      light: {
+        asset: {
+          url: "icons/social/cv-light.svg",
+        },
+        alt: "CV Icon",
+      },
+      dark: {
+        asset: {
+          url: "icons/social/cv-dark.svg",
+        },
+        alt: "CV Icon",
+      },
+      url: null,
       file: {
-        asset: { url: "/files/resume.pdf" },
+        asset: {
+          url: "files/cv.pdf",
+        },
       },
-    },
-    {
-      label: "GitHub",
-      light: {
-        asset: { url: "/icons/social/github-light.svg" },
-        alt: "GitHub light",
-      },
-      dark: {
-        asset: { url: "/icons/social/github-dark.svg" },
-        alt: "GitHub dark",
-      },
-      url: "https://github.com/your-username",
     },
   ],
   _translations: [],

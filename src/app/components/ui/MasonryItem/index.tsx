@@ -25,7 +25,6 @@ export default function MasonryItem({
 }: MasonryItemProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
-  console.log("item", caption);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const checkMobile = () => {

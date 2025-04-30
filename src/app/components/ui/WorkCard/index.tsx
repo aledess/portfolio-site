@@ -29,7 +29,6 @@ export default function WorkCard({
 }: WorkCardProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
-  console.log("asasaas", link);
   return (
     <div className={styles["work-card__wrapper"]} ref={ref}>
       {/* Reveal Mask */}

@@ -1,4 +1,4 @@
-import { SkillItem, SkillsData } from "../types/skills";
+import { SkillItem, SkillsData } from "@schemas/skills";
 
 const items: SkillItem[] = [
   {

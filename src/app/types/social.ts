@@ -1,17 +1,13 @@
+import type { ImageAsset } from "./shared";
+
 export type SocialItem = {
   label: string;
-  light?: {
-    asset: { url: string };
-    alt?: string;
-  };
-  dark?: {
-    asset: { url: string };
-    alt?: string;
-  };
-  url?: string;
+  light?: ImageAsset;
+  dark?: ImageAsset;
+  url?: string | null;
   file?: {
-    asset: { url: string };
-  };
+    asset: { url: string } | null;
+  } | null;
 };
 
 export type SocialData = {
