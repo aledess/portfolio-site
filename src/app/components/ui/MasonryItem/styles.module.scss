@@ -33,4 +33,17 @@
     text-align: center;
     font-weight: bold;
   }
+
+  &__badge {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--color-accent);
+    color: var(--color-text-contrast);
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    z-index: 3;
+    white-space: nowrap;
+    pointer-events: none;
+  }
 }

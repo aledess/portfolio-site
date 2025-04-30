@@ -16,21 +16,19 @@ export default defineType({
       title: "Descrizione generale",
       type: "text",
       rows: 4,
-      validation: (Rule) =>
-        Rule.required().error("La descrizione è obbligatoria"),
     }),
     defineField({
-      name: "items",
-      title: "Hobby e Interessi",
+      name: "images",
+      title: "Immagini",
       type: "array",
       of: [
         {
           type: "object",
-          name: "aboutItem",
+          name: "aboutImage",
           fields: [
             defineField({
-              name: "title",
-              title: "Titolo",
+              name: "caption",
+              title: "Caption",
               type: "string",
               validation: (Rule) => Rule.required(),
             }),
@@ -45,21 +43,22 @@ export default defineType({
                   name: "alt",
                   title: "Testo alternativo (alt)",
                   type: "string",
-                  description:
-                    "Descrizione dell'immagine per SEO e accessibilità",
                   validation: (Rule) =>
-                    Rule.required().error(
-                      "Il testo alternativo è obbligatorio",
-                    ),
+                    Rule.required().error("L'alt è obbligatorio"),
                 }),
               ],
             }),
             defineField({
               name: "height",
-              title: "Altezza in pixel (per layout masonry)",
+              title: "Altezza desktop (px)",
               type: "number",
               validation: (Rule) =>
                 Rule.required().positive().error("Inserisci un'altezza valida"),
+            }),
+            defineField({
+              name: "heightMobile",
+              title: "Altezza mobile (px)",
+              type: "number",
             }),
           ],
         },

@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "@components/ui/Image";
 import styles from "./styles.module.scss";
+import Text from "../Text";
 
 type MasonryItemProps = {
   src: string;
@@ -17,13 +18,14 @@ type MasonryItemProps = {
 export default function MasonryItem({
   src,
   alt,
+  caption,
   height,
   heightMobile,
   index,
 }: MasonryItemProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
-
+  console.log("item", caption);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const checkMobile = () => {
@@ -60,6 +62,24 @@ export default function MasonryItem({
           className={styles["masonry-item__image"]}
           sizes="(max-width: 768px) 50vw, 33vw"
         />
+        {caption && (
+          <Text
+            as={motion.span}
+            variant="caption"
+            className={styles["masonry-item__badge"]}
+            animate={{
+              scale: [1, 1.04, 1],
+              opacity: [0.95, 1, 0.95],
+            }}
+            transition={{
+              duration: 3,
+              ease: "easeInOut",
+              repeat: Infinity,
+            }}
+          >
+            {caption}
+          </Text>
+        )}
       </div>
     </div>
   );

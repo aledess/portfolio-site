@@ -10,28 +10,31 @@ type Props = {
 
 export default function About({ data }: Props) {
   console.log("About Section Data", data);
+  const { sectionTitle, description, images } = data;
   return (
     <Section
       contrastBg
       id="about"
-      title={data.sectionTitle[0]}
+      title={sectionTitle[0]}
       titleLoop={data.sectionTitle.slice(1)}
     >
-      <Text
-        variant="body"
-        color="contrast"
-        className={styles["about__description"]}
-      >
-        {data.description}
-      </Text>
+      {description && (
+        <Text
+          variant="body"
+          color="contrast"
+          className={styles["about__description"]}
+        >
+          {description}
+        </Text>
+      )}
 
       <div className={styles["about__masonry"]}>
-        {data.items.map((item, i) => (
+        {images.map((item, i) => (
           <MasonryItem
             key={i}
             src={item.image.asset.url}
-            alt={item.image.alt || item.title}
-            caption={item.title}
+            alt={item.image.alt || item.caption}
+            caption={item.caption}
             height={item.height}
             heightMobile={item.heightMobile}
             index={i}

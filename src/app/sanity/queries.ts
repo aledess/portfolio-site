@@ -110,9 +110,10 @@ export const aboutQuery = /* groq */ `
     _id,
     sectionTitle,
     description,
-    items[]{
-      title,
+    images[]{
+      caption,
       height,
+      heightMobile,
       image {
         asset->{url},
         alt
@@ -124,9 +125,14 @@ export const aboutQuery = /* groq */ `
       _id,
       sectionTitle,
       description,
-      items[]{
-        title,
-        height
+      images[]{
+        caption,
+        height,
+        heightMobile,
+        image {
+          asset->{url},
+          alt
+        }
       },
       language
     }

@@ -1,7 +1,7 @@
 import type { ImageAsset } from "./shared";
 
 export type AboutItem = {
-  title: string;
+  caption: string;
   image: ImageAsset;
   height: number;
   heightMobile?: number;
@@ -9,6 +9,6 @@ export type AboutItem = {
 
 export type AboutData = {
   sectionTitle: string[];
-  description: string;
-  items: AboutItem[];
+  description?: string;
+  images: AboutItem[];
 };
