@@ -1,0 +1,19 @@
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.loopingWrapper {
+  overflow: hidden;
+  width: 100%;
+  cursor: grab;
+}
+
+.loopingTrack {
+  display: flex;
+  width: fit-content;
+  gap: 2rem;
+  will-change: transform;
+}

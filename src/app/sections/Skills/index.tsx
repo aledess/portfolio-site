@@ -1,5 +1,5 @@
 import Section from "@/app/components/layout/Section";
-import SkillsCarousel from "@/app/components/ui/SkillsCarousel";
+import LoopingCarousel from "@/app/components/ui/LoopingCarousel";
 import { SkillsData } from "@schemas/skills";
 
 type Props = {
@@ -11,7 +11,7 @@ export default function Skills({ data }: Props) {
   const { sectionTitle, items } = data;
   return (
     <Section id="skills" titleLoop={sectionTitle} full>
-      <SkillsCarousel skills={items} />
+      <LoopingCarousel skills={items} />
     </Section>
   );
 }
