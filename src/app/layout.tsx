@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Manrope } from "next/font/google";
 
 import "@/styles/main.scss";
 import { ThemeProvider } from "@context/ThemeProvider"; // ✅ usa il tuo context React
 import ScrollProgress from "./components/ui/ScrollProgress";
 
-const dmSans = DM_Sans({
+const dmSans = Manrope({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
   variable: "--font-primary",
