@@ -5,6 +5,7 @@ export type AboutItem = {
   image: ImageAsset;
   height: number;
   heightMobile?: number;
+  fullSpan?: boolean;
 };
 
 export type AboutData = {

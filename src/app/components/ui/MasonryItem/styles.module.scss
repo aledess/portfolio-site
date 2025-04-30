@@ -1,6 +1,16 @@
+@use "@/styles/mixins" as *;
+
 .masonry-item {
   break-inside: avoid;
   margin-bottom: 1rem;
+
+  &--full {
+    @include respond-max("sm") {
+      width: 100%;
+      column-span: all;
+      margin-top: 0.6rem;
+    }
+  }
 
   &__image-wrapper {
     position: relative;

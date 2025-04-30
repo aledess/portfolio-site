@@ -38,6 +38,7 @@ export default function About({ data }: Props) {
             height={item.height}
             heightMobile={item.heightMobile}
             index={i}
+            fullSpan={item.fullSpan}
           />
         ))}
       </div>

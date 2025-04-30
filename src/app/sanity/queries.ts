@@ -114,6 +114,7 @@ export const aboutQuery = /* groq */ `
       caption,
       height,
       heightMobile,
+      fullSpan,
       image {
         asset->{url},
         alt
@@ -129,6 +130,7 @@ export const aboutQuery = /* groq */ `
         caption,
         height,
         heightMobile,
+        fullSpan,
         image {
           asset->{url},
           alt

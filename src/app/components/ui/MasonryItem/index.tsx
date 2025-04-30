@@ -13,6 +13,7 @@ type MasonryItemProps = {
   height: number;
   heightMobile?: number;
   index: number;
+  fullSpan?: boolean;
 };
 
 export default function MasonryItem({
@@ -22,6 +23,7 @@ export default function MasonryItem({
   height,
   heightMobile,
   index,
+  fullSpan,
 }: MasonryItemProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
@@ -39,7 +41,7 @@ export default function MasonryItem({
 
   return (
     <div
-      className={styles["masonry-item"]}
+      className={`${styles["masonry-item"]} ${fullSpan ? styles["masonry-item--full"] : ""}`}
       style={{ height: `${finalHeight}px` }}
       ref={ref}
     >

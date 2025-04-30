@@ -60,6 +60,12 @@ export default defineType({
               title: "Altezza mobile (px)",
               type: "number",
             }),
+            {
+              name: "fullSpan",
+              type: "boolean",
+              title: "Occupa tutta la riga su mobile?",
+              initialValue: false,
+            },
           ],
         },
       ],
