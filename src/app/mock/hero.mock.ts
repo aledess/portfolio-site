@@ -4,7 +4,6 @@ export const mockHeroIT: HeroData = {
   _id: "mock-hero-it",
   title: "Alessandro Dessì",
   subtitle: "Frontend Web Developer",
-  description: "Descrizione IT Mocked",
   image: {
     asset: {
       url: "/images/photo.png",
@@ -18,7 +17,6 @@ export const mockHeroEN: HeroData = {
   _id: "mock-hero-en",
   title: "Alessandro Dessì",
   subtitle: "Frontend Web Developer",
-  description: "Descrizione EN Mocked",
   image: {
     asset: {
       url: "/images/photo.png",

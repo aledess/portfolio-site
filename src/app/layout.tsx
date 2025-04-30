@@ -32,7 +32,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <div className="page-bg">
-            <ScrollProgress /> {/* 👈 barra di progressione scroll */}
+            <ScrollProgress />
             <div className="site-wrapper">{children}</div>
           </div>
         </ThemeProvider>

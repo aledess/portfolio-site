@@ -1,7 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { language } from "./fields/language";
 import { previewField } from "./fields/previewField";
-// import type { Rule } from "sanity";
 
 export default defineType({
   name: "hero",
@@ -17,11 +16,6 @@ export default defineType({
     defineField({
       name: "subtitle",
       title: "Sottotitolo",
-      type: "string",
-    }),
-    defineField({
-      name: "description",
-      title: "Descrizione",
       type: "string",
     }),
     defineField({

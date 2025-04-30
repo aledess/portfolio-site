@@ -21,10 +21,10 @@ export default async function Home({
 }: {
   searchParams: { lang?: string };
 }) {
-  const lang = searchParams.lang === "en" ? "en" : "it"; // fallback su IT
+  const lang = searchParams.lang === "en" ? "en" : "it";
 
-  const { isEnabled: isPreview } = await draftMode(); // 👈 rileva preview mode
-  const sections: SectionsData = await getSections(lang, isPreview); // 👈 abilita preview
+  const { isEnabled: isPreview } = await draftMode();
+  const sections: SectionsData = await getSections(lang, isPreview);
 
   const { hero, skills, experience, works, about, contact, social } = sections;
 
