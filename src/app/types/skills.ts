@@ -3,7 +3,7 @@ export type SkillItem = {
   icon?: {
     asset?: { url: string };
     alt?: string;
-  };
+  } | null;
   light?: {
     asset?: { url: string };
     alt?: string;
@@ -12,7 +12,7 @@ export type SkillItem = {
     asset?: { url: string };
     alt?: string;
   };
-  iconClass?: string;
+  iconClass?: string | null;
 };
 
 export type SkillsData = {
