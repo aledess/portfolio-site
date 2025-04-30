@@ -68,7 +68,7 @@ export default function Header({ isPreview = false, lang }: Props) {
           onClick={handleLogoClick}
         >
           {isPreview && (
-            <span className={styles["header__logo--preview-badge"]}>
+            <span className={styles["header__logo-preview-badge"]}>
               Preview
             </span>
           )}
