@@ -38,6 +38,10 @@ export default async function Home({
 
       <Navigation lang={lang} />
 
+      <SlideIn direction="up" duration={0.5} delay={0.25}>
+        <About data={about} />
+      </SlideIn>
+
       <SlideIn direction="up" duration={0.5} delay={0.1}>
         <Skills data={skills} />
       </SlideIn>
@@ -48,10 +52,6 @@ export default async function Home({
 
       <SlideIn direction="up" duration={0.5} delay={0.2}>
         <Works data={works} />
-      </SlideIn>
-
-      <SlideIn direction="up" duration={0.5} delay={0.25}>
-        <About data={about} />
       </SlideIn>
 
       <SlideIn direction="up" duration={0.5} delay={0.3}>

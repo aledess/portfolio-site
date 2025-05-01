@@ -1,4 +1,3 @@
-// ./schemas/about.ts
 import { defineType, defineField } from "sanity";
 import { sectionTitle } from "./fields/sectionTitle";
 import { language } from "./fields/language";
@@ -18,23 +17,37 @@ export default defineType({
       rows: 4,
     }),
     defineField({
-      name: "images",
-      title: "Immagini",
+      name: "steps",
+      title: "Step narrativi",
       type: "array",
       of: [
-        {
+        defineField({
           type: "object",
-          name: "aboutImage",
+          name: "aboutStep",
           fields: [
             defineField({
-              name: "caption",
-              title: "Caption",
+              name: "title",
+              title: "Titolo step",
               type: "string",
               validation: (Rule) => Rule.required(),
             }),
             defineField({
+              name: "box1",
+              title: "Testo in alto a sinistra",
+              type: "text",
+              rows: 2,
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "box2",
+              title: "Testo in basso a destra",
+              type: "text",
+              rows: 2,
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
               name: "image",
-              title: "Immagine",
+              title: "Illustrazione",
               type: "image",
               options: { hotspot: true },
               validation: (Rule) => Rule.required(),
@@ -48,26 +61,8 @@ export default defineType({
                 }),
               ],
             }),
-            defineField({
-              name: "height",
-              title: "Altezza desktop (px)",
-              type: "number",
-              validation: (Rule) =>
-                Rule.required().positive().error("Inserisci un'altezza valida"),
-            }),
-            defineField({
-              name: "heightMobile",
-              title: "Altezza mobile (px)",
-              type: "number",
-            }),
-            {
-              name: "fullSpan",
-              type: "boolean",
-              title: "Occupa tutta la riga su mobile?",
-              initialValue: false,
-            },
           ],
-        },
+        }),
       ],
     }),
   ],
