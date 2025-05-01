@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "@components/ui/Image";
 import Text from "@components/ui/Text";
 import styles from "./styles.module.scss";
 import { AboutStep } from "@/app/types/about";
-
-const MOBILE_MAX_WIDTH = 1024; // lg breakpoint
+import { motion, AnimatePresence } from "framer-motion";
+import classNames from "classnames";
 
 const slideVariants = {
   enter: (direction: "next" | "prev") => ({
@@ -19,19 +18,13 @@ const slideVariants = {
     x: 0,
     opacity: 1,
     position: "relative" as const,
-    transition: {
-      x: { duration: 0.6, ease: "easeInOut" },
-      opacity: { duration: 0.6 },
-    },
+    transition: { duration: 0.6, ease: "easeInOut" },
   },
   exit: (direction: "next" | "prev") => ({
     x: direction === "next" ? "-100vw" : "100vw",
     opacity: 0,
-    position: "relative" as const,
-    transition: {
-      x: { duration: 0.6, ease: "easeInOut" },
-      opacity: { duration: 0.6 },
-    },
+    position: "absolute" as const,
+    transition: { duration: 0.6, ease: "easeInOut" },
   }),
 };
 
@@ -43,12 +36,12 @@ const rowVariants = {
   center: {
     x: 0,
     opacity: 1,
-    transition: { x: { duration: 0.4 }, opacity: { duration: 0.4 } },
+    transition: { duration: 0.4 },
   },
   exit: (direction: "next" | "prev") => ({
     x: direction === "next" ? "50vw" : "-50vw",
     opacity: 0,
-    transition: { x: { duration: 0.4 }, opacity: { duration: 0.4 } },
+    transition: { duration: 0.4 },
   }),
 };
 
@@ -61,17 +54,19 @@ export default function StoryCarousel({ steps }: Props) {
   const [isMobile, setIsMobile] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < MOBILE_MAX_WIDTH);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
   const isFirst = index === 0;
   const isLast = index === steps.length - 1;
+  const current = steps[index];
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    const handleChange = () => setIsMobile(mediaQuery.matches);
+
+    handleChange(); // Set initial value
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   const handleChange = (dir: "next" | "prev") => {
     if ((dir === "next" && isLast) || (dir === "prev" && isFirst)) return;
@@ -86,17 +81,18 @@ export default function StoryCarousel({ steps }: Props) {
     if (info.offset.x > threshold && !isFirst) handleChange("prev");
   };
 
-  const current = steps[index];
-
   return (
     <div className={styles["story-carousel"]}>
-      {/* Scroll Next */}
+      {/* Next */}
       <AnimatePresence mode="wait" custom={direction}>
         {!isLast && (
-          <motion.div
+          <motion.button
             key={`next-${index}`}
-            className={`${styles["story-carousel__scroll-row"]} ${styles["story-carousel__scroll-row--next"]}`}
             onClick={() => handleChange("next")}
+            className={classNames(
+              styles["story-carousel__scroll-row"],
+              styles["story-carousel__scroll-row--next"],
+            )}
             variants={rowVariants}
             initial="enter"
             animate="center"
@@ -111,7 +107,7 @@ export default function StoryCarousel({ steps }: Props) {
               transition={{ duration: 0.6, ease: "easeInOut" }}
             />
             <motion.span
-              className={`${styles["story-carousel__label"]} ${styles["story-carousel__label--after"]}`}
+              className={styles["story-carousel__label"]}
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
@@ -119,12 +115,15 @@ export default function StoryCarousel({ steps }: Props) {
                 PROSEGUI
               </Text>
             </motion.span>
-          </motion.div>
+          </motion.button>
         )}
       </AnimatePresence>
 
-      {/* Content */}
-      <div className={styles["story-carousel__content"]}>
+      {/* Slide */}
+      <div
+        className={styles["story-carousel__content"]}
+        data-direction={isMobile ? "mobile" : index === 0 ? "left" : "right"}
+      >
         <motion.div
           drag={isMobile ? "x" : false}
           dragConstraints={{ left: 0, right: 0 }}
@@ -152,18 +151,37 @@ export default function StoryCarousel({ steps }: Props) {
           </AnimatePresence>
         </motion.div>
 
-        <div className={styles["story-carousel__text"]}>
-          {/* title commented */}
+        <div className={styles["story-carousel__pattern"]}>
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={index}
+              className={styles["story-carousel__pattern-inner"]}
+              initial={{
+                opacity: 0,
+                x: direction === "next" ? 30 : -30,
+              }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{
+                opacity: 0,
+                x: direction === "next" ? -30 : 30,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              custom={direction}
+            />
+          </AnimatePresence>
         </div>
       </div>
 
-      {/* Scroll Prev */}
+      {/* Prev */}
       <AnimatePresence mode="wait" custom={direction}>
         {!isFirst && (
-          <motion.div
+          <motion.button
             key={`prev-${index}`}
-            className={`${styles["story-carousel__scroll-row"]} ${styles["story-carousel__scroll-row--prev"]}`}
             onClick={() => handleChange("prev")}
+            className={classNames(
+              styles["story-carousel__scroll-row"],
+              styles["story-carousel__scroll-row--prev"],
+            )}
             variants={rowVariants}
             initial="enter"
             animate="center"
@@ -171,7 +189,7 @@ export default function StoryCarousel({ steps }: Props) {
             custom={direction}
           >
             <motion.span
-              className={`${styles["story-carousel__label"]} ${styles["story-carousel__label--before"]}`}
+              className={styles["story-carousel__label"]}
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
@@ -186,7 +204,7 @@ export default function StoryCarousel({ steps }: Props) {
               exit={{ scaleX: 0, opacity: 0 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
             />
-          </motion.div>
+          </motion.button>
         )}
       </AnimatePresence>
     </div>
