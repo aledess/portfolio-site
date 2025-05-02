@@ -140,13 +140,15 @@ export default function StoryCarousel({ steps }: Props) {
               exit="exit"
               custom={direction}
             >
-              <Image
-                src={current.image.asset.url}
-                alt={current.image.alt}
-                fill
-                className={styles["story-carousel__img"]}
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+              <div className={styles["story-carousel__image-inner"]}>
+                <Image
+                  src={current.image.asset.url}
+                  alt={current.image.alt}
+                  fill
+                  className={styles["story-carousel__img"]}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </motion.div>
           </AnimatePresence>
         </motion.div>
