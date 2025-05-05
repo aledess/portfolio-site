@@ -7,6 +7,7 @@ import Toast from "@components/ui/Toast";
 import styles from "./styles.module.scss";
 import type { ContactData } from "@schemas/contact";
 import { useTranslation } from "@/app/i18n/useTranslation";
+import { AnimatePresence } from "framer-motion";
 
 type Props = {
   data: ContactData;
@@ -50,14 +51,28 @@ export default function Contact({ data, lang }: Props) {
         setStatus("sent");
         setForm({ name: "", email: "", message: "" });
         setToast({ message: t("contact.toastSuccess"), type: "success" });
+
+        setTimeout(() => {
+          setToast(null);
+          setStatus("idle");
+        }, 4000);
       } else {
         setStatus("error");
         setToast({ message: t("contact.toastError"), type: "error" });
+
+        setTimeout(() => {
+          setToast(null);
+          setStatus("idle");
+        }, 4000);
       }
-    } catch (error) {
-      console.error("Errore durante l'invio:", error);
+    } catch {
       setStatus("error");
-      setToast({ message: "Errore durante l'invio", type: "error" });
+      setToast({ message: t("contact.toastError"), type: "error" });
+
+      setTimeout(() => {
+        setToast(null);
+        setStatus("idle");
+      }, 4000);
     }
   };
 
@@ -73,7 +88,6 @@ export default function Contact({ data, lang }: Props) {
           {description}
         </Text>
       )}
-
       <form className={styles.contact__form} onSubmit={handleSubmit}>
         <div className={styles.contact__field}>
           <div className={styles.contact__floating}>
@@ -141,17 +155,20 @@ export default function Contact({ data, lang }: Props) {
           </Text>
         </button>
       </form>
-
-      {toast && (
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => {
-            setToast(null);
-            setStatus("idle");
-          }}
-        />
-      )}
+      ...
+      <AnimatePresence mode="wait">
+        {toast && (
+          <Toast
+            key={toast.message} // importante per transizione unica per messaggio
+            message={toast.message}
+            type={toast.type}
+            onClose={() => {
+              setToast(null);
+              setStatus("idle");
+            }}
+          />
+        )}
+      </AnimatePresence>
     </Section>
   );
 }
