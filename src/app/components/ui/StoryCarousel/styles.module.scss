@@ -22,9 +22,6 @@
       top: 0;
       right: 0;
       padding: 1rem;
-      @include respond-max("md") {
-        margin-right: -15px;
-      }
     }
 
     &--prev {
