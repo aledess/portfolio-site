@@ -7,7 +7,7 @@ export const mockExperienceIT: ExperienceData = {
       date: "Gennaio 2020 - presente",
       company: "Stackhouse",
       description:
-        "Percorso iniziato con un tirocinio e proseguito fino a un ruolo autonomo nello sviluppo di web e mobile app. Focus sull’ecosistema React (inclusi Next.js, Redux e Styled Components), con basi in JavaScript e TypeScript e utilizzo anche di altri framework come Angular.",
+        "Percorso iniziato con un tirocinio e proseguito fino a un ruolo autonomo nello sviluppo di web e mobile app. Focus sull’ecosistema React (inclusi Next.js e Redux), con basi in JavaScript e TypeScript e utilizzo anche di altri framework come Angular.",
     },
     {
       date: "Luglio 2019 - Settembre 2019",
@@ -31,7 +31,7 @@ export const mockExperienceEN: ExperienceData = {
       date: "January 2020 - today",
       company: "Stackhouse",
       description:
-        "Started as an intern and transitioned into an autonomous role developing web and mobile applications. Focus on the React ecosystem (including Next.js, Redux, and Styled Components), with background in JavaScript and TypeScript and experience with other frameworks such as Angular.",
+        "Started as an intern and transitioned into an autonomous role developing web and mobile applications. Focus on the React ecosystem (including Next.js and Redux), with background in JavaScript and TypeScript and experience with other frameworks such as Angular.",
     },
     {
       date: "July 2019 - September 2019",
