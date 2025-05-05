@@ -1,7 +1,7 @@
 import type { AboutData } from "@schemas/about";
 
 export const mockAboutIT: AboutData = {
-  sectionTitle: ["Chi sono", "Diario illustrato", "La mia storia"],
+  sectionTitle: ["Chi sono", "Diario illustrato", "Il mio percorso"],
   steps: [
     {
       title: "Diploma informatico",
@@ -84,7 +84,7 @@ export const mockAboutIT: AboutData = {
 };
 
 export const mockAboutEN: AboutData = {
-  sectionTitle: ["About Me", "Illustrated Diary", "My Story"],
+  sectionTitle: ["About Me", "Illustrated Diary", "My Journey"],
   steps: [
     {
       title: "IT Diploma",

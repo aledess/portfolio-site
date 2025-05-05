@@ -1,4 +1,4 @@
 export type ContactData = {
   sectionTitle: string[];
-  description: string;
+  description?: string;
 };

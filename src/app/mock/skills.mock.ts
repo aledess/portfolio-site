@@ -14,13 +14,10 @@ const items: SkillItem[] = [
       },
       alt: "HTML",
     },
-    iconClass: null,
     label: "HTML",
-    icon: null,
   },
   {
     label: "CSS",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/css-light.svg",
@@ -33,7 +30,6 @@ const items: SkillItem[] = [
       },
       alt: "CSS",
     },
-    iconClass: null,
   },
   {
     dark: {
@@ -42,9 +38,7 @@ const items: SkillItem[] = [
       },
       alt: "Javascript",
     },
-    iconClass: null,
     label: "Javascript",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/javascript-light.svg",
@@ -53,9 +47,7 @@ const items: SkillItem[] = [
     },
   },
   {
-    iconClass: null,
     label: "Typescript",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/typescript-light.svg",
@@ -71,7 +63,6 @@ const items: SkillItem[] = [
   },
   {
     label: "React",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/react-light.svg",
@@ -84,11 +75,9 @@ const items: SkillItem[] = [
       },
       alt: "React",
     },
-    iconClass: null,
   },
   {
     label: "NextJS",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/nextjs-light.svg",
@@ -101,11 +90,9 @@ const items: SkillItem[] = [
       },
       alt: "NextJS",
     },
-    iconClass: null,
   },
   {
     label: "Angular",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/angular-light.svg",
@@ -118,7 +105,6 @@ const items: SkillItem[] = [
       },
       alt: "Angular",
     },
-    iconClass: null,
   },
   {
     dark: {
@@ -127,9 +113,7 @@ const items: SkillItem[] = [
       },
       alt: "Ionic",
     },
-    iconClass: null,
     label: "Ionic",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/ionic-light.svg",
@@ -139,7 +123,6 @@ const items: SkillItem[] = [
   },
   {
     label: "React Native",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/react-native-light.svg",
@@ -152,7 +135,6 @@ const items: SkillItem[] = [
       },
       alt: "React Native",
     },
-    iconClass: null,
   },
   {
     light: {
@@ -167,12 +149,9 @@ const items: SkillItem[] = [
       },
       alt: "Sass",
     },
-    iconClass: null,
     label: "Sass",
-    icon: null,
   },
   {
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/styled-components-light.svg",
@@ -185,12 +164,10 @@ const items: SkillItem[] = [
       },
       alt: "Styled Components",
     },
-    iconClass: null,
     label: "Styled Components",
   },
   {
     label: "Antd",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/antd-light.svg",
@@ -203,7 +180,6 @@ const items: SkillItem[] = [
       },
       alt: "Antd",
     },
-    iconClass: null,
   },
   {
     dark: {
@@ -212,9 +188,7 @@ const items: SkillItem[] = [
       },
       alt: "MaterialUI",
     },
-    iconClass: null,
     label: "MaterialUI",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/materialui-light.svg",
@@ -224,7 +198,6 @@ const items: SkillItem[] = [
   },
   {
     label: "Bulma",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/bulma-light.svg",
@@ -237,7 +210,6 @@ const items: SkillItem[] = [
       },
       alt: "Bulma",
     },
-    iconClass: null,
   },
   {
     dark: {
@@ -246,9 +218,7 @@ const items: SkillItem[] = [
       },
       alt: "Npm",
     },
-    iconClass: null,
     label: "Npm",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/npm-light.svg",
@@ -263,9 +233,7 @@ const items: SkillItem[] = [
       },
       alt: "Yarn",
     },
-    iconClass: null,
     label: "Yarn",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/yarn-light.svg",
@@ -275,7 +243,6 @@ const items: SkillItem[] = [
   },
   {
     label: "Webpack",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/webpack-light.svg",
@@ -288,11 +255,9 @@ const items: SkillItem[] = [
       },
       alt: "Webpack",
     },
-    iconClass: null,
   },
   {
     label: "Sanity",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/sanity-light.svg",
@@ -305,11 +270,9 @@ const items: SkillItem[] = [
       },
       alt: "Sanity",
     },
-    iconClass: null,
   },
   {
     label: "Strapi",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/strapi-light.svg",
@@ -322,11 +285,9 @@ const items: SkillItem[] = [
       },
       alt: "Strapi",
     },
-    iconClass: null,
   },
   {
     label: "Git",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/git-light.svg",
@@ -339,11 +300,9 @@ const items: SkillItem[] = [
       },
       alt: "Git",
     },
-    iconClass: null,
   },
   {
     label: "Bitbucket",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/bitbucket-light.svg",
@@ -356,11 +315,9 @@ const items: SkillItem[] = [
       },
       alt: "Bitbucket",
     },
-    iconClass: null,
   },
   {
     label: "Jira",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/jira-light.svg",
@@ -373,11 +330,9 @@ const items: SkillItem[] = [
       },
       alt: "Jira",
     },
-    iconClass: null,
   },
   {
     label: "Github",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/github-light.svg",
@@ -390,12 +345,9 @@ const items: SkillItem[] = [
       },
       alt: "Github",
     },
-    iconClass: null,
   },
   {
-    iconClass: null,
     label: "Jenkins",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/jenkins-light.svg",
@@ -411,7 +363,6 @@ const items: SkillItem[] = [
   },
   {
     label: "Bitrise",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/bitrise-light.svg",
@@ -424,11 +375,9 @@ const items: SkillItem[] = [
       },
       alt: "Bitrise",
     },
-    iconClass: null,
   },
   {
     label: "Postman",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/postman-light.svg",
@@ -441,12 +390,9 @@ const items: SkillItem[] = [
       },
       alt: "Postman",
     },
-    iconClass: null,
   },
   {
-    iconClass: null,
     label: "Xcode",
-    icon: null,
     light: {
       asset: {
         url: "/icons/skills/xcode-light.svg",
@@ -463,14 +409,14 @@ const items: SkillItem[] = [
 ];
 
 export const mockSkillsIT: SkillsData = {
-  sectionTitle: ["Skills", "Strumenti che uso", "Tecnologie che conosco"],
+  sectionTitle: ["Competenze", "Le mie skill", "Stack Tecnologico"],
   _id: "mock-skills-it",
   _translations: [],
   items,
 };
 
 export const mockSkillsEN: SkillsData = {
-  sectionTitle: ["Skills", "Tools I Use", "Technologies I Know"],
+  sectionTitle: ["Skills", "What I Use", "Tech Stack"],
   _id: "mock-skills-en",
   _translations: [],
   items,
