@@ -59,7 +59,6 @@ export default function StoryCarousel({ steps, lang }: Props) {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
-  const [hasEntered, setHasEntered] = useState(false);
 
   const isFirst = index === 0;
   const isLast = index === steps.length - 1;
@@ -72,10 +71,6 @@ export default function StoryCarousel({ steps, lang }: Props) {
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
-
-  useEffect(() => {
-    setHasEntered(false);
-  }, [index]);
 
   const handleChange = (dir: "next" | "prev") => {
     if ((dir === "next" && isLast) || (dir === "prev" && isFirst)) return;
@@ -92,7 +87,7 @@ export default function StoryCarousel({ steps, lang }: Props) {
 
   return (
     <div className={styles["story-carousel"]}>
-      {/* Next / Replay */}
+      {/* Next o Replay */}
       <AnimatePresence mode="wait" custom={direction}>
         {isLast ? (
           <motion.button
@@ -186,7 +181,7 @@ export default function StoryCarousel({ steps, lang }: Props) {
               className={styles["story-carousel__image"]}
               variants={slideVariants}
               initial="enter"
-              animate={hasEntered ? "center" : "enter"}
+              animate="center"
               exit="exit"
               custom={direction}
             >
@@ -195,7 +190,6 @@ export default function StoryCarousel({ steps, lang }: Props) {
                   src={current.image.asset.url}
                   alt={current.image.alt}
                   fill
-                  onLoad={() => setHasEntered(true)}
                   className={styles["story-carousel__img"]}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
