@@ -17,6 +17,12 @@ export const dictionaries = {
       about: "Chi sono",
       contact: "Contatti",
     },
+    carousel: {
+      next: "Avanti",
+      prev: "Indietro",
+      swipe: "Swipe",
+      replay: "Rivedi",
+    },
   },
   en: {
     contact: {
@@ -35,6 +41,12 @@ export const dictionaries = {
       works: "Works",
       about: "About",
       contact: "Contact",
+    },
+    carousel: {
+      next: "Next",
+      prev: "Back",
+      swipe: "Swipe",
+      replay: "Rewatch",
     },
   },
 } as const;

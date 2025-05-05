@@ -1,12 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "@components/ui/Image";
-import Text from "@components/ui/Text";
-import styles from "./styles.module.scss";
-import { AboutStep } from "@/app/types/about";
 import { motion, AnimatePresence } from "framer-motion";
 import classNames from "classnames";
+import Image from "@components/ui/Image";
+import Text from "@components/ui/Text";
+import TextSwitcher from "@components/ui/TextSwitcher";
+import Icon from "@components/ui/Icon";
+
+import { AboutStep } from "@/app/types/about";
+import styles from "./styles.module.scss";
+import { useTranslation } from "@/app/i18n/useTranslation";
 
 const slideVariants = {
   enter: (direction: "next" | "prev") => ({
@@ -47,12 +51,15 @@ const rowVariants = {
 
 type Props = {
   steps: AboutStep[];
+  lang: "it" | "en";
 };
 
-export default function StoryCarousel({ steps }: Props) {
+export default function StoryCarousel({ steps, lang }: Props) {
+  const t = useTranslation(lang);
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [hasEntered, setHasEntered] = useState(false);
 
   const isFirst = index === 0;
   const isLast = index === steps.length - 1;
@@ -60,13 +67,15 @@ export default function StoryCarousel({ steps }: Props) {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
-
     const handleChange = () => setIsMobile(mediaQuery.matches);
-
-    handleChange(); // Set initial value
+    handleChange();
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
+
+  useEffect(() => {
+    setHasEntered(false);
+  }, [index]);
 
   const handleChange = (dir: "next" | "prev") => {
     if ((dir === "next" && isLast) || (dir === "prev" && isFirst)) return;
@@ -83,9 +92,41 @@ export default function StoryCarousel({ steps }: Props) {
 
   return (
     <div className={styles["story-carousel"]}>
-      {/* Next */}
+      {/* Next / Replay */}
       <AnimatePresence mode="wait" custom={direction}>
-        {!isLast && (
+        {isLast ? (
+          <motion.button
+            key="replay"
+            onClick={() => {
+              setDirection("next");
+              setIndex(0);
+            }}
+            className={classNames(
+              styles["story-carousel__scroll-row"],
+              styles["story-carousel__scroll-row--next"],
+            )}
+            variants={rowVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            custom={direction}
+          >
+            <motion.span
+              className={classNames(
+                styles["story-carousel__label"],
+                styles["story-carousel__label--next"],
+              )}
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{ display: "flex", alignItems: "center", gap: 8 }}
+            >
+              <Text variant="caption" color="accent" as="span">
+                {t("carousel.replay")}
+              </Text>
+              <Icon name="restart" size={20} />
+            </motion.span>
+          </motion.button>
+        ) : (
           <motion.button
             key={`next-${index}`}
             onClick={() => handleChange("next")}
@@ -107,13 +148,22 @@ export default function StoryCarousel({ steps }: Props) {
               transition={{ duration: 0.6, ease: "easeInOut" }}
             />
             <motion.span
-              className={styles["story-carousel__label"]}
-              animate={{ scale: [1, 1.05, 1] }}
+              className={classNames(
+                styles["story-carousel__label"],
+                styles["story-carousel__label--next"],
+              )}
+              animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Text variant="caption" color="accent" as="span">
-                PROSEGUI
-              </Text>
+              {isMobile ? (
+                <TextSwitcher
+                  labels={[t("carousel.swipe"), t("carousel.next")]}
+                />
+              ) : (
+                <Text variant="caption" color="accent" as="span">
+                  {t("carousel.next")}
+                </Text>
+              )}
             </motion.span>
           </motion.button>
         )}
@@ -136,7 +186,7 @@ export default function StoryCarousel({ steps }: Props) {
               className={styles["story-carousel__image"]}
               variants={slideVariants}
               initial="enter"
-              animate="center"
+              animate={hasEntered ? "center" : "enter"}
               exit="exit"
               custom={direction}
             >
@@ -145,6 +195,7 @@ export default function StoryCarousel({ steps }: Props) {
                   src={current.image.asset.url}
                   alt={current.image.alt}
                   fill
+                  onLoad={() => setHasEntered(true)}
                   className={styles["story-carousel__img"]}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -158,15 +209,9 @@ export default function StoryCarousel({ steps }: Props) {
             <motion.div
               key={index}
               className={styles["story-carousel__pattern-inner"]}
-              initial={{
-                opacity: 0,
-                x: direction === "next" ? 30 : -30,
-              }}
+              initial={{ opacity: 0, x: direction === "next" ? 30 : -30 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{
-                opacity: 0,
-                x: direction === "next" ? -30 : 30,
-              }}
+              exit={{ opacity: 0, x: direction === "next" ? -30 : 30 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
               custom={direction}
             />
@@ -191,13 +236,22 @@ export default function StoryCarousel({ steps }: Props) {
             custom={direction}
           >
             <motion.span
-              className={styles["story-carousel__label"]}
-              animate={{ scale: [1, 1.05, 1] }}
+              className={classNames(
+                styles["story-carousel__label"],
+                styles["story-carousel__label--prev"],
+              )}
+              animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Text variant="caption" color="accent" as="span">
-                INDIETRO
-              </Text>
+              {isMobile ? (
+                <TextSwitcher
+                  labels={[t("carousel.swipe"), t("carousel.prev")]}
+                />
+              ) : (
+                <Text variant="caption" color="accent" as="span">
+                  {t("carousel.prev")}
+                </Text>
+              )}
             </motion.span>
             <motion.div
               className={styles["story-carousel__line"]}

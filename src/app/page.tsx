@@ -39,7 +39,7 @@ export default async function Home({
       <Navigation lang={lang} />
 
       <SlideIn direction="up" duration={0.5} delay={0.25}>
-        <About data={about} />
+        <About data={about} lang={lang} />
       </SlideIn>
 
       <SlideIn direction="up" duration={0.5} delay={0.1}>

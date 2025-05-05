@@ -22,6 +22,9 @@
       top: 0;
       right: 0;
       padding: 1rem;
+      @include respond-max("md") {
+        margin-right: -15px;
+      }
     }
 
     &--prev {
@@ -29,7 +32,9 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      padding: 1rem;
+      @include respond-max("md") {
+        padding-left: 13px;
+      }
     }
   }
 
@@ -45,12 +50,24 @@
     text-transform: uppercase;
     font-size: 0.75rem;
     font-weight: 500;
+    display: inline-block;
+
+    // ✅ Fix larghezza coerente per transizioni (6 caratteri esatti: Swipe)
+    text-align: center;
+    width: 10ch;
+    &--next,
+    &--prev {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__content {
     display: flex;
     gap: 2rem;
-    padding: 5rem 0;
+    padding: 2.5rem 0;
+
     align-items: stretch;
 
     &[data-direction="left"] {
@@ -63,6 +80,7 @@
 
     @include respond-max("md") {
       display: block;
+      padding: 3.5rem 0;
     }
   }
 

@@ -36,6 +36,7 @@ type ImageProps = {
   priority?: boolean;
   sizes?: string;
   fill?: boolean;
+  onLoad?: () => void;
 };
 
 export default function Image({
@@ -47,6 +48,7 @@ export default function Image({
   priority = false,
   sizes,
   fill = false,
+  onLoad,
 }: ImageProps) {
   const isSvg = src.endsWith(".svg");
 
@@ -58,6 +60,7 @@ export default function Image({
         width={width}
         height={height}
         className={className}
+        onLoad={onLoad}
       />
     );
   }
@@ -72,6 +75,7 @@ export default function Image({
       priority={priority}
       sizes={sizes}
       fill={fill}
+      onLoad={onLoad}
     />
   );
 }

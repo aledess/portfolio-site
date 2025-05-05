@@ -1,0 +1,15 @@
+.wrapper {
+  display: inline-block;
+  text-align: center;
+  perspective: 300px;
+}
+
+.text {
+  display: inline-block;
+  min-width: 100%;
+  text-align: center;
+  backface-visibility: hidden;
+  color: var(
+    --color-accent
+  ); // FIXME rendere dinamico, ma per ora è usato solo qua
+}
