@@ -33,9 +33,14 @@ export default defineType({
                   name: "alt",
                   type: "string",
                   title: "Testo alternativo (alt)",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required().error(
+                      "Il testo alternativo è obbligatorio",
+                    ),
                 }),
               ],
+              validation: (Rule) =>
+                Rule.required().error("L'icona per tema chiaro è obbligatoria"),
             }),
             defineField({
               name: "dark",
@@ -47,9 +52,14 @@ export default defineType({
                   name: "alt",
                   type: "string",
                   title: "Testo alternativo (alt)",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required().error(
+                      "Il testo alternativo è obbligatorio",
+                    ),
                 }),
               ],
+              validation: (Rule) =>
+                Rule.required().error("L'icona per tema scuro è obbligatoria"),
             }),
             defineField({
               name: "url",

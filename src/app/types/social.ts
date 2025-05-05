@@ -2,12 +2,12 @@ import type { ImageAsset } from "./shared";
 
 export type SocialItem = {
   label: string;
-  light?: ImageAsset;
-  dark?: ImageAsset;
-  url?: string | null;
+  light: ImageAsset;
+  dark: ImageAsset;
+  url?: string;
   file?: {
-    asset: { url: string } | null;
-  } | null;
+    asset: { url: string };
+  };
 };
 
 export type SocialData = {

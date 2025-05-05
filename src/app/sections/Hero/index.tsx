@@ -13,44 +13,50 @@ type Props = {
 
 export default function Hero({ data, social }: Props) {
   const { title, subtitle, image } = data;
-  console.log("🚀 HERO DATA:", data, social);
 
   return (
     <section className={styles.hero}>
       <Section id="home" compact>
         <div className={styles.hero__container}>
-          <div className={styles.hero__image}>
-            <Image
-              src={image.asset.url}
-              alt={image.alt}
-              width={800}
-              height={800}
-              className={styles.hero__photo}
-            />
-          </div>
-          <div className={styles.hero__content}>
-            <TypewriterText
-              words={[subtitle]}
-              variant="label"
-              color="accent"
-              align="left"
-              loop={false}
-              typingSpeed={70}
-              pause={0}
-              className={styles.hero__badge}
-              as="span"
-              delay={1400}
-            />
+          {image?.asset?.url && (
+            <div className={styles.hero__image}>
+              <Image
+                src={image.asset.url}
+                alt={image.alt || "Hero"}
+                width={800}
+                height={800}
+                className={styles.hero__photo}
+              />
+            </div>
+          )}
 
-            <TypewriterText
-              words={[title]}
-              variant="heading"
-              align="left"
-              loop={false}
-              typingSpeed={80}
-              className={styles.hero__title}
-              as="h1"
-            />
+          <div className={styles.hero__content}>
+            {subtitle && (
+              <TypewriterText
+                words={[subtitle]}
+                variant="label"
+                color="accent"
+                align="left"
+                loop={false}
+                typingSpeed={70}
+                pause={0}
+                className={styles.hero__badge}
+                as="span"
+                delay={1400}
+              />
+            )}
+
+            {title && (
+              <TypewriterText
+                words={[title]}
+                variant="heading"
+                align="left"
+                loop={false}
+                typingSpeed={80}
+                className={styles.hero__title}
+                as="h1"
+              />
+            )}
 
             <SocialBar data={social} />
           </div>

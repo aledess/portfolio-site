@@ -1,51 +1,25 @@
 import { useTheme } from "@/app/context/ThemeProvider";
+import type { SkillItem } from "@/app/types/skills";
 import Text from "@components/ui/Text";
 import Image from "@components/ui/Image";
 import styles from "./styles.module.scss";
 
-type SkillCardProps = {
-  label: string;
-  icon?: {
-    asset?: { url: string };
-    alt?: string;
-  };
-  light?: {
-    asset?: { url: string };
-    alt?: string;
-  };
-  dark?: {
-    asset?: { url: string };
-    alt?: string;
-  };
-  iconClass?: string;
-};
-
-export default function SkillCard({
-  label,
-  icon,
-  light,
-  dark,
-  iconClass,
-}: SkillCardProps) {
+export default function SkillCard({ label, light, dark }: SkillItem) {
   const { theme } = useTheme();
 
   const selectedIcon =
     theme === "light"
       ? light?.asset?.url
         ? { url: light.asset.url, alt: light.alt || label }
-        : icon?.asset?.url
-          ? { url: icon.asset.url, alt: icon.alt || label }
-          : null
+        : null
       : dark?.asset?.url
         ? { url: dark.asset.url, alt: dark.alt || label }
-        : icon?.asset?.url
-          ? { url: icon.asset.url, alt: icon.alt || label }
-          : null;
+        : null;
 
   return (
     <div className={styles["skill-card"]}>
       <div className={styles["skill-card__icon-wrapper"]}>
-        {selectedIcon ? (
+        {selectedIcon && (
           <Image
             src={selectedIcon.url}
             alt={selectedIcon.alt}
@@ -53,9 +27,7 @@ export default function SkillCard({
             height={40}
             className={styles["skill-card__icon-image"]}
           />
-        ) : iconClass ? (
-          <i className={`${iconClass} ${styles["skill-card__icon-font"]}`} />
-        ) : null}
+        )}
       </div>
 
       <Text variant="caption" className={styles["skill-card__label"]}>

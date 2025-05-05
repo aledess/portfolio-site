@@ -15,8 +15,6 @@ export default defineType({
       title: "Descrizione introduttiva",
       type: "text",
       rows: 4,
-      validation: (Rule) =>
-        Rule.required().min(10).error("La descrizione è obbligatoria"),
     }),
   ],
   preview: {

@@ -22,6 +22,7 @@ type Props = {
 
 export default function Contact({ data, lang }: Props) {
   const t = useTranslation(lang);
+  const { description } = data;
 
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -69,14 +70,17 @@ export default function Contact({ data, lang }: Props) {
 
   return (
     <Section id="contact" titleLoop={contactTitleLoop}>
-      <Text
-        as="p"
-        variant="body"
-        color="secondary"
-        className={styles.contact__intro}
-      >
-        {data.description}
-      </Text>
+      {description && (
+        <Text
+          as="p"
+          variant="body"
+          color="secondary"
+          className={styles.contact__intro}
+        >
+          {description}
+        </Text>
+      )}
+
       <form className={styles.contact__form} onSubmit={handleSubmit}>
         <div className={styles.contact__field}>
           <div className={styles.contact__floating}>

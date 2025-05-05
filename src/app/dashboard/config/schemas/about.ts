@@ -11,15 +11,11 @@ export default defineType({
     sectionTitle,
     language,
     defineField({
-      name: "description",
-      title: "Descrizione generale",
-      type: "text",
-      rows: 4,
-    }),
-    defineField({
       name: "steps",
       title: "Step narrativi",
       type: "array",
+      validation: (Rule) =>
+        Rule.required().min(1).error("Almeno uno step è obbligatorio"),
       of: [
         defineField({
           type: "object",
@@ -31,7 +27,6 @@ export default defineType({
               type: "string",
               validation: (Rule) => Rule.required(),
             }),
-
             defineField({
               name: "image",
               title: "Illustrazione",

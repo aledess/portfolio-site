@@ -1,7 +1,6 @@
 import type { ImageAsset } from "./shared";
 export type AboutData = {
   sectionTitle: string[];
-  description?: string;
   steps: AboutStep[];
 };
 

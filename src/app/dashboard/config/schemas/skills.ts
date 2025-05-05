@@ -1,5 +1,4 @@
 import { defineType, defineField } from "sanity";
-// import type { Rule } from "sanity";
 import { sectionTitle } from "./fields/sectionTitle";
 import { language } from "./fields/language";
 import { previewField } from "./fields/previewField";
@@ -24,22 +23,23 @@ export default defineType({
               name: "label",
               title: "Nome",
               type: "string",
+              validation: (Rule) =>
+                Rule.required().error("Il nome è obbligatorio"),
             }),
             defineField({
               name: "light",
               title: "Icona per tema chiaro",
               type: "image",
               options: { hotspot: true },
+              validation: (Rule) => Rule.required(),
               fields: [
-                {
+                defineField({
                   name: "alt",
                   type: "string",
                   title: "Testo alternativo (alt)",
                   validation: (Rule) =>
-                    Rule.required().error(
-                      "Il testo alternativo è obbligatorio",
-                    ),
-                },
+                    Rule.required().error("L'alt è obbligatorio"),
+                }),
               ],
             }),
             defineField({
@@ -47,39 +47,16 @@ export default defineType({
               title: "Icona per tema scuro",
               type: "image",
               options: { hotspot: true },
+              validation: (Rule) => Rule.required(),
               fields: [
-                {
+                defineField({
                   name: "alt",
                   type: "string",
                   title: "Testo alternativo (alt)",
                   validation: (Rule) =>
-                    Rule.required().error(
-                      "Il testo alternativo è obbligatorio",
-                    ),
-                },
+                    Rule.required().error("L'alt è obbligatorio"),
+                }),
               ],
-            }),
-            defineField({
-              name: "icon",
-              title: "Icona base",
-              type: "image",
-              options: { hotspot: true },
-              fields: [
-                {
-                  name: "alt",
-                  type: "string",
-                  title: "Testo alternativo (alt)",
-                  validation: (Rule) =>
-                    Rule.required().error(
-                      "Il testo alternativo è obbligatorio",
-                    ),
-                },
-              ],
-            }),
-            defineField({
-              name: "iconClass",
-              title: "Classe Icona (es. devicon-react-original)",
-              type: "string",
             }),
           ],
         },

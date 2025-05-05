@@ -1,4 +1,3 @@
-// ./schemas/experience.ts
 import { defineType, defineField } from "sanity";
 import { sectionTitle } from "./fields/sectionTitle";
 import { language } from "./fields/language";
@@ -15,6 +14,8 @@ export default defineType({
       name: "items",
       title: "Esperienze",
       type: "array",
+      validation: (Rule) =>
+        Rule.required().min(1).error("Aggiungi almeno un'esperienza"),
       of: [
         {
           type: "object",

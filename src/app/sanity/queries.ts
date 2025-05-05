@@ -24,10 +24,6 @@ export const skillsQuery = /* groq */ `
     sectionTitle,
     items[]{
       label,
-      icon {
-        asset->{url},
-        alt
-      },
       light {
         asset->{url},
         alt
@@ -36,7 +32,6 @@ export const skillsQuery = /* groq */ `
         asset->{url},
         alt
       },
-      iconClass, // 👈 questo è il nuovo nome per evitare conflitti
     },
     "_translations": *[
       _type == "translation.metadata" && references(^._id)
@@ -62,15 +57,11 @@ export const experienceQuery = /* groq */ `
     ][0].translations[].value->{
       _id,
       sectionTitle,
-      items[]{
-        date,
-        company,
-        description
-      },
       language
     }
   }
 `;
+
 export const worksQuery = /* groq */ `
   *[_type == "works" && language == $lang][0]{
     _id,
@@ -109,7 +100,6 @@ export const aboutQuery = /* groq */ `
   *[_type == "about" && language == $lang][0]{
     _id,
     sectionTitle,
-    description,
     steps[]{
       title,
       image {
@@ -122,7 +112,6 @@ export const aboutQuery = /* groq */ `
     ][0].translations[].value->{
       _id,
       sectionTitle,
-      description,
       steps[]{
         title,
         image {
@@ -139,7 +128,6 @@ export const contactQuery = /* groq */ `
   *[_type == "contact" && language == $lang][0]{
     _id,
     sectionTitle,
-    description,
     "_translations": *[
       _type == "translation.metadata" && references(^._id)
     ][0].translations[].value->{
