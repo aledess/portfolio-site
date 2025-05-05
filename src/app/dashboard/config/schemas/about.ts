@@ -31,20 +31,7 @@ export default defineType({
               type: "string",
               validation: (Rule) => Rule.required(),
             }),
-            defineField({
-              name: "box1",
-              title: "Testo in alto a sinistra",
-              type: "text",
-              rows: 2,
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: "box2",
-              title: "Testo in basso a destra",
-              type: "text",
-              rows: 2,
-              validation: (Rule) => Rule.required(),
-            }),
+
             defineField({
               name: "image",
               title: "Illustrazione",

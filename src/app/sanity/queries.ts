@@ -112,8 +112,6 @@ export const aboutQuery = /* groq */ `
     description,
     steps[]{
       title,
-      box1,
-      box2,
       image {
         asset->{url},
         alt
@@ -127,8 +125,6 @@ export const aboutQuery = /* groq */ `
       description,
       steps[]{
         title,
-        box1,
-        box2,
         image {
           asset->{url},
           alt

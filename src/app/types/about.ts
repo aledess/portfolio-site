@@ -6,8 +6,6 @@ export type AboutData = {
 };
 
 export type AboutStep = {
-  title?: string; // titolo visivo del blocco
+  title?: string;
   image: ImageAsset;
-  box1?: string; // voce principale (es. in alto a sinistra)
-  box2?: string; // voce secondaria (es. in basso a destra)
 };

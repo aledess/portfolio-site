@@ -82,6 +82,6 @@ export async function getSections(
     works,
     about,
     contact,
-    social, // 👈 lo ritorni
+    social,
   };
 }
