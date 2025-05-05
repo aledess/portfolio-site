@@ -65,7 +65,10 @@ export default function StoryCarousel({ steps, lang }: Props) {
   const current = steps[index];
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const mediaQuery = window.matchMedia(
+      "(max-width: 1024px), (pointer: coarse) and (hover: none)",
+    );
+
     const handleChange = () => setIsMobile(mediaQuery.matches);
     handleChange();
     mediaQuery.addEventListener("change", handleChange);
@@ -165,16 +168,14 @@ export default function StoryCarousel({ steps, lang }: Props) {
       </AnimatePresence>
 
       {/* Slide */}
-      <div
+      <motion.div
+        drag={isMobile ? "x" : false}
+        dragConstraints={{ left: 0, right: 0 }}
+        onDragEnd={handleSwipe}
         className={styles["story-carousel__content"]}
         data-direction={isMobile ? "mobile" : index === 0 ? "left" : "right"}
       >
-        <motion.div
-          drag={isMobile ? "x" : false}
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragEnd={handleSwipe}
-          className={styles["story-carousel__image-wrapper"]}
-        >
+        <div className={styles["story-carousel__image-wrapper"]}>
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={index}
@@ -196,7 +197,7 @@ export default function StoryCarousel({ steps, lang }: Props) {
               </div>
             </motion.div>
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         <div className={styles["story-carousel__pattern"]}>
           <AnimatePresence mode="wait" custom={direction}>
@@ -211,7 +212,7 @@ export default function StoryCarousel({ steps, lang }: Props) {
             />
           </AnimatePresence>
         </div>
-      </div>
+      </motion.div>
 
       {/* Prev */}
       <AnimatePresence mode="wait" custom={direction}>
