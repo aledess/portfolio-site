@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import LangSwitcher from "@components/ui/LangSwitcher";
 import ThemeToggle from "@components/ui/ThemeToggle";
 import Text from "@components/ui/Text";
@@ -69,35 +69,37 @@ export default function MobileMenu({ lang, toggleMenu, isClosing }: Props) {
         })}
         variants={menuVariants}
         initial="initial"
-        animate={isClosing ? "exit" : "animate"} // 👈 cambia qui
+        animate={isClosing ? "exit" : "animate"}
         exit="exit"
         transition={{
           duration: MENU_EXIT_DURATION_MS / 1000,
           ease: "easeInOut",
         }}
       >
-        <motion.ul
-          className={styles.mobileMenu__links}
-          variants={containerVariants}
-          initial="initial"
-          animate="animate"
-        >
-          {links.map((link) => (
-            <motion.li
-              key={link.href}
-              className={styles.mobileMenu__item}
-              variants={itemVariants}
-            >
-              <a
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
+        <AnimatePresence mode="wait">
+          <motion.ul
+            key={lang}
+            className={styles.mobileMenu__links}
+            variants={containerVariants}
+            initial="initial"
+            animate="animate"
+          >
+            {links.map((link) => (
+              <motion.li
+                key={link.href}
+                className={styles.mobileMenu__item}
+                variants={itemVariants}
               >
-                <Text variant="headingM">{link.label}</Text>
-              </a>
-            </motion.li>
-          ))}
-        </motion.ul>
-
+                <a
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                >
+                  <Text variant="headingS">{link.label}</Text>
+                </a>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </AnimatePresence>
         <div className={styles.mobileMenu__switches}>
           <LangSwitcher lang={lang} />
           <ThemeToggle />
