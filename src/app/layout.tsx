@@ -33,7 +33,12 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="page-bg">
             <ScrollProgress />
-            <div className="site-wrapper">{children}</div>
+            <div className="site-wrapper">
+              {children}
+              <footer className="site-footer">
+                <p>© {new Date().getFullYear()} Alessandro Dessì</p>
+              </footer>
+            </div>
           </div>
         </ThemeProvider>
       </body>

@@ -155,7 +155,6 @@ export default function Contact({ data, lang }: Props) {
           </Text>
         </button>
       </form>
-      ...
       <AnimatePresence mode="wait">
         {toast && (
           <Toast
