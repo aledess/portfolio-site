@@ -1,10 +1,13 @@
-import Image from "next/image";
+"use client";
+import { motion } from "framer-motion";
+
 import Section from "@components/layout/Section";
 import TypewriterText from "@components/ui/TypewriterText";
 import styles from "./styles.module.scss";
 import type { HeroData } from "@schemas/hero";
 import { SocialData } from "@/app/types/social";
 import SocialBar from "@/app/components/ui/Socialbar";
+import Image from "@/app/components/ui/Image";
 
 type Props = {
   data: HeroData;
@@ -19,7 +22,12 @@ export default function Hero({ data, social }: Props) {
       <Section id="home" compact>
         <div className={styles.hero__container}>
           {image?.asset?.url && (
-            <div className={styles.hero__image}>
+            <motion.div
+              className={styles.hero__image}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+            >
               <Image
                 src={image.asset.url}
                 alt={image.alt || "Hero"}
@@ -27,7 +35,7 @@ export default function Hero({ data, social }: Props) {
                 height={800}
                 className={styles.hero__photo}
               />
-            </div>
+            </motion.div>
           )}
 
           <div className={styles.hero__content}>
