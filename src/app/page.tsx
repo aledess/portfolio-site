@@ -28,8 +28,6 @@ export default async function Home({
 
   const { hero, skills, experience, works, about, contact, social } = sections;
 
-  console.log("----", sections);
-
   return (
     <LoaderWrapper minDelay={1500}>
       <Header isPreview={isPreview} lang={lang} />

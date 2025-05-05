@@ -8,13 +8,6 @@ import styles from "./styles.module.scss";
 import type { ContactData } from "@schemas/contact";
 import { useTranslation } from "@/app/i18n/useTranslation";
 
-const contactTitleLoop = [
-  "Let’s work together",
-  "Start a project",
-  "Get in touch",
-  "Say hello",
-];
-
 type Props = {
   data: ContactData;
   lang: "it" | "en";
@@ -22,7 +15,7 @@ type Props = {
 
 export default function Contact({ data, lang }: Props) {
   const t = useTranslation(lang);
-  const { description } = data;
+  const { sectionTitle, description } = data;
 
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -69,7 +62,7 @@ export default function Contact({ data, lang }: Props) {
   };
 
   return (
-    <Section id="contact" titleLoop={contactTitleLoop}>
+    <Section id="contact" titleLoop={sectionTitle}>
       {description && (
         <Text
           as="p"
@@ -136,13 +129,15 @@ export default function Contact({ data, lang }: Props) {
         <button
           type="submit"
           className={styles.contact__button}
-          disabled={status === "sending"}
+          disabled={
+            status === "sending" ||
+            !form.name.trim() ||
+            !form.email.trim() ||
+            !form.message.trim()
+          }
         >
           <Text as="span" variant="label" color="inherit">
-            {status === "sending" && t("contact.sending")}
-            {status === "sent" && t("contact.sent")}
-            {status === "error" && t("contact.error")}
-            {status === "idle" && t("contact.send")}
+            {t("contact.send")}
           </Text>
         </button>
       </form>
