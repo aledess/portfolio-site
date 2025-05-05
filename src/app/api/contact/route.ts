@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO,
-      subject: "Nuovo messaggio dal portfolio",
+      subject: "Messaggio dal tuo sito personale",
       html: `
         <h2>Hai ricevuto un nuovo messaggio!</h2>
         <p><strong>Nome:</strong> ${name}</p>
@@ -35,8 +35,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Errore invio email:", error);
+  } catch {
     return NextResponse.json(
       { success: false, error: "Errore server" },
       { status: 500 },
