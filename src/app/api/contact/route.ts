@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_TO,
+      to: process.env.USER,
       subject: "Messaggio dal tuo sito personale",
       html: `
         <h2>Hai ricevuto un nuovo messaggio!</h2>
