@@ -26,9 +26,28 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   }, [prefers]);
 
   const toggleTheme = () => {
+    const html = document.documentElement;
+
+    // Crea div overlay
+    const fade = document.createElement("div");
+    fade.className = "theme-fade";
+    document.body.appendChild(fade);
+
+    // Rimuove dopo l'animazione
+    setTimeout(() => {
+      fade.remove();
+    }, 600);
+
+    // Transizione standard
+    html.classList.add("theme-transition");
+    setTimeout(() => {
+      html.classList.remove("theme-transition");
+    }, 600);
+
+    // Cambia tema
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
+    html.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
   };
 
