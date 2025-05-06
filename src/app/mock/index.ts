@@ -5,6 +5,7 @@ import { mockWorksIT, mockWorksEN } from "./works.mock";
 import { mockAboutIT, mockAboutEN } from "./about.mock";
 import { mockContactIT, mockContactEN } from "./contact.mock";
 import { mockSocialIT, mockSocialEN } from "./social.mock";
+import { settingsMockIT, settingsMockEN } from "./settings.mock";
 
 export const localizedMocks = {
   hero: { it: mockHeroIT, en: mockHeroEN },
@@ -14,4 +15,5 @@ export const localizedMocks = {
   about: { it: mockAboutIT, en: mockAboutEN },
   contact: { it: mockContactIT, en: mockContactEN },
   social: { it: mockSocialIT, en: mockSocialEN },
+  settings: { it: settingsMockIT, en: settingsMockEN },
 };

@@ -1,4 +1,5 @@
 import { StructureBuilder } from "sanity/structure";
+import { useEffect } from "react";
 import resolveProductionUrl from "./resolveProcuctionUrl";
 
 export function withPreviewView(
@@ -6,6 +7,7 @@ export function withPreviewView(
   schemaType: string,
   documentId: string,
   title: string,
+  slug: string = "/",
 ) {
   return S.listItem()
     .title(title)
@@ -16,11 +18,15 @@ export function withPreviewView(
         .views([
           S.view.form(),
           S.view
-            .component(({}) => {
-              const url = resolveProductionUrl();
-              if (typeof window !== "undefined" && url) {
-                window.open(url, "_blank");
-              }
+            .component(() => {
+              const url = resolveProductionUrl({ slug });
+
+              useEffect(() => {
+                if (typeof window !== "undefined") {
+                  window.open(url, "_blank");
+                }
+              }, []);
+
               return null;
             })
             .title("Preview"),

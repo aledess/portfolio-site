@@ -77,7 +77,7 @@ export default defineType({
   ],
   preview: {
     prepare() {
-      return { title: "Works" };
+      return { title: "🧪 Works" };
     },
   },
   ...previewField,

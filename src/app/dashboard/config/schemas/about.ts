@@ -50,7 +50,7 @@ export default defineType({
   ],
   preview: {
     prepare() {
-      return { title: "About" };
+      return { title: "👤 About" };
     },
   },
   ...previewField,

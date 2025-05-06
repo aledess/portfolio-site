@@ -44,7 +44,7 @@ export default defineType({
   preview: {
     prepare() {
       return {
-        title: "Hero",
+        title: "🚀 Hero",
       };
     },
   },

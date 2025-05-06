@@ -5,6 +5,7 @@ import { WorksData } from "@schemas/works";
 import { AboutData } from "@schemas/about";
 import { ContactData } from "@schemas/contact";
 import { SocialData } from "@schemas/social";
+import { SettingsData } from "@schemas/settings";
 
 import { fetchWithLocalizedMock } from "@utils/fetchWithLocalizedMock";
 import { getClient } from "./client";
@@ -17,6 +18,7 @@ import {
   aboutQuery,
   contactQuery,
   socialQuery,
+  settingsQuery,
 } from "./queries";
 
 export async function getSections(
@@ -30,6 +32,7 @@ export async function getSections(
   about: AboutData;
   contact: ContactData;
   social: SocialData;
+  settings: SettingsData;
 }> {
   const client = getClient(preview);
 
@@ -75,6 +78,12 @@ export async function getSections(
     lang,
   );
 
+  const settings = await fetchWithLocalizedMock<SettingsData>(
+    "settings",
+    () => client.fetch(settingsQuery),
+    lang,
+  );
+
   return {
     hero,
     skills,
@@ -83,5 +92,6 @@ export async function getSections(
     about,
     contact,
     social,
+    settings,
   };
 }

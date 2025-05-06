@@ -5,6 +5,7 @@ import works from "./works";
 import about from "./about";
 import contact from "./contact";
 import social from "./social";
+import settings from "./settings";
 
 export const schemaTypes = [
   hero,
@@ -14,4 +15,5 @@ export const schemaTypes = [
   about,
   contact,
   social,
+  settings,
 ];

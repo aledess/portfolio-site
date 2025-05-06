@@ -12,6 +12,12 @@ const structure = (S: StructureBuilder) =>
       withPreviewView(S, "about", "about-single", "About"),
       withPreviewView(S, "contact", "contact-single", "Contact"),
       withPreviewView(S, "social", "social-single", "Social"),
+      withPreviewView(S, "settings", "settings-single", "Settings"),
+      S.listItem()
+        .title("About (tutti)")
+        .schemaType("about")
+        .child(S.documentTypeList("about").title("Tutti gli About")),
+
       S.listItem()
         .title("Translation metadata")
         .child(

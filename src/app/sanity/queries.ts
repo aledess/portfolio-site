@@ -192,3 +192,15 @@ export const socialQuery = /* groq */ `
     }
   }
 `;
+
+export const settingsQuery = /* groq */ `
+  *[_type == "settings"][0]{
+    logoLight { asset->{url} },
+    logoDark { asset->{url} },
+    favicon { asset->{url} },
+    maintenance,
+    hiddenSections,
+    defaultTheme,
+    analyticsId
+  }
+`;

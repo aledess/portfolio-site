@@ -82,7 +82,9 @@ export default defineType({
   ],
   preview: {
     prepare() {
-      return { title: "Social / Download" };
+      return {
+        title: "🔗 Social / Download",
+      };
     },
   },
   ...previewField,

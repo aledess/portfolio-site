@@ -65,7 +65,7 @@ export default defineType({
   ],
   preview: {
     prepare() {
-      return { title: "Skills" };
+      return { title: "🛠️ Skills" };
     },
   },
   ...previewField,

@@ -47,7 +47,7 @@ export default defineType({
   ],
   preview: {
     prepare() {
-      return { title: "Experience" };
+      return { title: "💼 Experience" };
     },
   },
   ...previewField,
