@@ -28,23 +28,23 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const toggleTheme = () => {
     const html = document.documentElement;
 
-    // Crea div overlay
+    // 🔷 Crea e aggiungi l'overlay animato
     const fade = document.createElement("div");
     fade.className = "theme-fade";
     document.body.appendChild(fade);
 
-    // Rimuove dopo l'animazione
+    // 🔷 Rimuovilo dopo l’animazione (600ms)
     setTimeout(() => {
       fade.remove();
     }, 600);
 
-    // Transizione standard
+    // 🔷 Classe di transizione globale (per sicurezza)
     html.classList.add("theme-transition");
     setTimeout(() => {
       html.classList.remove("theme-transition");
     }, 600);
 
-    // Cambia tema
+    // 🔷 Switch del tema
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     html.setAttribute("data-theme", newTheme);
