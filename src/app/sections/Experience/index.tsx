@@ -7,7 +7,6 @@ type Props = {
 };
 
 export default function Experience({ data }: Props) {
-  console.log("Experience Section Data", data);
   const { items, sectionTitle } = data;
   return (
     <Section id="experience" titleLoop={sectionTitle} tight>

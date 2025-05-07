@@ -8,8 +8,6 @@ type Props = {
 };
 
 export default function Works({ data }: Props) {
-  console.log("Works Section Data", data);
-
   return (
     <Section id="works" titleLoop={data.sectionTitle}>
       <div className={styles.works}>

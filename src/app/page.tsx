@@ -32,7 +32,6 @@ export default async function Home({
 
   const { hideContactSection = false } = settings;
 
-  console.log("----settings", settings);
   if (settings?.maintenance && !isPreview) {
     return <Maintenance />;
   }

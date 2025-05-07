@@ -7,7 +7,6 @@ type Props = {
 };
 
 export default function Skills({ data }: Props) {
-  console.log("Skills Section Data", data);
   const { sectionTitle, items } = data;
   return (
     <Section id="skills" titleLoop={sectionTitle} full contrastBg>
