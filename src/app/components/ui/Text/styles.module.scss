@@ -1,35 +1,35 @@
-@use "@/styles/mixins" as *; // 👈 importa i mixins
+@use "@/styles/mixins" as mix;
 
 .text {
   margin: 0;
   font-weight: 200;
 
   &--heading {
-    @include font-size(heading);
+    @include mix.font-size(heading);
     line-height: 1.2;
     letter-spacing: -0.01em;
     font-weight: 600;
   }
 
   &--headingS {
-    @include font-size(headingSmall);
+    @include mix.font-size(headingSmall);
     letter-spacing: -0.005em;
   }
 
   &--body {
-    @include font-size(body);
+    @include mix.font-size(body);
     line-height: 1.6;
     letter-spacing: 0.01em;
   }
 
   &--label {
-    @include font-size(label);
+    @include mix.font-size(label);
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
 
   &--caption {
-    @include font-size(caption);
+    @include mix.font-size(caption);
     line-height: 1;
     letter-spacing: 0.04em;
     font-weight: 400;

@@ -1,4 +1,4 @@
-@use "@/styles/mixins" as *;
+@use "@/styles/mixins" as mix;
 
 .experience-list {
   display: flex;
@@ -45,7 +45,7 @@
     line-height: 1.4;
   }
 
-  @include respond-max("sm") {
+  @include mix.respond-max("sm") {
     &__timeline {
       margin-right: 1.2rem;
     }
