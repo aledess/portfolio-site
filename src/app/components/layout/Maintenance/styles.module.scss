@@ -1,4 +1,4 @@
-.wrapper {
+.maintenance__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,9 +8,31 @@
   background-color: var(--background);
 }
 
-.box {
-  max-width: 500px;
+.maintenance__box {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+}
+
+.maintenance__language-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.maintenance__language {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.maintenance__flag {
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.maintenance__text {
+  font-weight: bold;
 }

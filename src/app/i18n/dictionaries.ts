@@ -23,10 +23,6 @@ export const dictionaries = {
       swipe: "Swipe",
       replay: "Rivedi",
     },
-    maintenance: {
-      title: "Sito in manutenzione",
-      subtitle: "Torno presto online, promesso!",
-    },
   },
   en: {
     contact: {
@@ -51,10 +47,6 @@ export const dictionaries = {
       prev: "Back",
       swipe: "Swipe",
       replay: "Rewatch",
-    },
-    maintenance: {
-      title: "Site under maintenance",
-      subtitle: "I'll be back online soon, I promise!",
     },
   },
 } as const;

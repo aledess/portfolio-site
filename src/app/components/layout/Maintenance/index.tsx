@@ -1,25 +1,50 @@
 "use client";
 
 import Text from "@components/ui/Text";
+import Image from "next/image";
 import styles from "./styles.module.scss";
-import { useTranslation } from "@/app/i18n/useTranslation";
 
-type MaintenanceProps = {
-  lang?: "it" | "en";
-};
-
-export default function Maintenance({ lang = "it" }: MaintenanceProps) {
-  const t = useTranslation(lang);
-
+export default function Maintenance() {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.box}>
-        <Text as="h1" variant="heading" color="accent">
-          {t("maintenance.title")}
-        </Text>
-        <Text as="p" variant="body" color="secondary">
-          {t("maintenance.subtitle")}
-        </Text>
+    <div className={styles["maintenance__wrapper"]}>
+      <div className={styles["maintenance__box"]}>
+        <div className={styles["maintenance__language-block"]}>
+          <div className={styles["maintenance__language"]}>
+            <Image
+              src="/images/it.png"
+              alt="Italiano"
+              width={20}
+              height={20}
+              className={styles["maintenance__flag"]}
+            />
+            <Text
+              as="h1"
+              variant="label"
+              color="accent"
+              className={styles["maintenance__text"]}
+            >
+              Il sito è temporaneamente in manutenzione.
+            </Text>
+          </div>
+
+          <div className={styles["maintenance__language"]}>
+            <Image
+              src="/images/en.png"
+              alt="English"
+              width={20}
+              height={20}
+              className={styles["maintenance__flag"]}
+            />
+            <Text
+              as="h1"
+              variant="label"
+              color="accent"
+              className={styles["maintenance__text"]}
+            >
+              The site is temporarily under maintenance.
+            </Text>
+          </div>
+        </div>
       </div>
     </div>
   );
