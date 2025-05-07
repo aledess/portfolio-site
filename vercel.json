@@ -1,11 +1,10 @@
 {
-    "redirects": [
-      {
-        "source": "/(.*)",
-        "has": [{ "type": "host", "value": "www.alessandrodess.it" }],
-        "destination": "https://alessandrodess.it/:1",
-        "permanent": true
-      }
-    ]
-  }
-  
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.alessandrodess.it" }],
+      "destination": "https://alessandrodess.it/$1",
+      "permanent": true
+    }
+  ]
+}
