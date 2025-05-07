@@ -1,4 +1,4 @@
-@use "@/styles/mixins" as *;
+@use "@/styles/mixins" as mix;
 
 .nav {
   &__wrapper {
@@ -8,7 +8,8 @@
     display: flex;
     justify-content: center;
     padding: 1rem;
-    @include respond-max("md") {
+
+    @include mix.respond-max("md") {
       display: none;
     }
   }

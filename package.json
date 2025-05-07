@@ -1,7 +1,13 @@
 {
   "name": "portfolio-site",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": "Alessandro Dessì",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alessandrodess/portfolio-site.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -18,7 +18,7 @@ export const mockSocialIT: SocialData = {
         alt: "Linkedin icon",
       },
       url: "https://www.linkedin.com/in/alessandrodess/",
-      file: { asset: null },
+      file: undefined,
     },
     {
       label: "Github",
@@ -35,7 +35,7 @@ export const mockSocialIT: SocialData = {
         alt: "Github icon",
       },
       url: "https://github.com/aledess",
-      file: { asset: null },
+      file: undefined,
     },
     {
       label: "cv",
@@ -51,7 +51,6 @@ export const mockSocialIT: SocialData = {
         },
         alt: "CV Icon",
       },
-      url: null,
       file: {
         asset: {
           url: "files/cv.pdf",
@@ -80,7 +79,7 @@ export const mockSocialEN: SocialData = {
         alt: "Linkedin icon",
       },
       url: "https://www.linkedin.com/in/alessandrodess/",
-      file: { asset: null },
+      file: undefined,
     },
     {
       label: "Github",
@@ -97,7 +96,7 @@ export const mockSocialEN: SocialData = {
         alt: "Github icon",
       },
       url: "https://github.com/aledess",
-      file: { asset: null },
+      file: undefined,
     },
     {
       label: "cv",
@@ -113,7 +112,7 @@ export const mockSocialEN: SocialData = {
         },
         alt: "CV Icon",
       },
-      url: null,
+      url: undefined,
       file: {
         asset: {
           url: "files/cv.pdf",

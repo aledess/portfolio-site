@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { draftMode } from "next/headers";
 
 import SlideIn from "@components/motion/SlideIn";
@@ -17,11 +18,7 @@ import BackToTop from "@components/ui/BackToTop";
 import { getSections } from "@sanity/sections";
 import type { SectionsData } from "@schemas/sections";
 
-interface PageProps {
-  searchParams?: { lang?: string };
-}
-
-export default async function Home({ searchParams }: PageProps) {
+export default async function Home({ searchParams }: any) {
   const lang = searchParams?.lang === "en" ? "en" : "it";
 
   const { isEnabled: isPreview } = await draftMode();

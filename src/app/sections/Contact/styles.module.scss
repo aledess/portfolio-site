@@ -1,5 +1,5 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use "@/styles/variables" as vars;
+@use "@/styles/mixins" as mix;
 
 .contact {
   max-width: 700px;
@@ -22,11 +22,13 @@
     gap: 1.5rem;
     height: 100%;
     padding-bottom: 4rem;
-    @include respond-max("md") {
+
+    @include mix.respond-max("md") {
       padding-top: 5rem;
       gap: 2rem;
     }
-    @include respond-max("sm") {
+
+    @include mix.respond-max("sm") {
       gap: 2rem;
     }
   }

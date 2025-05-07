@@ -1,15 +1,15 @@
-@use "@/styles/mixins" as *;
+@use "@/styles/mixins" as mix;
 
 .works {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 
-  @include respond-max("lg") {
+  @include mix.respond-max("lg") {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-max("md") {
+  @include mix.respond-max("md") {
     grid-template-columns: 1fr;
   }
 

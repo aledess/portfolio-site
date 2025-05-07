@@ -1,16 +1,17 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use "@/styles/variables" as vars;
+@use "@/styles/mixins" as mix;
 
 .hero {
   position: relative;
   overflow: hidden;
   width: 100%;
   min-height: calc(
-    100dvh - #{$header-height-desktop} - #{$navigation-height} - #{$hero-offset}
+    100dvh - #{vars.$header-height-desktop} - #{vars.$navigation-height} -
+      #{vars.$hero-offset}
   );
 
-  @include respond-max("md") {
-    min-height: calc(100dvh - #{$header-height-mobile});
+  @include mix.respond-max("md") {
+    min-height: calc(100dvh - #{vars.$header-height-mobile});
   }
 
   &::after,
@@ -30,15 +31,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: $container-width;
+    max-width: vars.$container-width;
     margin: 0 auto;
     gap: 6rem;
-    width: 100%; // 👈 sempre width 100%
+    width: 100%;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       flex-direction: column;
       gap: 3rem;
-      max-width: 100%; // 👈 annullo max-width sotto tablet
+      max-width: 100%;
     }
   }
 
@@ -50,12 +51,12 @@
     align-items: flex-start;
     text-align: left;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       order: 2;
       align-items: center;
       text-align: center;
-      flex: 0 0 auto; // 👈 Rimuove il 40%
-      width: 100%; // 👈 Prende tutta la larghezza
+      flex: 0 0 auto;
+      width: 100%;
     }
   }
 
@@ -69,10 +70,10 @@
     position: relative;
     aspect-ratio: 1 / 1;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       order: 1;
-      flex: 0 0 auto; // 👈 Rimuove il 60%
-      width: 100%; // 👈 Prende tutta la larghezza
+      flex: 0 0 auto;
+      width: 100%;
       max-width: 400px;
     }
   }
@@ -99,14 +100,14 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
 
-    @include font-size("font-xl"); // Desktop
+    @include mix.font-size("font-xl");
 
-    @include respond-max("md") {
-      @include font-size("font-lg"); // Tablet
+    @include mix.respond-max("md") {
+      @include mix.font-size("font-lg");
     }
 
-    @include respond-max("sm") {
-      @include font-size("font-md"); // Mobile
+    @include mix.respond-max("sm") {
+      @include mix.font-size("font-md");
     }
   }
 
