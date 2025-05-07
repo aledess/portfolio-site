@@ -24,9 +24,7 @@ export default function RootLayout({
   return (
     <html lang="it" className={dmSans.variable} suppressHydrationWarning>
       <head>
-        <head>
-          <link rel="icon" href="/favicon.ico" sizes="any" />
-        </head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
         <ThemeProvider>
