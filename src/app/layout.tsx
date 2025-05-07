@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-
-import "@/styles/main.scss";
 import { ThemeProvider } from "@context/ThemeProvider";
 import ScrollProgress from "./components/ui/ScrollProgress";
+import Analytics from "./components/system/analytics";
+import { GA_ID } from "@config";
+import "@/styles/main.scss";
 
 const dmSans = Manrope({
   subsets: ["latin"],
@@ -30,6 +31,8 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="page-bg">
             <ScrollProgress />
+            <Analytics gaId={GA_ID} />
+
             <div className="site-wrapper">
               {children}
               <footer className="site-footer">
