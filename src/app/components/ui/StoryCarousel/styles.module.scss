@@ -1,5 +1,5 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use "@/styles/variables" as vars;
+@use "@/styles/mixins" as mix;
 
 .story-carousel {
   display: flex;
@@ -40,7 +40,8 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      @include respond-max("md") {
+
+      @include mix.respond-max("md") {
         padding-left: 13px;
       }
     }
@@ -59,10 +60,9 @@
     font-size: 0.75rem;
     font-weight: 500;
     display: inline-block;
-
-    // ✅ Fix larghezza coerente per transizioni (6 caratteri esatti: Swipe)
     text-align: center;
     width: 10ch;
+
     &--next,
     &--prev {
       display: flex;
@@ -75,7 +75,6 @@
     display: flex;
     gap: 2rem;
     padding: 2.5rem 0;
-
     align-items: stretch;
 
     &[data-direction="left"] {
@@ -86,7 +85,7 @@
       flex-direction: row-reverse;
     }
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       display: block;
       padding: 3.5rem 0;
     }
@@ -99,7 +98,7 @@
     overflow: hidden;
     flex: 0 0 60%;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       width: 100%;
       max-width: none;
     }
@@ -122,7 +121,7 @@
     border-radius: 16px;
     overflow: hidden;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       width: 100%;
       height: 100%;
     }
@@ -160,7 +159,7 @@
     justify-content: center;
     align-items: center;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       display: none;
     }
 
@@ -168,7 +167,6 @@
       width: 60%;
       height: 60%;
       max-height: 600px;
-
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;

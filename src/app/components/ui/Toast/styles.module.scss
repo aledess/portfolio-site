@@ -1,5 +1,5 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use "@/styles/variables" as vars;
+@use "@/styles/mixins" as mix;
 
 .toast {
   position: fixed;
@@ -29,7 +29,7 @@
     margin-top: 0.5rem;
   }
 
-  @include respond-max("md") {
+  @include mix.respond-max("md") {
     left: 1rem;
     right: 1rem;
     width: auto;

@@ -1,5 +1,5 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use "@/styles/variables" as vars;
+@use "@/styles/mixins" as mix;
 
 .backToTop {
   position: fixed;
@@ -19,12 +19,13 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: background 0.3s ease;
 
-  @include respond-max("md") {
+  @include mix.respond-max("md") {
     bottom: 2rem;
     right: 1.8rem;
     width: 2rem;
     height: 2rem;
   }
+
   svg {
     stroke-width: 2;
   }

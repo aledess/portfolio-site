@@ -1,5 +1,5 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use "@/styles/variables" as vars;
+@use "@/styles/mixins" as mix;
 
 .skill-card {
   display: flex;
@@ -23,12 +23,12 @@
     background-color 0.25s ease,
     border-color 0.25s ease;
 
-  @include respond-max("md") {
+  @include mix.respond-max("md") {
     width: 140px;
     height: 140px;
   }
 
-  @include respond-max("sm") {
+  @include mix.respond-max("sm") {
     width: 100px;
     height: 100px;
     margin-right: 0;
@@ -46,7 +46,7 @@
     width: 40px;
     height: 40px;
 
-    @include respond-max("sm") {
+    @include mix.respond-max("sm") {
       width: 30px;
       height: 30px;
     }

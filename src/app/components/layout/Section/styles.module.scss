@@ -1,15 +1,14 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use "@/styles/variables" as vars;
+@use "@/styles/mixins" as mix;
 
 .section {
-  max-width: $container-width;
+  max-width: vars.$container-width;
   margin: 10rem auto 0;
 
-  @include respond-max("md") {
+  @include mix.respond-max("md") {
     margin-top: 5rem;
   }
 
-  // Varianti layout
   &--tight {
     max-width: 1000px;
   }
@@ -22,8 +21,14 @@
   &--compact {
     margin-top: 0;
   }
+
   &--fullHeight {
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
+      justify-content: flex-start;
+      padding-top: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       min-height: 100dvh;
     }
   }
@@ -36,21 +41,20 @@
     padding: 2.5rem 0;
     margin-top: 6.5rem;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       margin-top: 2.5rem;
     }
   }
 
-  // Titolo della sezione
   &__title {
     color: var(--color-text);
     text-align: center;
     display: flex;
     justify-content: center;
-
     transition: box-shadow 0.3s ease;
     z-index: 5;
-    @include respond-max("md") {
+
+    @include mix.respond-max("md") {
       position: sticky;
       top: 0;
       z-index: 10;
@@ -61,7 +65,7 @@
     &--contrast {
       color: var(--color-text-contrast);
 
-      @include respond-max("md") {
+      @include mix.respond-max("md") {
         background-color: var(--color-bg-contrast);
       }
     }
@@ -69,13 +73,12 @@
     &--accent {
       color: var(--color-black);
 
-      @include respond-max("md") {
+      @include mix.respond-max("md") {
         background-color: var(--color-accent);
       }
     }
   }
 
-  // Contenuto della sezione
   &__content {
     display: flex;
     flex-direction: column;
@@ -83,17 +86,16 @@
     position: relative;
     padding: 4rem 4rem 0;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       padding: 2.5rem 1.5rem 0;
     }
 
-    @include respond-max("sm") {
+    @include mix.respond-max("sm") {
       padding: 2rem 1rem 0;
       gap: 1rem;
     }
   }
 
-  // Override per .section--full
   &--full &__content {
     padding-left: 0;
     padding-right: 0;

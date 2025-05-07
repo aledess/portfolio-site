@@ -1,42 +1,22 @@
+@use "sass:map";
 @use "@/styles/variables" as *;
 
-// Media query min-width
 @mixin respond($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
-    @warn "Breakpoint #{$breakpoint} non definito.";
+    @warn "Breakpoint `#{$breakpoint}` non definito.";
   }
 }
 
-// Media query max-width
 @mixin respond-max($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (max-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
-    @warn "Breakpoint #{$breakpoint} non definito.";
-  }
-}
-
-// Font size helper
-@mixin font-size($key) {
-  $sizes: map-get($font-sizes, $key);
-
-  @if $sizes {
-    font-size: map-get($sizes, "mobile");
-
-    @include respond("md") {
-      font-size: map-get($sizes, "tablet");
-    }
-
-    @include respond("lg") {
-      font-size: map-get($sizes, "desktop");
-    }
-  } @else {
-    @warn "Font size `#{$key}` non trovato.";
+    @warn "Breakpoint `#{$breakpoint}` non definito.";
   }
 }

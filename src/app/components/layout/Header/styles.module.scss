@@ -1,14 +1,14 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use "@/styles/variables" as vars;
+@use "@/styles/mixins" as mix;
 
 .header {
   width: 100%;
   padding: 1rem 0;
   background: transparent;
-  height: $header-height-desktop;
+  height: vars.$header-height-desktop;
 
-  @include respond-max("md") {
-    height: $header-height-mobile;
+  @include mix.respond-max("md") {
+    height: vars.$header-height-mobile;
   }
 
   &__content {
@@ -19,11 +19,11 @@
     justify-content: space-between;
     align-items: center;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       padding: 0 1.5rem;
     }
 
-    @include respond-max("sm") {
+    @include mix.respond-max("sm") {
       padding: 0 1rem;
     }
   }
@@ -55,12 +55,12 @@
       width: 60px;
       height: 60px;
 
-      @include respond-max("md") {
+      @include mix.respond-max("md") {
         width: 40px;
         height: 40px;
       }
 
-      @include respond-max("sm") {
+      @include mix.respond-max("sm") {
         width: 32px;
         height: 32px;
       }
@@ -78,7 +78,7 @@
     align-items: center;
     gap: 1.5rem;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       display: none;
     }
   }
@@ -89,7 +89,7 @@
     z-index: 1000;
     position: fixed;
 
-    @include respond-max("md") {
+    @include mix.respond-max("md") {
       display: block;
       right: 1.8rem;
     }
