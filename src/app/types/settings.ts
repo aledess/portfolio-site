@@ -3,7 +3,7 @@ export type SettingsData = {
   logoDark?: { asset: { url: string } };
   favicon?: { asset: { url: string } };
   maintenance?: boolean;
-  hiddenSections?: string[];
+  hideContactSection?: boolean;
   defaultTheme?: "light" | "dark";
   analyticsId?: string;
 };

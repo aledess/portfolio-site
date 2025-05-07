@@ -30,21 +30,10 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
-      name: "visibleSections",
-      title: "Sezioni visibili",
-      type: "array",
-      of: [{ type: "string" }],
-      initialValue: ["hero", "about", "skills", "experience", "contact"],
-      options: {
-        list: [
-          { title: "Hero", value: "hero" },
-          { title: "About", value: "about" },
-          { title: "Skills", value: "skills" },
-          { title: "Experience", value: "Experience" },
-          { title: "Works", value: "Works" },
-          { title: "Contact", value: "contact" },
-        ],
-      },
+      name: "hideContactSection",
+      title: "Nascondi sezione Contatti",
+      type: "boolean",
+      initialValue: false,
     }),
     defineField({
       name: "defaultTheme",

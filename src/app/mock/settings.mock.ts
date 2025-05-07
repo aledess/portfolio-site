@@ -5,7 +5,7 @@ export const settingsMockIT: SettingsData = {
   logoDark: { asset: { url: "/images/logo-dark.png" } },
   favicon: { asset: { url: "/images/favicon.png" } },
   maintenance: false,
-  hiddenSections: [],
+  hideContactSection: false,
   defaultTheme: "light",
   analyticsId: "",
 };
@@ -15,7 +15,7 @@ export const settingsMockEN: SettingsData = {
   logoDark: { asset: { url: "/images/logo-dark.png" } },
   favicon: { asset: { url: "/images/favicon.png" } },
   maintenance: false,
-  hiddenSections: [],
+  hideContactSection: false,
   defaultTheme: "light",
   analyticsId: "",
 };

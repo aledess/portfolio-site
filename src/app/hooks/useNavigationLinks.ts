@@ -1,6 +1,6 @@
 import { useTranslation } from "@/app/i18n/useTranslation";
 
-export const useNavigationLinks = (lang: "it" | "en") => {
+export const useNavigationLinks = (lang: "it" | "en", hideContact = false) => {
   const t = useTranslation(lang);
 
   const links = [
@@ -9,8 +9,11 @@ export const useNavigationLinks = (lang: "it" | "en") => {
     { label: t("navigation.skills"), href: "#skills" },
     { label: t("navigation.experience"), href: "#experience" },
     { label: t("navigation.works"), href: "#works" },
-    { label: t("navigation.contact"), href: "#contact" },
   ];
+
+  if (!hideContact) {
+    links.push({ label: t("navigation.contact"), href: "#contact" });
+  }
 
   return links;
 };

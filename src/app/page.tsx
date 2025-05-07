@@ -7,6 +7,7 @@ import Experience from "@sections/Experience";
 import Works from "@sections/Works";
 import Contact from "@sections/Contact";
 import About from "@sections/About";
+import Maintenance from "@components/layout/Maintenance";
 
 import LoaderWrapper from "@components/layout/LoaderWrapper";
 import Header from "@components/layout/Header";
@@ -26,17 +27,29 @@ export default async function Home({
   const { isEnabled: isPreview } = await draftMode();
   const sections: SectionsData = await getSections(lang, isPreview);
 
-  const { hero, skills, experience, works, about, contact, social } = sections;
+  const { hero, skills, experience, works, about, contact, social, settings } =
+    sections;
+
+  const { hideContactSection = false } = settings;
+
+  console.log("----settings", settings);
+  if (settings?.maintenance && !isPreview) {
+    return <Maintenance lang={lang} />;
+  }
 
   return (
     <LoaderWrapper minDelay={1500}>
-      <Header isPreview={isPreview} lang={lang} />
+      <Header
+        isPreview={isPreview}
+        lang={lang}
+        hideContact={hideContactSection}
+      />
 
       <SlideIn direction="up" duration={0.5} delay={0.05}>
         <Hero data={hero} social={social} />
       </SlideIn>
 
-      <Navigation lang={lang} />
+      <Navigation lang={lang} hideContact={hideContactSection} />
 
       <SlideIn direction="up" duration={0.5} delay={0.25}>
         <About data={about} lang={lang} />
@@ -54,9 +67,11 @@ export default async function Home({
         <Works data={works} />
       </SlideIn>
 
-      <SlideIn direction="up" duration={0.5} delay={0.3}>
-        <Contact data={contact} lang={lang} />
-      </SlideIn>
+      {!hideContactSection && (
+        <SlideIn direction="up" duration={0.5} delay={0.3}>
+          <Contact data={contact} lang={lang} />
+        </SlideIn>
+      )}
 
       <BackToTop />
     </LoaderWrapper>

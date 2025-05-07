@@ -8,8 +8,17 @@ import { smoothScrollToId } from "@utils/scrollTo";
 import Text from "@components/ui/Text";
 import { useNavigationLinks } from "@/app/hooks/useNavigationLinks";
 
-export default function Navigation({ lang }: { lang: "it" | "en" }) {
-  const links = useNavigationLinks(lang);
+type NavigationProps = {
+  lang: "it" | "en";
+  hideContact?: boolean;
+};
+
+export default function Navigation({
+  lang,
+  hideContact = false,
+}: NavigationProps) {
+  const links = useNavigationLinks(lang, hideContact);
+
   const navRef = useRef<HTMLElement>(null);
   const [navHeight, setNavHeight] = useState(0);
   const [activeSection, setActiveSection] = useState<string>("home");

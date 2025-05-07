@@ -81,7 +81,7 @@ export async function getSections(
   const settings = await fetchWithLocalizedMock<SettingsData>(
     "settings",
     () => client.fetch(settingsQuery),
-    lang,
+    "it",
   );
 
   return {

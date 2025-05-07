@@ -14,30 +14,42 @@ export async function fetchWithLocalizedMock<T>(
       string,
       T
     >;
-    return getLocalizedMock(lang, sectionMocks, fallbackLang);
+    const mock = getLocalizedMock(lang, sectionMocks, fallbackLang);
+    console.log(`🧪 [MOCK DATA] ${sectionName}`, mock);
+    return mock;
   }
 
   try {
+    console.log(`🌍 Fetching "${sectionName}" [lang: ${lang}]`);
     const data = await fetcher(lang);
-    if (data) return data;
+    if (data) {
+      console.log(`✅ Dati ricevuti per "${sectionName}" [lang: ${lang}]`);
+      return data;
+    }
 
     if (lang !== fallbackLang) {
       console.warn(
         `🌐 Nessun dato per "${sectionName}" in "${lang}", fallback a "${fallbackLang}"`,
       );
       const fallbackData = await fetcher(fallbackLang);
-      if (fallbackData) return fallbackData;
+      if (fallbackData) {
+        console.log(
+          `✅ Fallback ricevuto per "${sectionName}" [lang: ${fallbackLang}]`,
+        );
+        return fallbackData;
+      }
     }
+
+    console.warn(`❌ Nessun dato per "${sectionName}" anche in fallback`);
   } catch (err) {
-    console.warn(
-      `⚠️ Fetch failed per "${sectionName}" in lang "${lang}", uso mock`,
-      err,
-    );
+    console.error(`💥 Errore fetch per "${sectionName}" [lang: ${lang}]`, err);
   }
 
   const sectionMocks = localizedMocks[sectionName] as unknown as Record<
     string,
     T
   >;
-  return getLocalizedMock(lang, sectionMocks, fallbackLang);
+  const mock = getLocalizedMock(lang, sectionMocks, fallbackLang);
+  console.warn(`🛟 Uso mock di fallback per "${sectionName}"`, mock);
+  return mock;
 }

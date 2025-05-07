@@ -15,6 +15,7 @@ type Props = {
   lang: "it" | "en";
   toggleMenu: () => void;
   isClosing: boolean;
+  hideContact?: boolean;
 };
 
 const menuVariants = {
@@ -37,8 +38,13 @@ const itemVariants = {
   animate: { opacity: 1, y: 0 },
 };
 
-export default function MobileMenu({ lang, toggleMenu, isClosing }: Props) {
-  const links = useNavigationLinks(lang);
+export default function MobileMenu({
+  lang,
+  toggleMenu,
+  isClosing,
+  hideContact,
+}: Props) {
+  const links = useNavigationLinks(lang, hideContact);
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
