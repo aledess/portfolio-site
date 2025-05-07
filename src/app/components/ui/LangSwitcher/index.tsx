@@ -1,33 +1,50 @@
+"use client";
+
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useTransition } from "react";
 
 const LANGUAGES = [
   { id: "it", label: "Italiano", icon: "/images/it.png" },
   { id: "en", label: "English", icon: "/images/en.png" },
 ];
 
-type Props = {
-  lang: "it" | "en";
-};
-
-export default function LangSwitcher({ lang }: Props) {
+export default function LangSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const currentLang = (searchParams.get("lang") as "it" | "en") ?? "it";
+
+  const [loadingLang, setLoadingLang] = useState<"it" | "en" | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   const handleChange = (newLang: "it" | "en") => {
+    if (newLang === currentLang) return;
+
+    setLoadingLang(newLang);
     const params = new URLSearchParams(searchParams.toString());
     params.set("lang", newLang);
-    router.push(`${pathname}?${params.toString()}`);
+    const targetUrl = `${pathname}?${params.toString()}`;
+
+    const MIN_DURATION = 600;
+    const start = Date.now();
+
+    startTransition(() => {
+      router.push(targetUrl);
+      const elapsed = Date.now() - start;
+      const remaining = MIN_DURATION - elapsed;
+      setTimeout(() => setLoadingLang(null), remaining > 0 ? remaining : 0);
+    });
   };
 
   return (
     <div className={styles.langSwitcher}>
       {LANGUAGES.map(({ id, icon, label }) => {
-        const isActive = lang === id;
+        const isActive = currentLang === id;
+        const isLoading = loadingLang === id;
 
         return (
           <button
@@ -37,21 +54,36 @@ export default function LangSwitcher({ lang }: Props) {
               [styles["langSwitcher__button--active"]]: isActive,
             })}
             aria-label={`Cambia lingua in ${label}`}
+            disabled={isPending}
           >
-            <motion.div
-              animate={
-                isActive ? { rotate: [0, 20, -10, 5, 0] } : { rotate: 0 }
-              }
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            >
-              <Image
-                src={icon}
-                alt={label}
-                width={20}
-                height={20}
-                className={styles.langSwitcher__flag}
-              />
-            </motion.div>
+            <div className={styles.langSwitcher__iconWrapper}>
+              {isLoading && (
+                <motion.div
+                  className={styles.langSwitcher__circleLoader}
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 1.2,
+                    ease: "linear",
+                  }}
+                />
+              )}
+              <motion.div
+                animate={
+                  isActive ? { rotate: [0, 20, -10, 5, 0] } : { rotate: 0 }
+                }
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              >
+                <Image
+                  src={icon}
+                  alt={label}
+                  width={24}
+                  height={24}
+                  className={styles.langSwitcher__flag}
+                />
+              </motion.div>
+            </div>
           </button>
         );
       })}
