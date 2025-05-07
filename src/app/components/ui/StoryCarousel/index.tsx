@@ -59,6 +59,7 @@ export default function StoryCarousel({ steps, lang }: Props) {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const isFirst = index === 0;
   const isLast = index === steps.length - 1;
@@ -75,6 +76,10 @@ export default function StoryCarousel({ steps, lang }: Props) {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
+  useEffect(() => {
+    setIsLoaded(false);
+  }, [index]);
+
   const handleChange = (dir: "next" | "prev") => {
     if ((dir === "next" && isLast) || (dir === "prev" && isFirst)) return;
     setDirection(dir);
@@ -90,7 +95,6 @@ export default function StoryCarousel({ steps, lang }: Props) {
 
   return (
     <div className={styles["story-carousel"]}>
-      {/* Next o Replay */}
       <AnimatePresence mode="wait" custom={direction}>
         {isLast ? (
           <motion.button
@@ -167,7 +171,6 @@ export default function StoryCarousel({ steps, lang }: Props) {
         )}
       </AnimatePresence>
 
-      {/* Slide */}
       <motion.div
         drag={isMobile ? "x" : false}
         dragConstraints={{ left: 0, right: 0 }}
@@ -191,8 +194,11 @@ export default function StoryCarousel({ steps, lang }: Props) {
                   src={current.image.asset.url}
                   alt={current.image.alt}
                   fill
-                  className={styles["story-carousel__img"]}
+                  className={classNames(styles["story-carousel__img"], {
+                    [styles["story-carousel__img--loaded"]]: isLoaded,
+                  })}
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  onLoad={() => setIsLoaded(true)}
                 />
               </div>
             </motion.div>
@@ -214,7 +220,6 @@ export default function StoryCarousel({ steps, lang }: Props) {
         </div>
       </motion.div>
 
-      {/* Prev */}
       <AnimatePresence mode="wait" custom={direction}>
         {!isFirst && (
           <motion.button
