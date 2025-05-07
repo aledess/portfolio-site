@@ -17,12 +17,12 @@ import BackToTop from "@components/ui/BackToTop";
 import { getSections } from "@sanity/sections";
 import type { SectionsData } from "@schemas/sections";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: { lang?: string };
-}) {
-  const lang = searchParams.lang === "en" ? "en" : "it";
+interface PageProps {
+  searchParams?: { lang?: string };
+}
+
+export default async function Home({ searchParams }: PageProps) {
+  const lang = searchParams?.lang === "en" ? "en" : "it";
 
   const { isEnabled: isPreview } = await draftMode();
   const sections: SectionsData = await getSections(lang, isPreview);

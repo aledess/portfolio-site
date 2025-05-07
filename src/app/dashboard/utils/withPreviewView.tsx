@@ -1,6 +1,16 @@
 import { StructureBuilder } from "sanity/structure";
 import { useEffect } from "react";
-import resolveProductionUrl from "./resolveProcuctionUrl";
+import { resolveProductionUrl } from "./resolveProcuctionUrl";
+
+function PreviewRedirect({ url }: { url: string }) {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.open(url, "_blank");
+    }
+  }, [url]);
+
+  return null;
+}
 
 export function withPreviewView(
   S: StructureBuilder,
@@ -20,14 +30,7 @@ export function withPreviewView(
           S.view
             .component(() => {
               const url = resolveProductionUrl({ slug });
-
-              useEffect(() => {
-                if (typeof window !== "undefined") {
-                  window.open(url, "_blank");
-                }
-              }, []);
-
-              return null;
+              return <PreviewRedirect url={url} />;
             })
             .title("Preview"),
         ]),
