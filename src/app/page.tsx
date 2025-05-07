@@ -34,7 +34,7 @@ export default async function Home({
 
   console.log("----settings", settings);
   if (settings?.maintenance && !isPreview) {
-    return <Maintenance lang={lang} />;
+    return <Maintenance />;
   }
 
   return (
