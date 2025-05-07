@@ -96,7 +96,7 @@ export default function Header({
           </div>
 
           <div className={styles["header__desktop-actions"]}>
-            <LangSwitcher lang={lang} />
+            <LangSwitcher />
             <ThemeToggle />
           </div>
         </div>
