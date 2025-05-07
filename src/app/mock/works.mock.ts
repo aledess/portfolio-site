@@ -67,7 +67,6 @@ export const mockWorksIT: WorksData = {
       images: [
         { asset: { url: "/images/works/work4a.png" }, alt: "Screen Work 4" },
         { asset: { url: "/images/works/work4b.png" }, alt: "Screen Work 4" },
-        { asset: { url: "/images/works/work4c.png" }, alt: "Screen Work 4" },
       ],
     },
     {
@@ -78,7 +77,6 @@ export const mockWorksIT: WorksData = {
       images: [
         { asset: { url: "/images/works/work5a.png" }, alt: "Screen Work 5" },
         { asset: { url: "/images/works/work5b.png" }, alt: "Screen Work 5" },
-        { asset: { url: "/images/works/work5c.png" }, alt: "Screen Work 5" },
       ],
     },
     {
