@@ -24,7 +24,9 @@
     padding-bottom: 4rem;
     @include respond-max("md") {
       padding-top: 5rem;
-
+      gap: 2rem;
+    }
+    @include respond-max("sm") {
       gap: 2rem;
     }
   }
