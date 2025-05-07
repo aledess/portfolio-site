@@ -24,6 +24,11 @@
   }
   &--fullHeight {
     @include respond-max("md") {
+      justify-content: flex-start;
+      padding-top: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       min-height: 100dvh;
     }
   }
