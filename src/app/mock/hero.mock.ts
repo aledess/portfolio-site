@@ -6,7 +6,7 @@ export const mockHeroIT: HeroData = {
   subtitle: "Frontend Web Developer",
   image: {
     asset: {
-      url: "/images/photo.jpg",
+      url: "/images/photo.png",
     },
     alt: "Foto Hero",
   },
@@ -19,7 +19,7 @@ export const mockHeroEN: HeroData = {
   subtitle: "Frontend Web Developer",
   image: {
     asset: {
-      url: "/images/photo.jpg",
+      url: "/images/photo.png",
     },
     alt: "Hero Image",
   },

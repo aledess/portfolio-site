@@ -189,18 +189,25 @@ export default function StoryCarousel({ steps, lang }: Props) {
               exit="exit"
               custom={direction}
             >
-              <div className={styles["story-carousel__image-inner"]}>
+              <motion.div
+                className={styles["story-carousel__image-inner"]}
+                initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+                animate={
+                  isLoaded
+                    ? { opacity: 1, scale: 1, filter: "blur(0px)" }
+                    : { opacity: 0, scale: 0.75, filter: "blur(4px)" }
+                }
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
                 <Image
                   src={current.image.asset.url}
                   alt={current.image.alt}
                   fill
-                  className={classNames(styles["story-carousel__img"], {
-                    [styles["story-carousel__img--loaded"]]: isLoaded,
-                  })}
+                  className={styles["story-carousel__img"]}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   onLoad={() => setIsLoaded(true)}
                 />
-              </div>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
