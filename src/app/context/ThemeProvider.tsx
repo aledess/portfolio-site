@@ -1,10 +1,8 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import usePrefersThemeMode from "@hooks/usePrefersThemeMode";
-import type { ThemeMode } from "@hooks/usePrefersThemeMode";
 
-type Theme = ThemeMode;
+type Theme = "light" | "dark";
 
 type ThemeContextType = {
   theme: Theme;
@@ -14,41 +12,28 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const prefers = usePrefersThemeMode(); // ✅ hook che ascolta il sistema
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light"); // forziamo "light"
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme") as Theme | null;
-
-    const initial = saved || prefers;
-    setTheme(initial);
-    document.documentElement.setAttribute("data-theme", initial);
-  }, [prefers]);
+    // imposta direttamente il tema "light"
+    document.documentElement.setAttribute("data-theme", "light");
+  }, []);
 
   const toggleTheme = () => {
     const html = document.documentElement;
 
-    // 🔷 Crea e aggiungi l'overlay animato
     const fade = document.createElement("div");
     fade.className = "theme-fade";
     document.body.appendChild(fade);
+    setTimeout(() => fade.remove(), 600);
 
-    // 🔷 Rimuovilo dopo l’animazione (600ms)
-    setTimeout(() => {
-      fade.remove();
-    }, 600);
-
-    // 🔷 Classe di transizione globale (per sicurezza)
     html.classList.add("theme-transition");
-    setTimeout(() => {
-      html.classList.remove("theme-transition");
-    }, 600);
+    setTimeout(() => html.classList.remove("theme-transition"), 600);
 
-    // 🔷 Switch del tema
+    // switcha tra light e dark (solo se vuoi mantenere il toggle attivo)
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     html.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
   };
 
   return (
