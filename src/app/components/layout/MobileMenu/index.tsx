@@ -107,7 +107,7 @@ export default function MobileMenu({
           </motion.ul>
         </AnimatePresence>
         <div className={styles.mobileMenu__switches}>
-          <LangSwitcher lang={lang} />
+          <LangSwitcher />
           <ThemeToggle />
         </div>
       </motion.div>
