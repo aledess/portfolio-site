@@ -22,6 +22,11 @@
   &--compact {
     margin-top: 0;
   }
+  &--fullHeight {
+    @include respond-max("md") {
+      min-height: 100dvh;
+    }
+  }
 
   &--contrast {
     background-color: var(--color-bg-contrast);

@@ -77,7 +77,7 @@ export default function Contact({ data, lang }: Props) {
   };
 
   return (
-    <Section id="contact" titleLoop={sectionTitle}>
+    <Section id="contact" titleLoop={sectionTitle} fullHeight>
       {description && (
         <Text
           as="p"

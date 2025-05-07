@@ -2,12 +2,12 @@
 @use "@/styles/mixins" as *;
 
 .contact {
-  min-height: 60vh;
   max-width: 700px;
   margin: 0 auto;
   padding: 4rem 1.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2rem;
 
   &__intro {
@@ -20,7 +20,13 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding-bottom: 8rem;
+    height: 100%;
+    padding-bottom: 4rem;
+    @include respond-max("md") {
+      padding-top: 5rem;
+
+      gap: 2rem;
+    }
   }
 
   &__field {

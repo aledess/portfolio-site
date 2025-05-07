@@ -13,7 +13,8 @@ type SectionProps = {
   full?: boolean;
   contrastBg?: boolean;
   accentBg?: boolean;
-  compact?: boolean; // 👈 nuova prop
+  compact?: boolean;
+  fullHeight?: boolean;
 };
 
 export default function Section({
@@ -26,6 +27,7 @@ export default function Section({
   contrastBg,
   accentBg,
   compact,
+  fullHeight,
 }: SectionProps) {
   return (
     <section
@@ -36,6 +38,7 @@ export default function Section({
         [styles["section--contrast"]]: contrastBg,
         [styles["section--accent"]]: accentBg,
         [styles["section--compact"]]: compact,
+        [styles["section--fullHeight"]]: fullHeight,
       })}
     >
       {title && !titleLoop && (
