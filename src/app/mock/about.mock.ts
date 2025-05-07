@@ -6,7 +6,7 @@ export const mockAboutIT: AboutData = {
     {
       title: "Diploma informatico",
       image: {
-        asset: { url: "/images/about/it/step1.PNG" },
+        asset: { url: "/images/about/it/step1.png" },
         alt: "Diploma informatico",
       },
     },
@@ -89,7 +89,7 @@ export const mockAboutEN: AboutData = {
     {
       title: "IT Diploma",
       image: {
-        asset: { url: "/images/about/en/step1.PNG" },
+        asset: { url: "/images/about/en/step1.png" },
         alt: "IT Diploma",
       },
     },
