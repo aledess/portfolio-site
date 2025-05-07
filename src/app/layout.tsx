@@ -24,10 +24,9 @@ export default function RootLayout({
   return (
     <html lang="it" className={dmSans.variable} suppressHydrationWarning>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
-        />
+        <head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+        </head>
       </head>
       <body>
         <ThemeProvider>
