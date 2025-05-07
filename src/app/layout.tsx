@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
 import "@/styles/main.scss";
-import { ThemeProvider } from "@context/ThemeProvider"; // ✅ usa il tuo context React
+import { ThemeProvider } from "@context/ThemeProvider";
 import ScrollProgress from "./components/ui/ScrollProgress";
 
 const dmSans = Manrope({
