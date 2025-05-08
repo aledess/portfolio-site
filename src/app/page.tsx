@@ -35,11 +35,7 @@ export default async function Home({ searchParams }: any) {
 
   return (
     <LoaderWrapper minDelay={1500}>
-      <Header
-        isPreview={isPreview}
-        lang={lang}
-        hideContact={hideContactSection}
-      />
+      <Header isPreview={isPreview} hideContact={hideContactSection} />
 
       <SlideIn direction="up" duration={0.5} delay={0.05}>
         <Hero data={hero} social={social} />
