@@ -8,11 +8,11 @@ import { useNavigationLinks } from "@/app/hooks/useNavigationLinks";
 import { smoothScrollToId } from "@utils/scrollTo";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
+import { useSearchParams } from "next/navigation";
 
 const MENU_EXIT_DURATION_MS = 400;
 
 type Props = {
-  lang: "it" | "en";
   toggleMenu: () => void;
   isClosing: boolean;
   hideContact?: boolean;
@@ -39,11 +39,13 @@ const itemVariants = {
 };
 
 export default function MobileMenu({
-  lang,
   toggleMenu,
   isClosing,
   hideContact,
 }: Props) {
+  const searchParams = useSearchParams();
+  const lang = (searchParams.get("lang") as "it" | "en") ?? "it";
+
   const links = useNavigationLinks(lang, hideContact);
 
   const handleLinkClick = (

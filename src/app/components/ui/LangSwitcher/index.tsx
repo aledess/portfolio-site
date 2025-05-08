@@ -28,7 +28,7 @@ export default function LangSwitcher() {
     const params = new URLSearchParams(searchParams.toString());
     params.set("lang", newLang);
     const targetUrl = `${pathname}?${params.toString()}`;
-
+    router.refresh();
     const MIN_DURATION = 600;
     const start = Date.now();
 
