@@ -5,9 +5,9 @@ export const mockWorksIT: WorksData = {
 
   items: [
     {
-      title: "CA Auto Bank",
+      title: "Portale clienti e area backoffice",
       description:
-        "Lavoro in un team che si occupa dello sviluppo e della manutenzione del portale clienti di CA Auto Bank, in produzione su più mercati, sia in versione desktop che mobile (iOS e Android), inclusa l’area backoffice.",
+        "Sviluppo e manutenzione di un'applicazione web e mobile multipiattaforma per la gestione dei servizi bancari e finanziari in ambito automotive, con accesso clienti e interfaccia di backoffice. Progetto distribuito in più mercati europei.",
       tech: ["React", "Javascript", "Redux", "HTML", "CSS", "Antd", "Cordova"],
       images: [
         { asset: { url: "/images/works/work1a.png" }, alt: "Screen Work 1" },
@@ -15,9 +15,9 @@ export const mockWorksIT: WorksData = {
       ],
     },
     {
-      title: "SIAE",
+      title: "Interfaccia e CMS per ente pubblico",
       description:
-        "Ho partecipato allo sviluppo del nuovo sito istituzionale di SIAE, con attenzione al design, all’esperienza utente e alla gestione dei contenuti tramite CMS (Strapi).",
+        "Ho partecipato allo sviluppo del sito istituzionale di un ente pubblico, con particolare attenzione al design responsivo, all’esperienza utente e alla gestione dei contenuti tramite CMS headless (Strapi). Il progetto ha richiesto la collaborazione con team di designer e redattori per garantire accessibilità e coerenza comunicativa.",
       tech: [
         "React",
         "Javascript",
@@ -34,9 +34,9 @@ export const mockWorksIT: WorksData = {
       ],
     },
     {
-      title: "App SIAE+",
+      title: "Restyle app mobile",
       description:
-        "Restyle completo dell’app SIAE+ per iOS e Android, realizzato in team con focus sull’interfaccia e la fruibilità da mobile.",
+        "Restyling completo di un’app multipiattaforma (iOS e Android) per un ente pubblico, con particolare attenzione alla UX mobile-first, alla coerenza grafica e alla semplicità d’uso. Il lavoro è stato svolto in team, con iterazioni su prototipi e componenti UI.",
       tech: [
         "Angular",
         "Ionic",
@@ -70,9 +70,9 @@ export const mockWorksIT: WorksData = {
       ],
     },
     {
-      title: "Hoolux",
+      title: "Sito vetrina per piattaforma fintech",
       description:
-        "Sito vetrina progettato e sviluppato per Hoolux, piattaforma dedicata al crowdfunding.",
+        "Progettazione e sviluppo di un sito vetrina per una piattaforma di crowdfunding, con particolare attenzione alla pulizia dell’interfaccia, alla responsività e all’identità visiva del brand.",
       tech: ["HTML", "CSS", "Bootstrap", "PHP"],
       images: [
         { asset: { url: "/images/works/work5a.png" }, alt: "Screen Work 5" },
@@ -99,9 +99,9 @@ export const mockWorksEN: WorksData = {
 
   items: [
     {
-      title: "CA Auto Bank",
+      title: "Customer portal for the automotive finance sector",
       description:
-        "Part of a team responsible for the development and maintenance of CA Auto Bank’s customer portal, live across multiple markets, covering desktop and mobile platforms (iOS and Android), including backoffice features.",
+        "Part of a team responsible for the development and maintenance of a multi-market customer portal in the automotive finance industry. The project includes both desktop and mobile (iOS and Android) platforms, as well as an internal backoffice area used for managing users and financial products.",
       tech: ["React", "Javascript", "Redux", "HTML", "CSS", "Antd", "Cordova"],
       images: [
         { asset: { url: "/images/works/work1a.png" }, alt: "Screen Work 1" },
@@ -109,9 +109,9 @@ export const mockWorksEN: WorksData = {
       ],
     },
     {
-      title: "SIAE",
+      title: "Institutional website for a public organization",
       description:
-        "Took part in the development of SIAE’s new institutional website, focusing on design, user experience, and content management via CMS (Strapi).",
+        "Contributed to the development of a responsive institutional website for a national public organization. Focus on frontend design, user experience, and content management through a headless CMS (Strapi). The project involved collaboration with designers and editors to ensure accessibility and editorial consistency.",
       tech: [
         "React",
         "Javascript",
@@ -128,9 +128,9 @@ export const mockWorksEN: WorksData = {
       ],
     },
     {
-      title: "App SIAE+",
+      title: "Mobile app redesign",
       description:
-        "Complete redesign of the SIAE+ app for iOS and Android, developed in team with a focus on UI and mobile usability.",
+        "Full redesign of a cross-platform mobile app (iOS and Android) for a public organization. The project focused on improving mobile usability, visual consistency, and user experience. Worked collaboratively in a team on UI components and navigation flows.",
       tech: [
         "Angular",
         "Ionic",
@@ -164,9 +164,9 @@ export const mockWorksEN: WorksData = {
       ],
     },
     {
-      title: "Hoolux",
+      title: "Showcase website",
       description:
-        "Showcase website designed and built for Hoolux, a crowdfunding platform.",
+        "Designed and built a promotional website for a crowdfunding platform, with emphasis on design clarity, responsiveness, and brand identity.",
       tech: ["HTML", "CSS", "Bootstrap", "PHP"],
       images: [
         { asset: { url: "/images/works/work5a.png" }, alt: "Screen Work 5" },
