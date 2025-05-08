@@ -30,6 +30,7 @@ export default function LoaderWrapper({ children }: Props) {
   useEffect(() => {
     if (phase === "transition") {
       const timeout = setTimeout(() => {
+        window.scrollTo(0, 0); // <-- forza lo scroll in cima
         setPhase("content");
       }, 600); // tempo transizione visiva PageTransition
       return () => clearTimeout(timeout);

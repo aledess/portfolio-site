@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import classNames from "classnames";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 const LANGUAGES = [
   { id: "it", label: "Italiano", icon: "/images/it.png" },
@@ -28,17 +28,23 @@ export default function LangSwitcher() {
     const params = new URLSearchParams(searchParams.toString());
     params.set("lang", newLang);
     const targetUrl = `${pathname}?${params.toString()}`;
-    router.refresh();
-    const MIN_DURATION = 600;
-    const start = Date.now();
 
     startTransition(() => {
       router.push(targetUrl);
-      const elapsed = Date.now() - start;
-      const remaining = MIN_DURATION - elapsed;
-      setTimeout(() => setLoadingLang(null), remaining > 0 ? remaining : 0);
+      router.refresh();
     });
   };
+
+  // 🔁 Reset del loader solo quando l'effettivo lang nei parametri cambia
+  useEffect(() => {
+    if (loadingLang && searchParams.get("lang") === loadingLang) {
+      const timeout = setTimeout(() => {
+        setLoadingLang(null);
+      }, 300); // breve ritardo per evitare flicker visivo
+
+      return () => clearTimeout(timeout);
+    }
+  }, [searchParams, loadingLang]);
 
   return (
     <div className={styles.langSwitcher}>
