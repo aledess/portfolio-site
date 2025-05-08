@@ -17,13 +17,11 @@ const MENU_EXIT_DURATION_MS = 400;
 
 type Props = {
   isPreview?: boolean;
-  lang: "it" | "en";
   hideContact?: boolean;
 };
 
 export default function Header({
   isPreview = false,
-  lang,
   hideContact = false,
 }: Props) {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -105,7 +103,6 @@ export default function Header({
       <AnimatePresence mode="wait">
         {(isMobileMenuOpen || isClosing) && (
           <MobileMenu
-            lang={lang}
             toggleMenu={handleToggleMobileMenu}
             isClosing={isClosing}
             hideContact={hideContact}
