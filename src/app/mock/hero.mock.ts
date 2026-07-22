@@ -4,6 +4,7 @@ export const mockHeroIT: HeroData = {
   _id: "mock-hero-it",
   title: "Alessandro Dessì",
   subtitle: "Frontend Web Developer",
+  subtitle2: "Full Remote · AI Focused",
   image: {
     asset: {
       url: "/images/photo.png",
@@ -17,6 +18,7 @@ export const mockHeroEN: HeroData = {
   _id: "mock-hero-en",
   title: "Alessandro Dessì",
   subtitle: "Frontend Web Developer",
+  subtitle2: "Full Remote · AI Focused",
   image: {
     asset: {
       url: "/images/photo.png",

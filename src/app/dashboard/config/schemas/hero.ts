@@ -22,6 +22,13 @@ export default defineType({
         Rule.required().error("Il sottotitolo è obbligatorio"),
     }),
     defineField({
+      name: "subtitle2",
+      title: "Sottotitolo 2 (opzionale)",
+      description:
+        "Riga secondaria, mostrata più piccola sotto il sottotitolo principale.",
+      type: "string",
+    }),
+    defineField({
       name: "image",
       title: "Immagine",
       type: "image",

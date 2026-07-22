@@ -3,6 +3,7 @@ export const heroQuery = /* groq */ `
     _id,
     title,
     subtitle,
+    subtitle2,
     image {
       asset->{url},
       alt
@@ -13,6 +14,7 @@ export const heroQuery = /* groq */ `
       _id,
       title,
       subtitle,
+      subtitle2,
       language
     }
   }

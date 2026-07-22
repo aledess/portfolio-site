@@ -89,10 +89,42 @@
   }
 
   &__badge {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
     margin-bottom: 1rem;
     color: var(--color-accent);
     letter-spacing: 0.06em;
+
+    @include mix.respond-max("md") {
+      align-items: center;
+    }
+  }
+
+  &__badgePrimary {
+    font-size: 1rem !important;
+
+    @include mix.respond("md") {
+      font-size: 1.4rem !important;
+    }
+
+    @include mix.respond("lg") {
+      font-size: 1.6rem !important;
+    }
+  }
+
+  &__badgeSecondary {
+    opacity: 0.75;
+    font-size: 0.85rem !important;
+
+    @include mix.respond("md") {
+      font-size: 0.95rem !important;
+    }
+
+    @include mix.respond("lg") {
+      font-size: 1.05rem !important;
+    }
   }
 
   &__title {

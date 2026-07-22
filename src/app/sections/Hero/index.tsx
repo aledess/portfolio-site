@@ -15,7 +15,7 @@ type Props = {
 };
 
 export default function Hero({ data, social }: Props) {
-  const { title, subtitle, image } = data;
+  const { title, subtitle, subtitle2, image } = data;
 
   return (
     <section className={styles.hero}>
@@ -40,18 +40,34 @@ export default function Hero({ data, social }: Props) {
 
           <div className={styles.hero__content}>
             {subtitle && (
-              <TypewriterText
-                words={[subtitle]}
-                variant="label"
-                color="accent"
-                align="left"
-                loop={false}
-                typingSpeed={70}
-                pause={0}
-                className={styles.hero__badge}
-                as="span"
-                delay={1400}
-              />
+              <div className={styles.hero__badge}>
+                <TypewriterText
+                  words={[subtitle]}
+                  variant="label"
+                  color="accent"
+                  align="left"
+                  loop={false}
+                  typingSpeed={70}
+                  pause={0}
+                  className={styles.hero__badgePrimary}
+                  as="span"
+                  delay={1400}
+                />
+                {subtitle2 && (
+                  <TypewriterText
+                    words={[subtitle2]}
+                    variant="caption"
+                    color="accent"
+                    align="left"
+                    loop={false}
+                    typingSpeed={70}
+                    pause={0}
+                    className={styles.hero__badgeSecondary}
+                    as="span"
+                    delay={1400 + subtitle.length * 70 + 300}
+                  />
+                )}
+              </div>
             )}
 
             {title && (
